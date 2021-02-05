@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>JOB GATE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
+    <link rel="stylesheet" href="~/css/image.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+        <a class="navbar-brand font-weight-bold" href="@Url.Action("Home", "Home")">
+            <img src="~/Images/Logo 1.png" width="50" height="50" />
+            JOB GATE
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHome" aria-controls="navbarHome" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarHome">
+            <ul class="nav nav-pills flex-column flex-sm-row">
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Search Job</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Resume</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Job Matching</a>
+                <label class="flex-sm-fill text-sm-center nav-link">|</label>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Login", "Home")">Login</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Register", "Home")">Register</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark fa fa-globe-americas"></a>
+                <select class="flex-sm-fill text-sm-center nav-link text-sm-left form-control" style="width:75px;">
+                    <option>TH</option>
+                    <option>EN</option>
+                </select>
+            </ul>
+        </div>
+
+    </nav>
+    <div class="container-fluid">
+        <br />
+        @RenderBody()
+        <br />
+    </div>
+    <div style="height:100px;"></div>
+    <footer class="footer bg-light row fixed-bottom">
+        <div class="col-sm-3 text-center">
+            <h3>JOBGATE</h3>
+            24 Hours Customer Contacts: 02-000-0000
+            <br />
+            Advertisement : support@myjobgate.com
+        </div>
+        <div class="col-sm-5 form-group row">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="flex-sm-fill nav-link" href="@Url.Action("Home", "Home")">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill nav-link" href="@Url.Action("Home", "Home")">Location</a>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill nav-link" href="@Url.Action("Home", "Home")">Advertisement</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-4 form-group row">
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="flex-sm-fill nav-link text-dark" href="@Url.Action("Home", "Home")">Privacy Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill nav-link text-dark" href="@Url.Action("Home", "Home")">Cookie Policy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="flex-sm-fill nav-link text-dark" href="@Url.Action("Home", "Home")">Terms of Service Agreement</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

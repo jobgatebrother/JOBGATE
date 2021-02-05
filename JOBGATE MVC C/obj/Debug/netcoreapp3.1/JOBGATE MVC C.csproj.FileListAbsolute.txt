@@ -1,0 +1,41 @@
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\appsettings.Development.json
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\appsettings.json
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.exe
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.deps.json
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.runtimeconfig.json
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.runtimeconfig.dev.json
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.dll
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.pdb
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.Views.dll
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\bin\Debug\netcoreapp3.1\JOBGATE MVC C.Views.pdb
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.csprojAssemblyReference.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.AssemblyInfoInputs.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.AssemblyInfo.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.csproj.CoreCompileInputs.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.MvcApplicationPartsAssemblyInfo.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.RazorAssemblyInfo.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.RazorAssemblyInfo.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\staticwebassets\JOBGATE MVC C.StaticWebAssets.Manifest.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\staticwebassets\JOBGATE MVC C.StaticWebAssets.xml
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\scopedcss\bundle\JOBGATE MVC C.styles.css
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.TagHelpers.input.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.TagHelpers.output.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.RazorCoreGenerate.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Home.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.RazorTargetAssemblyInfo.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.RazorTargetAssemblyInfo.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.Views.pdb
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.dll
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.pdb
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.genruntimeconfig.cache
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.csproj.CopyComplete
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register_CPN.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register_EPY.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register_Result.cshtml.g.cs
