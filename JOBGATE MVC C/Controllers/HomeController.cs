@@ -43,11 +43,6 @@ namespace JOBGATE_MVC_C.Controllers
             return View();
         }
 
-        public IActionResult Register_Result()
-        {
-            return View();
-        }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
