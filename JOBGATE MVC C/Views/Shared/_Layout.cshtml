@@ -11,7 +11,41 @@
     <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
     <link rel="stylesheet" href="~/css/image.css" />
     <link rel="stylesheet" href="~/css/all.min.css" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <style type="text/css">
+        #AlertRe {
+            position: center;
+            text-align: center;
+            margin-top: 1%;
+        }
+
+        #AlertReCPN {
+            position: center;
+            text-align: center;
+        }
+
+        #CheckboxTerms {
+            position: center;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // extend range validator method to treat checkboxes differently
+        var defaultRangeValidator = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            if (element.type === 'checkbox') {
+                // if it's a checkbox return true if it is checked
+                return element.checked;
+            } else {
+                // otherwise run the default validation function
+                return defaultRangeValidator.call(this, value, element, param);
+            }
+        }
+    </script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
         <a class="navbar-brand font-weight-bold" href="@Url.Action("Home", "Home")">

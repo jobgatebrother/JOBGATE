@@ -35,6 +35,7 @@ namespace JOBGATE_MVC_C.Controllers
 
         public IActionResult Register_EPY()
         {
+
             return View();
         }
 
@@ -43,6 +44,7 @@ namespace JOBGATE_MVC_C.Controllers
             return View();
         }
 
+       
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

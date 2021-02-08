@@ -1,4 +1,5 @@
-﻿<div class="container-fluid">
+﻿@model Register_EPYModel
+<div class="container-fluid">
     <br />
     <br />
     <br />
@@ -6,6 +7,13 @@
         <div class="text-center">
             <h4><a class="text-success h2">Congratuation!</a> You are registered</h4>
             <h4>Few seconds later, move to <a class="text-primary" href="@Url.Action("Login","Home")"><u>Log-in</u></a> page</h4>
+            @Model.Email
+            @Model.Password
         </div>
     </div>
 </div>
+<script>
+    window.setTimeout(function () {
+        window.location.href = '@Url.Action("Login","Home")';
+    }, 4000);
+</script>
