@@ -5,4 +5,8 @@
     <RootNamespace>JOBGATE_MVC_C</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+
 </Project>

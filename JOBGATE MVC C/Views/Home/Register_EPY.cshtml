@@ -1,51 +1,86 @@
-﻿<div class="container-fluid">
-    <br />
-    <br />
-    <br />
-    <div class="row justify-content-center">
-        <a class="fa fa-5x fa-user"></a>
-        <div class="text-center">
-            <h2 class="font-weight-bold">Employee Register</h2>
-            <h5>Welcome To Job Gate</h5>
-        </div>
-    </div>
-    <br />
-    <div class="row justify-content-center">
-        <div class="col-xl-5 col-lg-12 col-md-9">
-            <div class="card o-hidden border-0 shadow-lg">
-                <div class="card-body">
-                    <div class="row justify-content-center mt-3">
-                        <input type="email" class="form-control col-sm-6" placeholder="Email Address" />
+﻿@model JOBGATE_MVC_C.Models.Register_EPYModel
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <style type="text/css">
+            #AlertReEPY {
+                position: center;
+                text-align: center;
+                margin-top: 1%;
+            }
+           
+        </style>
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/jquery-validation/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+       
+    </head>
+        @using (Html.BeginForm("Register_EPY", "Home", FormMethod.Post))
+        {
+
+            @Html.AntiForgeryToken()
+
+            <div class="container-fluid">
+                <br />
+                <br />
+                <br />
+                <div class="row justify-content-center">
+                    <a class="fa fa-5x fa-user"></a>
+                    <div class="text-center">
+                        <h2 class="font-weight-bold">Employee Register</h2>
+                        <h5>Welcome To Job Gate</h5>
                     </div>
-                    <div class="row justify-content-center mt-3">
-                        <input type="email" class="form-control col-sm-6" placeholder="Confirm Email Address" />
-                    </div>
-                    <div class="row justify-content-center mt-3">
-                        <input type="password" class="form-control col-sm-6" placeholder="Password" />
-                    </div>
-                    <div class="row justify-content-center mt-3">
-                        <input type="password" class="form-control col-sm-6" placeholder="Confirm Password" />
-                    </div>
-                    <div class="row justify-content-center mt-3">
-                        <div class="form-group justify-content-center">
-                            <div class="custom-control custom-checkbox small">
-                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                <label class="custom-control-label" for="customCheck">
-                                    I agree to Jobgate's <a class="text-primary"><u>Terms&Condition</u></a> and <a class="text-primary"><u>Privacy Policy</u></a>
-                                </label>
+                </div>
+                <br />
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-lg-12 col-md-9">
+                        <div class="card o-hidden border-0 shadow-lg">
+                            <div class="card-body">
+                                <div class="row justify-content-center mt-3">
+
+                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control col-sm-6", placeholder = "Email Address" } })
+                                    <i class="bi bi-exclamation-triangle-fill"></i>
+
+                                </div>
+
+                                <div id="AlertReEPY"> @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</div>
+
+
+
+                                <div class="row justify-content-center mt-3">
+                                    @Html.EditorFor(model => model.ConfirmEmail, new { htmlAttributes = new { @class = "form-control col-sm-6", placeholder = "Confirm Email Address2" } })
+                                </div>
+                                <div id="AlertReEPY"> @Html.ValidationMessageFor(model => model.ConfirmEmail, "", new { @class = "text-danger" })</div>
+                                <div class="row justify-content-center mt-3">
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control col-sm-6", placeholder = "Password" } })
+                                </div>
+                                <div id="AlertReEPY"> @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })</div>
+                                <div class="row justify-content-center mt-3">
+                                    @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "form-control col-sm-6", placeholder = "Confirm Password" } })
+                                </div>
+                                <div id="AlertReEPY"> @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })</div>
+                                <div class="row justify-content-center mt-3">
+                                    <div class="form-group justify-content-center">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">
+                                                I agree to Jobgate's <a class="text-primary"><u>Terms&Condition</u></a> and <a class="text-primary"><u>Privacy Policy</u></a>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+
+                                    <button type="submit" value="Save" class="btn btn-primary">
+                                        <h3 class="text-white">Register</h3>
+                                    </button>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <a class="h3 text-primary" href="@Url.Action("Login", "Home")">Do you have already Account? <u>Log In</u></a>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-center">
-                        <a class="btn btn-primary" href="@Url.Action("Register_Result","Home")">
-                            <h3 class="text-white">Register</h3>
-                        </a>
-                    </div>
-                    <div class="row justify-content-center">
-                        <a class="h3 text-primary" href="@Url.Action("Login","Home")">Do you have already Account? <u>Log In</u></a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    }
