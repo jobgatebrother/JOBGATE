@@ -174,7 +174,6 @@
                                 </select>
                             </div>
                             <div class="col-sm-6 mt-2"></div>
-                            <div class="col-sm-4 mt-2"></div>
                             <div class="col-sm-3 mt-2">
                                 <label class="mt-1">Nationality</label>
                             </div>
@@ -223,17 +222,17 @@
                             <input type="file" class="form-control-file mt-2" />
                         </div>
                         <div class="col-sm mt-2 row">
-                            <div class="col-sm-2 row">
+                            <div class="col-sm-3 row">
                                 <label class="mt-1">Height</label>
-                                <input type="text" class="col-sm-3 form-control ml-3" placeholder="180" />
+                                <input type="text" class="col-sm-3 form-control ml-2 text-center" placeholder="180" />
                                 <small class="mt-2 ml-1">CM</small>
                             </div>
-                            <div class="col-sm-2 row">
+                            <div class="col-sm-3 row">
                                 <label class="mt-1">Weight</label>
-                                <input type="text" class="col-sm-3 form-control ml-3" placeholder="60" />
+                                <input type="text" class="col-sm-3 form-control ml-2 text-center" placeholder="60" />
                                 <small class="mt-2 ml-1">KG</small>
                             </div>
-                            <div class="col-sm-3 row">
+                            <div class="col-sm-3 row mr-4">
                                 <label class="mt-1">Religion</label>
                                 <select class="form-control col-sm-8 ml-3">
                                     <option>Religion</option>
@@ -241,10 +240,10 @@
                                     <option>Christianity</option>
                                 </select>
                             </div>
-                            <div class="col-sm-5 row">
-                                <label class="mt-1">Military Service</label>
-                                <select class="form-control col-sm-8 ml-3">
-                                    <option>Military Service</option>
+                            <div class="col-sm-3 row ml-3">
+                                <label class="mt-1">Military</label>
+                                <select class="form-control col-sm-6 ml-2">
+                                    <option>Military</option>
                                     <option>Pass</option>
                                     <option>Excepted</option>
                                     <option>None</option>
@@ -252,16 +251,375 @@
                             </div>
                         </div>
                     </div>
+                    <hr />
                     <div class="row justify-content-end">
                         <input type="button" id="btnPersonelNext" class="btn btn-primary col-sm-3 StepNext" data-toggle="pill" href="#pills-Education" role="tab" value="Next" />
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-Education" role="tabpanel">
-                    <div class="card-header">
+                    <div class="card-header border-0">
                         <h3 class="font-weight-bold text-dark">Education</h3>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body">
+                        <div class="row ml-4">
+                            <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Degree # 1</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Degree</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select class="form-control">
+                                    <option>Degree</option>
+                                    <option>Doctorate</option>
+                                    <option>Master's Degree</option>
+                                    <option>Bachelor's Degree</option>
+                                    <option>Diploma</option>
+                                    <option>High Vocational</option>
+                                    <option>Technical Vocational</option>
+                                    <option>Vocational</option>
+                                    <option>High School</option>
+                                    <option>Lower Secondary School</option>
+                                    <option>Primary School</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">School Name</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="School Name" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Study Category</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select class="form-control">
+                                    <option value="Study Category">Study Category</option>
+                                    <option value="Accounting/banking/Finance">Accounting/banking/Finance</option>
+                                    <option value="Agriculture/Fishery/Livestock">Agriculture/Fishery/Livestock</option>
+                                    <option value="Architecture/interrior">Architecture/interrior</option>
+                                    <option value="Art/Graphics Design">Art/Graphics Design</option>
+                                    <option value="Biotech">Biotech</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="Doctor/Nurse/Pharmacist">Doctor/Nurse/Pharmacist</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Education/Teaching">Education/Teaching</option>
+                                    <option value="Engineering - Agriculture/irrgation">Engineering - Agriculture/irrgation</option>
+                                    <option value="Engineering - Chemical ">Engineering - Chemical </option>
+                                    <option value="Engineering - Civil/Survey">Engineering - Civil/Survey</option>
+                                    <option value="Engineering - Computer/System">Engineering - Computer/System</option>
+                                    <option value="Engineering - Electrical/Electronic">Engineering - Electrical/Electronic</option>
+                                    <option value="Engineering - Environmental ">Engineering - Environmental </option>
+                                    <option value="Engineering - Factory/mechanical/Industrial">Engineering - Factory/mechanical/Industrial</option>
+                                    <option value="Engineering - other">Engineering - other</option>
+                                    <option value="Engineering - Telecommunication">Engineering - Telecommunication</option>
+                                    <option value="Environmental Science">Environmental Science</option>
+                                    <option value="Food/Food Sciences">Food/Food Sciences</option>
+                                    <option value="Foreign Businees/Import-Export">Foreign Businees/Import-Export</option>
+                                    <option value="Garment/Textlie">Garment/Textlie</option>
+                                    <option value="Geology/GIS">Geology/GIS</option>
+                                    <option value="Hotel/Tourism">Hotel/Tourism</option>
+                                    <option value="Legal">Legal</option>
+                                    <option value="Literature/Human">Literature/Human</option>
+                                    <option value="Management/Human Resource">Management/Human Resource</option>
+                                    <option value="Marketing/Sale">Marketing/Sale</option>
+                                    <option value="Mechanics">Mechanics</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Political">Political</option>
+                                    <option value="Printing Technology">Printing Technology</option>
+                                    <option value="Production Technology">Production Technology</option>
+                                    <option value="Programmer/Computer Science/IT">Programmer/Computer Science/IT</option>
+                                    <option value="Pubilc Relation/Infomation">Pubilc Relation/Infomation</option>
+                                    <option value="Safety">Safety</option>
+                                    <option value="Sciences/Physics/Chemical">Sciences/Physics/Chemical</option>
+                                    <option value="Secretarial/Reception/Adin/Data Entry">Secretarial/Reception/Adin/Data Entry</option>
+                                    <option value="Statistics">Statistics</option>
+                                    <option value="Technician - Electrical/Computer">Technician - Electrical/Computer</option>
+                                    <option value="Technician - Industrial Technology/Factory">Technician - Industrial Technology/Factory</option>
+                                    <option value="Technician - Metal">Technician - Metal</option>
+                                    <option value="Technician - Other">Technician - Other</option>
+                                    <option value="Warehouse/Logistics">Warehouse/Logistics</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Major Subject</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="Major Subject" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Graduatation Year</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>
+}
+                                </select>
+                            </div>
+                            <div class="col-sm-5 mt-3 ml-3">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label class="custom-control-label" for="customCheck">Studying Now</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">G.P.A. Score</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <input type="text" class="form-control" placeholder="4.00 / A" />
+                            </div>
+                            <div class="col-sm-7"></div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Degree # 2</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Degree</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select class="form-control">
+                                    <option>Degree</option>
+                                    <option>Doctorate</option>
+                                    <option>Master's Degree</option>
+                                    <option>Bachelor's Degree</option>
+                                    <option>Diploma</option>
+                                    <option>High Vocational</option>
+                                    <option>Technical Vocational</option>
+                                    <option>Vocational</option>
+                                    <option>High School</option>
+                                    <option>Lower Secondary School</option>
+                                    <option>Primary School</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">School Name</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="School Name" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Study Category</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select class="form-control">
+                                    <option value="Study Category">Study Category</option>
+                                    <option value="Accounting/banking/Finance">Accounting/banking/Finance</option>
+                                    <option value="Agriculture/Fishery/Livestock">Agriculture/Fishery/Livestock</option>
+                                    <option value="Architecture/interrior">Architecture/interrior</option>
+                                    <option value="Art/Graphics Design">Art/Graphics Design</option>
+                                    <option value="Biotech">Biotech</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="Doctor/Nurse/Pharmacist">Doctor/Nurse/Pharmacist</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Education/Teaching">Education/Teaching</option>
+                                    <option value="Engineering - Agriculture/irrgation">Engineering - Agriculture/irrgation</option>
+                                    <option value="Engineering - Chemical ">Engineering - Chemical </option>
+                                    <option value="Engineering - Civil/Survey">Engineering - Civil/Survey</option>
+                                    <option value="Engineering - Computer/System">Engineering - Computer/System</option>
+                                    <option value="Engineering - Electrical/Electronic">Engineering - Electrical/Electronic</option>
+                                    <option value="Engineering - Environmental ">Engineering - Environmental </option>
+                                    <option value="Engineering - Factory/mechanical/Industrial">Engineering - Factory/mechanical/Industrial</option>
+                                    <option value="Engineering - other">Engineering - other</option>
+                                    <option value="Engineering - Telecommunication">Engineering - Telecommunication</option>
+                                    <option value="Environmental Science">Environmental Science</option>
+                                    <option value="Food/Food Sciences">Food/Food Sciences</option>
+                                    <option value="Foreign Businees/Import-Export">Foreign Businees/Import-Export</option>
+                                    <option value="Garment/Textlie">Garment/Textlie</option>
+                                    <option value="Geology/GIS">Geology/GIS</option>
+                                    <option value="Hotel/Tourism">Hotel/Tourism</option>
+                                    <option value="Legal">Legal</option>
+                                    <option value="Literature/Human">Literature/Human</option>
+                                    <option value="Management/Human Resource">Management/Human Resource</option>
+                                    <option value="Marketing/Sale">Marketing/Sale</option>
+                                    <option value="Mechanics">Mechanics</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Political">Political</option>
+                                    <option value="Printing Technology">Printing Technology</option>
+                                    <option value="Production Technology">Production Technology</option>
+                                    <option value="Programmer/Computer Science/IT">Programmer/Computer Science/IT</option>
+                                    <option value="Pubilc Relation/Infomation">Pubilc Relation/Infomation</option>
+                                    <option value="Safety">Safety</option>
+                                    <option value="Sciences/Physics/Chemical">Sciences/Physics/Chemical</option>
+                                    <option value="Secretarial/Reception/Adin/Data Entry">Secretarial/Reception/Adin/Data Entry</option>
+                                    <option value="Statistics">Statistics</option>
+                                    <option value="Technician - Electrical/Computer">Technician - Electrical/Computer</option>
+                                    <option value="Technician - Industrial Technology/Factory">Technician - Industrial Technology/Factory</option>
+                                    <option value="Technician - Metal">Technician - Metal</option>
+                                    <option value="Technician - Other">Technician - Other</option>
+                                    <option value="Warehouse/Logistics">Warehouse/Logistics</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Major Subject</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="Major Subject" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Graduatation Year</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>
+}
+                                </select>
+                            </div>
+                            <div class="col-sm-5 mt-3 ml-3">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label class="custom-control-label" for="customCheck">Studying Now</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">G.P.A. Score</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <input type="text" class="form-control" placeholder="4.00 / A" />
+                            </div>
+                            <div class="col-sm-7"></div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Degree # 3</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Degree</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select class="form-control">
+                                    <option>Degree</option>
+                                    <option>Doctorate</option>
+                                    <option>Master's Degree</option>
+                                    <option>Bachelor's Degree</option>
+                                    <option>Diploma</option>
+                                    <option>High Vocational</option>
+                                    <option>Technical Vocational</option>
+                                    <option>Vocational</option>
+                                    <option>High School</option>
+                                    <option>Lower Secondary School</option>
+                                    <option>Primary School</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">School Name</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="School Name" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Study Category</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select class="form-control">
+                                    <option value="Study Category">Study Category</option>
+                                    <option value="Accounting/banking/Finance">Accounting/banking/Finance</option>
+                                    <option value="Agriculture/Fishery/Livestock">Agriculture/Fishery/Livestock</option>
+                                    <option value="Architecture/interrior">Architecture/interrior</option>
+                                    <option value="Art/Graphics Design">Art/Graphics Design</option>
+                                    <option value="Biotech">Biotech</option>
+                                    <option value="Construction">Construction</option>
+                                    <option value="Doctor/Nurse/Pharmacist">Doctor/Nurse/Pharmacist</option>
+                                    <option value="Economics">Economics</option>
+                                    <option value="Education/Teaching">Education/Teaching</option>
+                                    <option value="Engineering - Agriculture/irrgation">Engineering - Agriculture/irrgation</option>
+                                    <option value="Engineering - Chemical ">Engineering - Chemical </option>
+                                    <option value="Engineering - Civil/Survey">Engineering - Civil/Survey</option>
+                                    <option value="Engineering - Computer/System">Engineering - Computer/System</option>
+                                    <option value="Engineering - Electrical/Electronic">Engineering - Electrical/Electronic</option>
+                                    <option value="Engineering - Environmental ">Engineering - Environmental </option>
+                                    <option value="Engineering - Factory/mechanical/Industrial">Engineering - Factory/mechanical/Industrial</option>
+                                    <option value="Engineering - other">Engineering - other</option>
+                                    <option value="Engineering - Telecommunication">Engineering - Telecommunication</option>
+                                    <option value="Environmental Science">Environmental Science</option>
+                                    <option value="Food/Food Sciences">Food/Food Sciences</option>
+                                    <option value="Foreign Businees/Import-Export">Foreign Businees/Import-Export</option>
+                                    <option value="Garment/Textlie">Garment/Textlie</option>
+                                    <option value="Geology/GIS">Geology/GIS</option>
+                                    <option value="Hotel/Tourism">Hotel/Tourism</option>
+                                    <option value="Legal">Legal</option>
+                                    <option value="Literature/Human">Literature/Human</option>
+                                    <option value="Management/Human Resource">Management/Human Resource</option>
+                                    <option value="Marketing/Sale">Marketing/Sale</option>
+                                    <option value="Mechanics">Mechanics</option>
+                                    <option value="Other">Other</option>
+                                    <option value="Political">Political</option>
+                                    <option value="Printing Technology">Printing Technology</option>
+                                    <option value="Production Technology">Production Technology</option>
+                                    <option value="Programmer/Computer Science/IT">Programmer/Computer Science/IT</option>
+                                    <option value="Pubilc Relation/Infomation">Pubilc Relation/Infomation</option>
+                                    <option value="Safety">Safety</option>
+                                    <option value="Sciences/Physics/Chemical">Sciences/Physics/Chemical</option>
+                                    <option value="Secretarial/Reception/Adin/Data Entry">Secretarial/Reception/Adin/Data Entry</option>
+                                    <option value="Statistics">Statistics</option>
+                                    <option value="Technician - Electrical/Computer">Technician - Electrical/Computer</option>
+                                    <option value="Technician - Industrial Technology/Factory">Technician - Industrial Technology/Factory</option>
+                                    <option value="Technician - Metal">Technician - Metal</option>
+                                    <option value="Technician - Other">Technician - Other</option>
+                                    <option value="Warehouse/Logistics">Warehouse/Logistics</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Major Subject</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="Major Subject" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Graduatation Year</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>
+}
+                                </select>
+                            </div>
+                            <div class="col-sm-5 mt-3 ml-3">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label class="custom-control-label" for="customCheck">Studying Now</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">G.P.A. Score</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <input type="text" class="form-control" placeholder="4.00 / A" />
+                            </div>
+                            <div class="col-sm-7"></div>
+                        </div>
+                        <br />
                     </div>
+                    <hr />
                     <div class="row">
                         <div class="col-sm-3">
                             <input type="button" id="btnEducationBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Personel" role="tab" value="Back" />
@@ -273,11 +631,163 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-Experience" role="tabpanel">
-                    <div class="card-header">
+                    <div class="card-header border-0">
                         <h3 class="font-weight-bold text-dark">Job Experience</h3>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body">
+                        <div class="row ml-4">
+                            <i class="fa fa-user-tie fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Job Experience # 1</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Company Name</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <input type="text" class="form-control" placeholder="Company Name" />
+                            </div>
+                            <div class="col-sm-6"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Working Period</label>
+                            </div>
+                            <div class="col-sm-4 mt-2 ml-1 row">
+                                <label class="mt-1">Start to</label>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>}
+                                </select>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Month</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4 mt-2 row">
+                                <label class="mt-1">End to</label>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>}
+                                </select>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Month</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Resigned</option>
+                                    <option>Working Now</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Industry</label>
+                            </div>
+                            <div class="col-sm-6 mt-2">
+                                <select class="form-control">
+                                    <option>Industry</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Job Field</label>
+                            </div>
+                            <div class="col-sm-6 mt-2">
+                                <select class="form-control">
+                                    <option>Job Field</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Position</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Position</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <input type="text" class="form-control" placeholder="Etc. Text Field" />
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Working Dept.</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <input type="text" class="form-control" placeholder="Typing Dept. Title" />
+                            </div>
+                            <div class="col-sm-7 mt-2"></div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-9 mt-2 ml-4">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label class="custom-control-label" for="customCheck">Studying Now</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Company Location</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Province</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>District</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select class="form-control">
+                                    <option>Sub-District</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Salary</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <input type="number" class="form-control" placeholder="###,##0.00" />
+                            </div>
+                            <div class="col-sm-7 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Job Duty</label>
+                            </div>
+                            <div class="col-sm-10 mt-2">
+                                <input type="text" class="form-control" style="height:200px;" />
+                            </div>
+                            <div class="col-sm mt-4">
+                                <div class="row justify-content-center">
+                                    <button class="btn btn-circle btn-primary"><i class="fa fa-plus fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    <hr />
                     <div class="row">
                         <div class="col-sm-3">
                             <input type="button" id="btnExperienceBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Education" role="tab" aria-selected="true" value="Back" />
@@ -289,12 +799,258 @@
                     </div>
                 </div>
                 <div class="tab-pane fade" id="pills-Skill" role="tabpanel">
-                    <div class="card-header">
+                    <div class="card-header border-0">
                         <h3 class="font-weight-bold text-dark">Skills & Training</h3>
                     </div>
-                    <div class="card-body row">
+                    <div class="card-body">
+                        <div class="row ml-4">
+                            <i class="fa fa-hands-wash fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Skills</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Foreign Language</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Select Language</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Level</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Language Exam</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Score Grade</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Select Language</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Level</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Language Exam</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Score Grade</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Select Language</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Level</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Language Exam</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Score Grade</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-car fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Driving License / Own Vehicle</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Driving License</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <div class="card-body border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Car" value="Car">
+                                        <label class="form-check-label" for="Car">Car</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Motorbike" value="Motorbike">
+                                        <label class="form-check-label" for="Motorbike">Motorbike</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Truck" value="Truck">
+                                        <label class="form-check-label" for="Truck">Truck</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Trailer" value="Trailer">
+                                        <label class="form-check-label" for="Trailer">Trailer</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Forklift" value="Forklift">
+                                        <label class="form-check-label" for="Forklift">Forklift</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Own Vehicle</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <div class="card-body border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Car" value="Car">
+                                        <label class="form-check-label" for="Car">Car</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Motorbike" value="Motorbike">
+                                        <label class="form-check-label" for="Motorbike">Motorbike</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Truck" value="Truck">
+                                        <label class="form-check-label" for="Truck">Truck</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-address-card fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Certificate / Competition Prize</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Category</label>
+                            </div>
+                            <div class="col-sm-6 mt-2">
+                                <select class="form-control">
+                                    <option>Select Certificate or Competition</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Title</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control" placeholder="Title name of Certificate or Competition Prize" />
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Issued by</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control" placeholder="Issued(Prized) by Name of Institute/Organization/Company" />
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm mt-4">
+                                <div class="row justify-content-center">
+                                    <button class="btn btn-circle btn-primary"><i class="fa fa-plus fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-dumbbell fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Training</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Title</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control" placeholder="Title name of Training" />
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Issued by</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control" placeholder="Trained by Name of Institute/Organization/Company" />
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Working Period</label>
+                            </div>
+                            <div class="col-sm-4 mt-2 ml-1 row">
+                                <label class="mt-1">Start to</label>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>
+}
+                                </select>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Month</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4 mt-2 row">
+                                <label class="mt-1">End to</label>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>
+}
+                                </select>
+                                <select class="form-control col-sm-4 ml-2">
+                                    <option>Month</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm mt-4">
+                                <div class="row justify-content-center">
+                                    <button class="btn btn-circle btn-primary"><i class="fa fa-plus fa-2x"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
                     </div>
-
+                    <hr />
                     <div class="row">
                         <div class="col-sm-3">
                             <input type="button" id="btnSkillBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true" value="Back" />
@@ -310,8 +1066,71 @@
                         <h3 class="font-weight-bold text-dark">Required Job</h3>
                     </div>
                     <div class="card-body row">
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Job Field #1</label>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <select class="form-control">
+                                <option>Job Field</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 mt-2"></div>
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Job Field #2</label>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <select class="form-control">
+                                <option>Job Field</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 mt-2"></div>
+                        <br />
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Employment Type</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <div class="card-body border">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Full-Time" value="Full-Time">
+                                    <label class="form-check-label" for="Full-Time">Full-Time</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Part-Time" value="Part-Time">
+                                    <label class="form-check-label" for="Part-Time">Part-Time</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Freelance/Contract" value="Freelance/Contract">
+                                    <label class="form-check-label" for="Freelance/Contract">Freelance/Contract</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Intern" value="Intern">
+                                    <label class="form-check-label" for="Intern">Intern</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 mt-2"></div>
+                        <br />
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Work Location</label>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <select class="form-control">
+                                <option>Province</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mt-2"></div>
+                        <br />
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Expected Salary</label>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <select class="form-control">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mt-2"></div>
                     </div>
-
+                    <hr />
                     <div class="row">
                         <div class="col-sm-3">
                             <input type="button" id="btnJobBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true" value="Back" />
