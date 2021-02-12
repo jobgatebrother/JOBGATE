@@ -1,0 +1,328 @@
+﻿@{ Layout = "_Layout MyPage"; }
+
+<script src="~/js/Resume.js"></script>
+
+
+<div class="container bg-light">
+    <ul class="nav nav-pills" id="pills-tab" role="tablist">
+        <li class="nav-item text-center border" style="width:20%;">
+            <a class="nav-link active" id="Personel-tab" data-toggle="pill" href="#pills-Personel" role="tab" aria-selected="true">
+                <i class="fa fa-user fa-2x"></i>
+                <br />
+                <strong>Personel Information</strong>
+            </a>
+        </li>
+        <li class="nav-item text-center border" style="width:20%;">
+            <a class="nav-link" id="Education-tab" data-toggle="pill" href="#pills-Education" role="tab" aria-selected="true">
+                <i class="fa fa-user-graduate fa-2x"></i>
+                <br />
+                <strong>Education</strong>
+            </a>
+        </li>
+        <li class="nav-item text-center border" style="width:20%;">
+            <a class="nav-link" id="Experience-tab" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true">
+                <i class="fa fa-business-time fa-2x"></i>
+                <br />
+                <strong>Job Experience</strong>
+            </a>
+        </li>
+        <li class="nav-item text-center border" style="width:20%;">
+            <a class="nav-link" id="Skill-tab" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true">
+                <i class="fa fa-book-reader fa-2x"></i>
+                <br />
+                <strong>Skill Traning</strong>
+            </a>
+        </li>
+        <li class="nav-item text-center border" style="width:20%;">
+            <a class="nav-link" id="Job-tab" data-toggle="pill" href="#pills-Job" role="tab" aria-selected="true">
+                <i class="fa fa-search fa-2x"></i>
+                <br />
+                <strong>Required Job</strong>
+            </a>
+        </li>
+    </ul>
+    <div class="progress">
+        <div id="Progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    <div class="card shadow-lg">
+        <div class="card-body bg-light">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-Personel" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Personal Information</h3>
+                    </div>
+                    <div class="card-body row">
+                        <div class="col-sm-9 form-group row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">First Name</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control" placeholder="Typing First Name" />
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Last Name</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control" placeholder="Typing Last Name" />
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Gender</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <div class="nav nav-pills" id="gender" role="tablist">
+                                    <button class="nav-link border btn" id="male" data-toggle="list" role="tab">Male</button>
+                                    <button class="nav-link border btn" id="female" data-toggle="list" role="tab">Female</button>
+                                    <button class="nav-link border btn" id="other" data-toggle="list" role="tab">Other</button>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Birth Date</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Date</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                    <option>31</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control">
+                                    <option>Month</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="form-control ml-2">
+                                    <option>Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                        <option>@i</option>}
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Mobile Phone</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="tel" class="form-control" placeholder="Typing Mobile No." />
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="col-sm-8 mt-2 ml-4">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label class="custom-control-label" for="customCheck">Same with Mobile Phone</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Tel No.</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="tel" class="form-control" placeholder="Typing Tel No." />
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Marriage Status</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Marriage Status</option>
+                                    <option>Single</option>
+                                    <option>Married</option>
+                                    <option>Divorced</option>
+                                    <option>Widow</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mt-2"></div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Nationality</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Country</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mt-2"></div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="col-sm-8 mt-2 ml-4">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="customCheck">
+                                    <label class="custom-control-label" for="customCheck">Staying Overseas</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Current Address</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Province</option>
+                                    <option>นครศรีธรรมราช</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>District</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="form-control">
+                                    <option>Sub-District</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="col-sm-9 mt-2">
+                                <input type="text" class="col-sm form-control" placeholder="Address" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <div class="col-1"></div>
+                            <div class="card mt-2 ml-4" style="width:155px; height:197px;">
+                                <img class="card-img w-100 h-100 bg-preset1" src="~/Images/user.png" />
+                            </div>
+                            <input type="file" class="form-control-file mt-2" />
+                        </div>
+                        <div class="col-sm mt-2 row">
+                            <div class="col-sm-2 row">
+                                <label class="mt-1">Height</label>
+                                <input type="text" class="col-sm-3 form-control ml-3" placeholder="180" />
+                                <small class="mt-2 ml-1">CM</small>
+                            </div>
+                            <div class="col-sm-2 row">
+                                <label class="mt-1">Weight</label>
+                                <input type="text" class="col-sm-3 form-control ml-3" placeholder="60" />
+                                <small class="mt-2 ml-1">KG</small>
+                            </div>
+                            <div class="col-sm-3 row">
+                                <label class="mt-1">Religion</label>
+                                <select class="form-control col-sm-8 ml-3">
+                                    <option>Religion</option>
+                                    <option>Buddhism</option>
+                                    <option>Christianity</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5 row">
+                                <label class="mt-1">Military Service</label>
+                                <select class="form-control col-sm-8 ml-3">
+                                    <option>Military Service</option>
+                                    <option>Pass</option>
+                                    <option>Excepted</option>
+                                    <option>None</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <input type="button" id="btnPersonelNext" class="btn btn-primary col-sm-3 StepNext" data-toggle="pill" href="#pills-Education" role="tab" value="Next" />
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Education" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Education</h3>
+                    </div>
+                    <div class="card-body row">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnEducationBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Personel" role="tab" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <input type="button" id="btnEducationNext" class="btn btn-primary form-control StepNext" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true" value="Next" />
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Experience" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Job Experience</h3>
+                    </div>
+                    <div class="card-body row">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnExperienceBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Education" role="tab" aria-selected="true" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <input type="button" id="btnExperienceNext" class="btn btn-primary form-control StepNext" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true" value="Next" />
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Skill" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Skills & Training</h3>
+                    </div>
+                    <div class="card-body row">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnSkillBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <input type="button" id="btnSkillNext" class="btn btn-primary form-control StepNext" data-toggle="pill" href="#pills-Job" role="tab" aria-selected="true" value="Next" />
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Job" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Required Job</h3>
+                    </div>
+                    <div class="card-body row">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnJobBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <input type="button" id="btnSave" class="btn btn-primary form-control" value="SAVE" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

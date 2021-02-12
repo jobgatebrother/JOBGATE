@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project JOBGATE\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {}
+    "D:\\Project JOBGATE\\JOBGATE MVC C\\jobgatebrother\\jobgate\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {}
   },
   "projects": {
-    "D:\\Project JOBGATE\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {
+    "D:\\Project JOBGATE\\JOBGATE MVC C\\jobgatebrother\\jobgate\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project JOBGATE\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
+        "projectUniqueName": "D:\\Project JOBGATE\\JOBGATE MVC C\\jobgatebrother\\jobgate\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
         "projectName": "JOBGATE MVC C",
-        "projectPath": "D:\\Project JOBGATE\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
+        "projectPath": "D:\\Project JOBGATE\\JOBGATE MVC C\\jobgatebrother\\jobgate\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
         "packagesPath": "C:\\Users\\IT\\.nuget\\packages\\",
-        "outputPath": "D:\\Project JOBGATE\\JOBGATE MVC C\\JOBGATE MVC C\\obj\\",
+        "outputPath": "D:\\Project JOBGATE\\JOBGATE MVC C\\jobgatebrother\\jobgate\\JOBGATE MVC C\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\IT\\AppData\\Roaming\\NuGet\\NuGet.Config",

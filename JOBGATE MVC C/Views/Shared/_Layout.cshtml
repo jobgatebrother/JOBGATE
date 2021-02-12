@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
     <link rel="stylesheet" href="~/css/image.css" />
     <link rel="stylesheet" href="~/css/all.min.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
@@ -24,7 +27,7 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarHome">
             <ul class="nav nav-pills flex-column flex-sm-row">
                 <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Search Job</a>
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Resume</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("MyPage", "MyPage")">Resume</a>
                 <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Job Matching</a>
                 <label class="flex-sm-fill text-sm-center nav-link">|</label>
                 <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Login", "Home")">Login</a>
