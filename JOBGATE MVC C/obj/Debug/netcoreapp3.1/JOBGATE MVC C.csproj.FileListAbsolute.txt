@@ -83,3 +83,10 @@ D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\
 D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyPage\MyPage.cshtml.g.cs
 D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout MyPage.cshtml.g.cs
 D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyPage\Resume.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Company_Introduction.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Job_Description.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\ResetPassword.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\NewPassword.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Terms\TermsOfService.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Terms\Cookie.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Terms\Privacy.cshtml.g.cs
