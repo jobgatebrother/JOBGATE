@@ -66,6 +66,11 @@ namespace JOBGATE_MVC_C.Controllers
             return View();
         }
 
+        public IActionResult JobResult()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

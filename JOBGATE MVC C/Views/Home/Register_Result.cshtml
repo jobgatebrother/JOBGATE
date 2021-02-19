@@ -1,11 +1,19 @@
-﻿<div class="container-fluid">
-    <br />
-    <br />
-    <br />
-    <div class="row justify-content-center">
-        <div class="text-center">
-            <h4><a class="text-success h2">Congratuation!</a> You are registered</h4>
-            <h4>Few seconds later, move to <a class="text-primary" href="@Url.Action("Login","Home")"><u>Log-in</u></a> page</h4>
-        </div>
+﻿<script>
+    $(document).ready(function () {
+            setTimeout(function () { $('#countdown').text(' ... 4 sec ...'); }, 1000);
+            setTimeout(function () { $('#countdown').text(' ... 3 sec ...'); }, 2000);
+            setTimeout(function () { $('#countdown').text(' ... 2 sec ...'); }, 3000);
+            setTimeout(function () { $('#countdown').text(' ... 1 sec ...'); }, 4000);
+            setTimeout(function () { $('#countdown').text(' ... 0 sec ...'); window.location.href = 'Login'; }, 5000);
+    });
+</script>
+
+<br />
+<br />
+<br />
+<div class="row justify-content-center">
+    <div class="text-center">
+        <h4><a class="text-success h2">Congratuation!</a> You are registered</h4>
+        <h4>Few seconds later, move to <a class="text-primary" href="@Url.Action("Login","Home")"><u>Log-in</u></a> page <a id="countdown"> ... 5 sec ...</a></h4>
     </div>
 </div>

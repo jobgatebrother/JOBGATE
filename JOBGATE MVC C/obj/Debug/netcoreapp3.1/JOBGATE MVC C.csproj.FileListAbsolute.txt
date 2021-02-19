@@ -90,3 +90,7 @@ D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\
 D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Terms\TermsOfService.cshtml.g.cs
 D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Terms\Cookie.cshtml.g.cs
 D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Terms\Privacy.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\JobResult.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyPage\ManageResume.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyPage\Applying.cshtml.g.cs
+D:\Project JOBGATE\JOBGATE MVC C\jobgatebrother\jobgate\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyPage\Favorite.cshtml.g.cs

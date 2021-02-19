@@ -38,42 +38,26 @@
                 <div id="collapseResume" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="collapse-inner rounded bg-light">
                         <a class="collapse-item text-dark" href="@Url.Action("Resume","MyPage")">Register Resume</a>
-                        <a class="collapse-item text-dark" href="@Url.Action("Resume","MyPage")">Manage Resume</a>
+                        <a class="collapse-item text-dark" href="@Url.Action("ManageResume","MyPage")">Manage Resume</a>
                     </div>
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseJob"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-edit"></i>
-                    <span>JOB POSTING FOR YOU</span>
+
+                <a class="nav-link" href="@Url.Action("Favorite","MyPage")">
+                    <i class="fas fa-fw fa-bookmark"></i>
+                    <span>FAVORITE</span>
                 </a>
-                <div id="collapseJob" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="collapse-inner rounded bg-light">
-                        <a class="collapse-item text-dark" href="buttons.html">Job Matching</a>
-                        <a class="collapse-item text-dark" href="cards.html">Your Favorites</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseApply"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-edit"></i>
+                <a class="nav-link" href="@Url.Action("Applying","MyPage")">
+                    <i class="fas fa-fw fa-paper-plane"></i>
                     <span>APPLYING STATUS</span>
                 </a>
-                <div id="collapseApply" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="collapse-inner rounded bg-light">
-
-                    </div>
-                </div>
             </li>
         </div>
-        <div id="content-wrapper">
-            <div class="container-fluid">
-                <br />
-                @RenderBody()
-                <br />
-            </div>
+        <div class="container-fluid col-12 col-md-9 pull-md-3">
+            <br />
+            @RenderBody()
+            <br />
         </div>
     </div>
     @RenderSection("Scripts", required: false)

@@ -17,5 +17,20 @@ namespace JOBGATE_MVC_C.Controllers
         {
             return View();
         }
+
+        public IActionResult ManageResume()
+        {
+            return View();
+        }
+
+        public IActionResult Favorite()
+        {
+            return View();
+        }
+
+        public IActionResult Applying()
+        {
+            return View();
+        }
     }
 }
