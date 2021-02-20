@@ -1,0 +1,37 @@
+﻿@{ Layout = "_Layout MyPage"; }
+@model ConfirmEmail
+<script src="~/js/Resume.js"></script>
+
+
+<div class="container bg-light">
+  
+    <div class="card shadow-lg">
+        <div class="card-body bg-light">
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-Personel" role="tabpanel">
+                    <form method="post">
+                        <div class="card-header">
+                            <h3 class="font-weight-bold text-dark">ConfirmEmail</h3>
+                        </div>
+                        <div class="card-body row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Email Address</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" asp-for="Email" class="form-control" placeholder="Confirm Email Address"  required />
+                                <input type="text" asp-for="Name" class="form-control" placeholder="Confirm Email Address"  />
+                            </div>
+                            <div class="text-danger" asp-validation-summary="All"></div>
+                        </div>
+                        <hr />
+                        <div class="row justify-content-end col-sm-3 right">
+                            <button id="btnSave" class="btn btn-primary form-control">verify email address</button>
+                        </div>
+                    </form>
+                </div>
+               
+                    </div>
+                </div>
+            </div>
+        </div>
+  

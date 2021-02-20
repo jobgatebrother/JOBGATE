@@ -1,0 +1,253 @@
+﻿@model JOBGATE_MVC_C.Models.Register_CPNModel
+@using (Html.BeginForm("Register_Result", "Account", FormMethod.Post))
+{
+
+    @Html.AntiForgeryToken()
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <a class="fa fa-5x fa-landmark"></a>
+            <div class="text-center">
+                <h2 class="font-weight-bold">Company Register</h2>
+                <h5>Welcome To Job Gate</h5>
+            </div>
+        </div>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-12 col-md-9">
+                <div class="card o-hidden border-0 shadow-lg">
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="row justify-content-center mt-3">
+                                <input asp-for="Email" class="form-control col-sm-6 check" placeholder="Email Address" required />
+                            </div>
+                            <div id="AlertRe">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+
+                            <div class="row justify-content-center mt-3">
+                                <input asp-for="Confirmmail" class="form-control col-sm-6 check" placeholder="Confirm Email Address" required />
+                            </div>
+                            <div id="AlertRe">
+                                <span asp-validation-for="Confirmmail" class="text-danger"></span>
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                <input asp-for="Password" class="form-control col-sm-6 check" placeholder="Password" required />
+                            </div>
+                            <div id="AlertRe">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+
+                            <div class="row justify-content-center mt-3">
+                                <input asp-for="ConfirmPass" class="form-control col-sm-6 check" placeholder="Confirm Password" required />
+                            </div>
+                            <div id="AlertRe">
+                                <span asp-validation-for="ConfirmPass" class="text-danger"></span>
+                            </div>
+                            <div class="row justify-content-center mt-5">
+                                <input asp-for="CompanyName" class="form-control col-sm-6 check" placeholder="Company Name" required />
+                            </div>
+                            @*<div id="AlertRe">
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>*@
+                            <div class="row justify-content-center mt-3">
+                                @*@{
+                    List<SelectListItem> listItems = new List<SelectListItem>();
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Exemplo1",
+                        Value = "Exemplo1"
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Exemplo2",
+                        Value = "Exemplo2",
+
+                    });
+                    listItems.Add(new SelectListItem
+                    {
+                        Text = "Exemplo3",
+                        Value = "Exemplo3"
+                    });
+                }
+
+                @Html.DropDownListFor(model => model.JobPosition, listItems, "-- Select Status --", new { @class = "form-control col-sm-6" })*@
+                                <select class="form-control col-sm-6" asp-for="JobPosition">
+                                    <option value="Accounting/Auditing">Accounting/Auditing</option>
+                                    <option value="Advertising/Public Relations">Advertising/Public Relations</option>
+                                    <option value="Agriculture/Forestry">Agriculture/Forestry</option>
+                                    <option value="Automobile &amp; Parts ">Automobile &amp; Parts </option>
+                                    <option value="Aviation/Airlines">Aviation/Airlines</option>
+                                    <option value="Beauty/Cosmetics">Beauty/Cosmetics</option>
+                                    <option value="Beverages/Food/Restaurant ">Beverages/Food/Restaurant </option>
+                                    <option value="Business Service">Business Service</option>
+                                    <option value="Chemicals/Petrochemicals">Chemicals/Petrochemicals</option>
+                                    <option value="Clothing/Footwear/Garment">Clothing/Footwear/Garment</option>
+                                    <option value="Construction/Furnishings ">Construction/Furnishings </option>
+                                    <option value="Consumer Product ">Consumer Product </option>
+                                    <option value="Education">Education</option>
+                                    <option value="Electronic">Electronic</option>
+                                    <option value="Entertainment/Media">Entertainment/Media</option>
+                                    <option value="Financial/Banking/Securities">Financial/Banking/Securities</option>
+                                    <option value="Furniture">Furniture</option>
+                                    <option value="Government">Government</option>
+                                    <option value="Graphic Design">Graphic Design</option>
+                                    <option value="Hospital">Hospital</option>
+                                    <option value="Hotel/Resort ">Hotel/Resort </option>
+                                    <option value="Human Resources">Human Resources</option>
+                                    <option value="I.T. - Hardware ">I.T. - Hardware </option>
+                                    <option value="I.T. - Internet">I.T. - Internet</option>
+                                    <option value="I.T. - Software/Telecommunication">I.T. - Software/Telecommunication</option>
+                                    <option value="Insurance">Insurance</option>
+                                    <option value="Jewelry &amp; Ornaments">Jewelry &amp; Ornaments</option>
+                                    <option value="Legal/Business Consulting">Legal/Business Consulting</option>
+                                    <option value="Machinery">Machinery</option>
+                                    <option value="Marketing">Marketing</option>
+                                    <option value="Medical/Pharmaceutical">Medical/Pharmaceutical</option>
+                                    <option value="Non-Profit Organization">Non-Profit Organization</option>
+                                    <option value="Packaging">Packaging</option>
+                                    <option value="Paper &amp; Pulp">Paper &amp; Pulp</option>
+                                    <option value="Petroleum/Energy/Mining">Petroleum/Energy/Mining</option>
+                                    <option value="Production/Manufacturing">Production/Manufacturing</option>
+                                    <option value="Publishing &amp; Distribution">Publishing &amp; Distribution</option>
+                                    <option value="Real Estate">Real Estate</option>
+                                    <option value="Retail/Wholesale ">Retail/Wholesale </option>
+                                    <option value="Sport/Recreation">Sport/Recreation</option>
+                                    <option value="Trading/Import/Export ">Trading/Import/Export </option>
+                                    <option value="Transportation/Logistic">Transportation/Logistic</option>
+                                    <option value="Travel">Travel</option>
+                                </select>
+                            </div>
+
+                            <div class="row justify-content-center mt-3">
+                                @Html.EditorFor(model => model.Contact, new { htmlAttributes = new { @class = "form-control col-sm-6", placeholder = "Contact Person" } })
+
+                            </div>
+                            <div class="row justify-content-center mt-3">
+                                @Html.EditorFor(model => model.Telephone, new { htmlAttributes = new { @class = "form-control col-sm-6 MobileNum", placeholder = "Telephone No." } })
+
+                            </div>
+                            <div id="AlertRe"> @Html.ValidationMessageFor(model => model.JobPosition, "", new { @class = "text-danger" })</div>
+                            <div id="AlertRe"> @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })</div>
+                            <div id="AlertRe"> @Html.ValidationMessageFor(model => model.Contact, "", new { @class = "text-danger" })</div>
+                            <div id="AlertRe"> @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })</div>
+                            <div class="row justify-content-center mt-3">
+                                <div class="form-group justify-content-center">
+                                    <div class="custom-checkbox small">
+                                        @*<input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">
+                            I agree to Jobgate's <a class="text-primary"><u>Terms&Condition</u></a> and <a class="text-primary"><u>Privacy Policy</u></a>
+                        </label>*@
+                                        @Html.CheckBoxFor(model => model.PrivacyCheck)
+
+                                        I agree to Jobgate's <a class="text-primary"><u>Terms&Condition</u></a> and <a class="text-primary"><u>Privacy Policy</u></a>
+                                    </div>
+                                    <div id="AlertRe"> @Html.ValidationMessageFor(model => model.PrivacyCheck, "", new { @class = "text-danger" })</div>
+                                    <input class="tooltip form-control input dob--input-long" data-val="true" data-val-grouprequired="Please enter your date of birth" data-val-grouprequired-grouprequiredinputs="Year,Month,Day" name="Year" placeholder="YYYY" tabindex="" type="text" value="">
+                                </div>
+                            </div>
+
+                            @*<div id="AlertRe"> @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })</div>
+            <div id="AlertRe"> @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })</div>*@
+                            @*@Html.ValidationSummary(false, "", new { @class = "text-danger" })*@
+                            <div class="row justify-content-center">
+                                <button type="submit" value="Save" class="btn btn-primary">
+                                    @*<button class="btn btn-primary" href="@Url.Action("Home", "Home")">*@
+                                    <h3 class="text-white">Register</h3>
+                                </button>
+                            </div>
+                            <div class="row justify-content-center">
+                                <a class="h3 text-primary" href="@Url.Action("Login", "Home")">Do you have already Account? <u>Log In</u></a>
+                            </div>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script>
+    $('.MobileNum').keypress(function (e) {
+        if (e.keyCode != 8 && e.keyCode != 46) {
+            var firstnumset = $(this).val();
+            if (firstnumset.length == 2) {
+                $(this).val($(this).val() + '-');
+            }
+            var secondnumset = firstnumset.substr(firstnumset.indexOf('-'));
+            if (secondnumset.length == 5) {
+                $(this).val($(this).val() + '-');
+            }
+        }
+    });
+    (function ($) {
+        jQuery.validator.unobtrusive.adapters.add('grouprequired', ['grouprequiredinputs'], function (options) {
+            options.rules['grouprequired'] = options.params;
+            options.messages['grouprequired'] = options.message;
+        });
+    }(jQuery));
+
+    jQuery.validator.addMethod('grouprequired', function (value, element, params) {
+        var inputs = params.grouprequiredinputs.split(',');
+        var values = $.map(inputs, function (input, index) {
+            var val = $('#' + input).val();
+            return val != '' ? input : null;
+        });
+        return values.length == inputs.length;
+    });
+    $.validator.setDefaults({
+        highlight: function (element) {
+            $(element).closest(".field-error-wrapper").addClass("input-validation-error");
+        },
+        unhighlight: function (element) {
+            $(element).closest(".field-error-wrapper").removeClass("input-validation-error");
+        }
+    });
+    (function () {
+        $.data($('form')[0], 'validator').settings.showErrors = function () {
+            if (this.settings.unhighlight) {
+                for (var i = 0, elements = this.validElements(); elements[i]; i++) {
+                    this.settings.unhighlight.call(this, elements[i], this.settings.errorClass, this.settings.validClass);
+                }
+            }
+            this.hideErrors();
+            for (var i = 0; this.errorList[i]; i++) {
+                var error = this.errorList[i];
+                this.settings.highlight && this.settings.highlight.call(this, error.element, this.settings.errorClass, this.settings.validClass);
+                this.showLabel(error.element, error.message);
+            }
+            if (this.errorList.length) {
+                this.toShow = this.toShow.add(this.containers);
+            }
+            if (this.settings.success) {
+                for (var i = 0; this.successList[i]; i++) {
+                    this.showLabel(this.successList[i]);
+                }
+            }
+            this.toHide = this.toHide.not(this.toShow);
+
+            this.addWrapper(this.toShow).show();
+        };
+    });
+   
+        $(".check").click(function () {
+        var form = $("form")[0];
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    });
+
+    //$(".check").delegate("label", 'click', function () {
+    //    alert("A Label was clicked....");
+    //}).validate({
+    //    rules: {
+    //        gebdatum: {
+    //            required: true,
+    //            dateDE: true
+    //        }
+    //    }
+    //})
+
+
+</script>

@@ -1,3 +1,0 @@
-# jobgate
-jobgate
-revised1

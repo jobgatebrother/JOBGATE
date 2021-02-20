@@ -2,11 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-JOBGATE_MVC_C-A2F23996-174D-4C4D-BCCA-ADA81DBA48A3</UserSecretsId>
     <RootNamespace>JOBGATE_MVC_C</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Scripts\" />
+    <Compile Remove="Migrations\20210217020514_ResumeEPY.cs" />
+    <Compile Remove="Migrations\20210217020514_ResumeEPY.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Terms\Cookie.cshtml" />
+    <None Include="Views\Terms\Privacy.cshtml" />
+    <None Include="Views\Terms\TermsOfService.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.11">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
   </ItemGroup>
 
 </Project>

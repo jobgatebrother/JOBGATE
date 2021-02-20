@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "csConnection"
+    },
+    "mssql2": {
+      "type": "mssql.local",
+      "connectionId": "JOBGATE_MVC_CContextConnection"
+    }
+  }
+}

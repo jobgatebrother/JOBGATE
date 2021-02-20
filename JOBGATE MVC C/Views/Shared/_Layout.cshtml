@@ -11,7 +11,41 @@
     <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
     <link rel="stylesheet" href="~/css/image.css" />
     <link rel="stylesheet" href="~/css/all.min.css" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <style type="text/css">
+        #AlertRe {
+            position: center;
+            text-align: center;
+            margin-top: 1%;
+        }
+
+        #AlertReCPN {
+            position: center;
+            text-align: center;
+        }
+
+        #CheckboxTerms {
+            position: center;
+            text-align: center;
+        }
+    </style>
+    <script>
+        // extend range validator method to treat checkboxes differently
+        var defaultRangeValidator = $.validator.methods.range;
+        $.validator.methods.range = function (value, element, param) {
+            if (element.type === 'checkbox') {
+                // if it's a checkbox return true if it is checked
+                return element.checked;
+            } else {
+                // otherwise run the default validation function
+                return defaultRangeValidator.call(this, value, element, param);
+            }
+        }
+    </script>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
         <a class="navbar-brand font-weight-bold" href="@Url.Action("Home", "Home")">
@@ -24,11 +58,26 @@
         <div class="collapse navbar-collapse justify-content-end" id="navbarHome">
             <ul class="nav nav-pills flex-column flex-sm-row">
                 <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Search Job</a>
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Resume</a>
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Job Matching</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" asp-controller="MyPage" asp-action="MyPage">Resume</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Index", "Role")">Job Matching</a>
                 <label class="flex-sm-fill text-sm-center nav-link">|</label>
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Login", "Home")">Login</a>
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Register", "Home")">Register</a>
+
+                @if (User?.Identity?.IsAuthenticated ?? false)
+                {
+                    <a class="nav-link text-dark" asp-area=""><label>@User.Identity.Name</label></a>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">Logout</a>
+
+
+
+
+
+                }
+                else
+                {
+                    <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Login", "Account")">Login</a>
+                    <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Register", "Home")">Register</a>
+
+                }
                 <a class="flex-sm-fill text-sm-center nav-link text-dark fa fa-globe-americas"></a>
                 <select class="flex-sm-fill text-sm-center nav-link text-sm-left form-control" style="width:75px;">
                     <option>TH</option>

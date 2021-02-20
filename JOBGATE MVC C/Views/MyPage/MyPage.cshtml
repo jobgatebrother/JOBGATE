@@ -1,0 +1,189 @@
+﻿@{ Layout = "_Layout MyPage"; }
+@model  MyPage
+
+<div class="container bg-light">
+    <div class="card shadow-lg">
+        <div class="card-body bg-light">
+            @using (Html.BeginForm("Create", "MyPage", FormMethod.Post))
+            {
+        <div class="card-header">
+            <h3 class="font-weight-bold text-dark">My Account</h3>
+        </div>
+                        <div class="card-body row">
+                            <div class="col-sm-9 form-group row">
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Email Address</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email@Email.com", Readonly = "Readonly", type = "email" } })*@
+                                    <input type="email" class="form-control" value="@Model.Email" placeholder="Email@Email.com" disabled />
+                                    
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Password</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    @*@Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", placeholder = "Email@Email.com", disabled = "disabled", type = "password" } })*@
+                                    <input type="password" class="form-control" placeholder="**********" disabled />
+                                </div>
+                                <br />
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">First Name</label>
+                                </div>
+
+                                <div class="col-sm-8 mt-2">
+                                    @*@Html.TextBoxFor(model => model.members.FirstName, new { htmlAttributes = new { @class = "form-control", placeholder = "Typing First Name", type = "text" } })*@
+                                  
+                                        <input type="text" class="form-control" asp-for="FirstName" placeholder="Typing First Name" value="@Model.FirstName" />
+                                 
+                                                       
+                                    </div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Last Name</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    @*@Html.EditorFor(model => model.members.LastName, new { htmlAttributes = new { @class = "form-control", placeholder = "Typing Last Name", type = "text" } })*@
+                                    <input type="text" class="form-control"  asp-for="LastName" placeholder="Typing Last Name" />
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Gender</label>
+                                </div>
+                                <div class="col-sm-8 mt-2">
+                                    <div class="nav nav-pills" id="gender" role="tablist">
+                                        <button class="nav-link border btn" id="male" data-toggle="list" role="tab" value="1">Male</button>
+                                        <button class="nav-link border btn" id="female" data-toggle="list" role="tab" value="2">Female</button>
+                                        <button class="nav-link border btn" id="other" data-toggle="list" role="tab" value="3">Other</button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Birth Date</label>
+                                </div>
+                                <div class="col-sm-2 mt-2">
+                                    <select class="form-control">
+                                        <option>Date</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                        <option>13</option>
+                                        <option>14</option>
+                                        <option>15</option>
+                                        <option>16</option>
+                                        <option>17</option>
+                                        <option>18</option>
+                                        <option>19</option>
+                                        <option>20</option>
+                                        <option>21</option>
+                                        <option>22</option>
+                                        <option>23</option>
+                                        <option>24</option>
+                                        <option>25</option>
+                                        <option>26</option>
+                                        <option>27</option>
+                                        <option>28</option>
+                                        <option>29</option>
+                                        <option>30</option>
+                                        <option>31</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2 mt-2">
+                                    <select class="form-control">
+                                        <option>Month</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-2 mt-2">
+                                    <select class="form-control ml-2">
+                                        <option>Year</option>
+                                        @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                        {
+                        <option>@i</option>}
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 mt-2"></div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Mobile Phone</label>
+                                </div>
+                                <div class="col-sm-5 mt-2">
+                                    @*@Html.EditorFor(model => model.members.Tel, new { htmlAttributes = new { @class = "form-control", placeholder = "Typing Mobile No.", type = "tel" } })*@
+                                    <input type="tel" class="form-control" asp-for="Tel"  placeholder="Typing Mobile No." />
+                                </div>
+                                <div class="col-sm-4 mt-2"></div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Nationality</label>
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <select class="form-control">
+                                        <option>Country</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mt-2"></div>
+                                <div class="col-sm-3 mt-2"></div>
+                                <div class="col-sm-8 mt-2 ml-4">
+                                    <small>
+                                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                                        <label class="custom-control-label" for="customCheck">Staying Overseas</label>
+                                    </small>
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <label class="mt-1">Current Address</label>
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <select class="form-control">
+                                        <option>Province</option>
+                                        <option>นครศรีธรรมราช</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <select class="form-control">
+                                        <option>District</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 mt-2">
+                                    <select class="form-control">
+                                        <option>Sub-District</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-3 mt-2"></div>
+                                <div class="col-sm-9 mt-2">
+                                    <input type="text" class="col-sm form-control" asp-for="CurrentAddress" placeholder="Address" />
+                                </div>
+
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <div class="col-1"></div>
+                                <div class="card mt-2 ml-4" style="width:155px; height:197px;">
+                                    <img class="card-img w-100 h-100 bg-preset1" src="~/Images/user.png" />
+                                </div>
+                                <input type="file" class="form-control-file mt-2" />
+                            </div>
+                        </div>
+
+                                        <div class="row justify-content-center">
+                                            <input type="hidden" class="form-control" asp-for="ClientId" value="@Model.ClientId"/>
+                                            <button class="btn btn-primary col-sm-3">SAVE</button>
+                                        </div> 
+                                        }
+
+                                                                    </div>
+    </div>
+</div>

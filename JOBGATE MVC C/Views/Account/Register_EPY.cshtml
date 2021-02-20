@@ -1,0 +1,122 @@
+﻿@model Register_EPYModel
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+
+
+</head>
+
+<div class="container-fluid">
+    <br />
+    <br />
+    <br />
+    <div class="row justify-content-center">
+        <a class="fa fa-5x fa-user"></a>
+        <div class="text-center">
+            <h2 class="font-weight-bold">Employee Register</h2>
+            <h5>Welcome To Job Gate</h5>
+        </div>
+    </div>
+    <br />
+    <div class="row justify-content-center">
+        <div class="col-xl-5 col-lg-12 col-md-9">
+            <div class="card o-hidden border-0 shadow-lg">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="card-body">
+                    <form method="post">
+                        @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
+                        <div class="row justify-content-center mt-3">
+                            <input type="text" asp-for="Name" class="form-control col-sm-6 check" placeholder="UserName" required />
+                        </div>
+                        <div id="AlertRe">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="row justify-content-center mt-3">
+                            <input type="email" asp-for="Email" class="form-control col-sm-6 check" placeholder="Email Address" required />
+                        </div>
+                        <div id="AlertRe">
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <input asp-for="Confirmmail" class="form-control col-sm-6 check" placeholder="Confirm Email Address" required />
+                        </div>
+                        <div id="AlertRe">
+                            <span asp-validation-for="Confirmmail" class="text-danger"></span>
+                        </div>
+                        <div class="row justify-content-center mt-3">
+                            <input asp-for="Password" class="form-control col-sm-6 check" placeholder="Password" required />
+                        </div>
+                        <div id="AlertRe">
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="row justify-content-center mt-3">
+                            <input asp-for="ConfirmPass" class="form-control col-sm-6 check" placeholder="Confirm Password" required />
+                        </div>
+                        <div id="AlertRe">
+                            <span asp-validation-for="ConfirmPass" class="text-danger"></span>
+                        </div>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+
+
+                        <div class="row justify-content-center mt-3">
+                            <div class="form-group justify-content-center">
+                                <div class="custom-control custom-checkbox small">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck" asp-for="PrivacyCheck" required />
+                                    <label class="custom-control-label" for="customCheck">
+                                        I agree to Jobgate's <a class="text-primary"><u>Terms&Condition</u></a> and <a class="text-primary"><u>Privacy Policy</u></a>
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+
+
+                        <div class="row justify-content-center">
+
+                            <button type="submit" value="Save" class="btn btn-primary">
+                                <h3 class="text-white">Register</h3>
+                            </button>
+                        </div>
+                    </form>
+
+                    <div class="row justify-content-center">
+                        <a class="h3 text-primary" href="@Url.Action("Login", "Home")">Do you have already Account? <u>Log In</u></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*}*@
+<script>
+    $(".check").click(function () {
+        var form = $("form")[0];
+        if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+    });
+
+    //$(".check").delegate("label", 'click', function () {
+    //    alert("A Label was clicked....");
+    //}).validate({
+    //    rules: {
+    //        gebdatum: {
+    //            required: true,
+    //            dateDE: true
+    //        }
+    //    }
+    //})
+  
+</script>
+
+
