@@ -1,0 +1,21 @@
+﻿.img-user {
+    background-image: url('../Images/user.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.bg-logo {
+    background-image: url('../Images/Logo 1.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bg-preset1 {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+

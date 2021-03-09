@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using JOBGATE.Areas.Identity.Data
+
+@inject SignInManager<UserAccount> SignInManager
+@inject UserManager<UserAccount> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item mr-3">
+            <a id="manage" class="nav-link text-dark font-weight-bolder" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">
+            <i class="fa fa-user"></i>
+            @UserManager.GetUserName(User)</a>
+        </li>
+        <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Home", "Home", new { area = "" })">
+                <button id="logout" type="submit" class="nav-link btn btn-primary text-white font-weight-bolder">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark font-weight-bolder" id="login" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark font-weight-bolder" id="register" asp-controller="Home" asp-action="Register">Register</a>
+        </li>
+
+    }
+</ul>

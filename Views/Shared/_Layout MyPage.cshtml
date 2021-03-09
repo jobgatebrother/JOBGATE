@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>JOB GATE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
+    <link rel="stylesheet" href="~/css/image.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body id="page-top">
+    <div id="wrapper">
+        <div class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center border-0" href="@Url.Action("Home","Home")">
+                <img src="~/Images/Logo 1.png" width="50" height="50" />
+                <div class="sidebar-brand-text mx-3">JOBGATE</div>
+            </a>
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("MyPage","MyPage")">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>MY PAGE</span>
+                </a>
+            </li>
+            <hr class="sidebar-divider my-0">
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseResume"
+                   aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-edit"></i>
+                    <span>MY RESUME</span>
+                </a>
+                <div id="collapseResume" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="collapse-inner rounded bg-light">
+                        <a class="collapse-item text-dark" href="@Url.Action("Resume","MyPage")">Register Resume</a>
+                        <a class="collapse-item text-dark" href="@Url.Action("ManageResume","MyPage")">Manage Resume</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+
+                <a class="nav-link" href="@Url.Action("Favorite","MyPage")">
+                    <i class="fas fa-fw fa-bookmark"></i>
+                    <span>FAVORITE</span>
+                </a>
+                <a class="nav-link" href="@Url.Action("Applying","MyPage")">
+                    <i class="fas fa-fw fa-paper-plane"></i>
+                    <span>APPLYING STATUS</span>
+                </a>
+            </li>
+        </div>
+        <div class="container-fluid col-12 col-md-9 pull-md-3">
+            <br />
+            @RenderBody()
+            <br />
+        </div>
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

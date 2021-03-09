@@ -1,0 +1,337 @@
+﻿@{ Layout = "_Layout MyCompany"; }
+
+<link rel="stylesheet" href="~/company/css/JobPosting.css" />
+
+<section class="mt-md-5 bg-light shadow-lg">
+    <div class="container">
+        <div class="card-header bg-transparent">
+            <h3 class="fw-bolder text-primary">Job Posting Management</h3>
+        </div>
+        <div class="card-body">
+            <div class="mt-2 row">
+                <div class="col-sm-6">
+                    <input type="radio" class="btn-check" name="Filter" id="All" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary" for="All">#All</label>
+                    <input type="radio" class="btn-check" name="Filter" id="Open" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Open">#Open</label>
+                    <input type="radio" class="btn-check" name="Filter" id="Close" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="Close">#Close</label>
+                </div>
+                <div class="col-sm-6 d-flex justify-content-end">
+                    <a class="btn btn-primary col-sm-8" href="@Url.Action("JobPosting_New","MyCompany")">+ Register New Job Posting</a>
+                </div>
+            </div>
+            <div class="mt-2 mb-4 row">
+                <div class="col-sm-6">
+                    <select class="form-select">
+                        <option>All Resume Type</option>
+                    </select>
+                </div>
+                <div class="col-sm-6 row justify-content-end">
+                    <a href="#" class="w-auto small">Lastest</a>
+                    <p class="w-auto small">|</p>
+                    <a href="#" class="w-auto small">View Count</a>
+                    <p class="w-auto small">|</p>
+                    <a href="#" class="w-auto small">Apply Count</a>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow mt-2">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow mt-2">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow mt-2">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow mt-2">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow mt-2">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body bg-light shadow mt-2">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="d-flex justify-content-center mt-2">
+                            <button class="btn btn-outline-primary">Regular Hiring</button>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+                            </div>
+                            <div class="card bg-transparent col-sm-6 border-0">
+                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
+                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
+                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
+                        <label class="fw-bold small d-flex mt-3">#Salary</label>
+                    </div>
+                    <div class="col-sm-2 text-center">
+                        <label class="fw-bold small mt-3">#Update Date</label>
+                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                        <label class="custom-toggle mt-2">
+                            <input type="checkbox" class="w-auto" checked>
+                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
+                        </label>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
+                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center mt-5">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+

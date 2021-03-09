@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JOBGATE</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
+    <link rel="stylesheet" href="~/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/image.css" />
+</head>
+<body class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand font-weight-bold" asp-area="" asp-controller="Home" asp-action="Home">
+                    <img src="~/Images/Logo 1.png" width="50" height="50" />
+                    JOBGATE
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <partial name="_LoginPartial.cshtml" />
+                    <ul class="navbar-nav mr-3">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bolder" asp-controller="Home" asp-action="JobResult">Search Job</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark font-weight-bolder" asp-controller="Home" asp-action="Resume">Resume</a>
+                        </li>
+                        <li class="nav-item mr-3">
+                            <a class="nav-link text-dark font-weight-bolder" asp-controller="Home" asp-action="JobMatching">Job Matching</a>
+                        </li>
+                        <li class="nav-item border-right">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <content>
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+    </content>
+
+    <footer class="border-top mt-auto">
+        <div class="container">
+            <div class="row mt-md-2">
+                <div class="col-md-4">
+                    <h5 class="text-uppercase font-weight-bolder text-primary">JOBGATE</h5>
+                    <p style="white-space:pre-line;">24 Hours Customer
+                        Contacts: 02-000-0000
+                        Advertisement : support@myjobgate.com
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <a href="@Url.Action("Home","Home")" class="text-primary d-flex">About</a>
+                    <a href="@Url.Action("Home","Home")" class="text-primary d-flex">Advertisement</a>
+                </div>
+                <div class="col-md-4">
+                    <a href="@Url.Action("Privacy", "Terms")" class="text-dark d-flex">Privacy Policy</a>
+                    <a href="@Url.Action("Cookie", "Terms")" class="text-dark d-flex">Cookie Policy</a>
+                    <a href="@Url.Action("TermsOfService", "Terms")" class="text-dark d-flex">Terms of Service Agreement</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
