@@ -22,7 +22,7 @@
     <div class="row justify-content-center">
         <div class="col-xl-5 col-lg-12 col-md-9">
             <div class="card o-hidden border-0 shadow-lg">
-                <div asp-validation-summary="All" class="text-danger"></div>
+                
                 <div class="card-body">
                     <form method="post">
                         @*<div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
@@ -46,21 +46,24 @@
                             <span asp-validation-for="Confirmmail" class="text-danger"></span>
                         </div>
                         <div class="row justify-content-center mt-3">
-                            <input asp-for="Password" class="form-control col-sm-6 check" placeholder="Password" required />
+                            <input asp-for="Password" id="pwdId" class="form-control col-sm-6 pwds" placeholder="Password" pattern="^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}$" required />
                         </div>
                         <div id="AlertRe">
+                            @*<div class="valid-feedback">Valid</div>
+                                <div class="invalid-feedback">a to z only (2 to 4 long)</div>*@
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
 
                         <div class="row justify-content-center mt-3">
-                            <input asp-for="ConfirmPass" class="form-control col-sm-6 check" placeholder="Confirm Password" required />
+                            <input asp-for="ConfirmPass" id="cPwdId" class="form-control col-sm-6 pwds" placeholder="Confirm Password" pattern="^(?=.*[a-z])(?=.*\d)[a-z\d]{8,}" required />
                         </div>
                         <div id="AlertRe">
+                            @*<div id="cPwdValid" class="valid-feedback">Valid</div>
+        <div id="cPwdInvalid" class="invalid-feedback">a to z only (2 to 4 long)</div>*@
                             <span asp-validation-for="ConfirmPass" class="text-danger"></span>
+                            
                         </div>
-                        <div class="invalid-feedback">
-                            You must agree before submitting.
-                        </div>
+                       
 
 
                         <div class="row justify-content-center mt-3">
@@ -68,10 +71,10 @@
                                 <div class="custom-control custom-checkbox small">
                                     <input type="checkbox" class="custom-control-input" id="customCheck" asp-for="PrivacyCheck" required />
                                     <label class="custom-control-label" for="customCheck">
-                                        I agree to Jobgate's <a class="text-primary"><u>Terms&Condition</u></a> and <a class="text-primary"><u>Privacy Policy</u></a>
+                                        I agree to Jobgate's <a class="text-primary" data-toggle="modal" data-target=".Terms"><u>Terms&Condition</u></a> and <a class="text-primary" data-toggle="modal" data-target=".Privacy"><u>Privacy Policy</u></a>
                                     </label>
                                 </div>
-                                
+
                             </div>
                         </div>
 
@@ -96,6 +99,48 @@
 </div>
 
 @*}*@
+@*<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>*@
+
+<div class="modal fade bd-example-modal-lg Terms" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Terms&Condition</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg Privacy" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Privacy Policy</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+    </div>
+</div>
+</div>
+
 <script>
     $(".check").click(function () {
         var form = $("form")[0];
@@ -116,7 +161,47 @@
     //        }
     //    }
     //})
-  
+    $(document).ready(function () {
+        // Check if passwords match
+        $('#pwdId, #cPwdId').on('keyup', function () {
+            if ($('#pwdId').val() != '' && $('#cPwdId').val() != '' && $('#pwdId').val() == $('#cPwdId').val()) {
+                $("#submitBtn").attr("disabled", false);
+                $('#cPwdValid').show();
+                $('#cPwdInvalid').hide();
+                $('#cPwdValid').html('Valid').css('color', 'green');
+                $('.pwds').removeClass('is-invalid')
+            } else {
+                $("#submitBtn").attr("disabled", true);
+                $('#cPwdValid').hide();
+                $('#cPwdInvalid').show();
+                $('#cPwdInvalid').html('Not Matching').css('color', 'red');
+                $('.pwds').addClass('is-invalid')
+            }
+        });
+        let currForm1 = document.getElementById('myForm1');
+        // Validate on submit:
+        currForm1.addEventListener('submit', function (event) {
+            if (currForm1.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            currForm1.classList.add('was-validated');
+        }, false);
+        // Validate on input:
+        currForm1.querySelectorAll('.form-control').forEach(input => {
+            input.addEventListener(('input'), () => {
+                if (input.checkValidity()) {
+                    input.classList.remove('is-invalid')
+                    input.classList.add('is-valid');
+                } else {
+                    input.classList.remove('is-valid')
+                    input.classList.add('is-invalid');
+                }
+                var is_valid = $('.form-control').length === $('.form-control.is-valid').length;
+                $("#submitBtn").attr("disabled", !is_valid);
+            });
+        });
+    });
 </script>
 
 

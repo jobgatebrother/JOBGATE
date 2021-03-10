@@ -94,8 +94,8 @@ namespace JOBGATE_MVC_C.Controllers
                     if (result.Succeeded)
                     {
 
-                   // AppUser users = await userManager.GetUserAsync(HttpContext.User);
-                      
+                    // AppUser users = await userManager.GetUserAsync(HttpContext.User);
+
                     //AppUser account = await userManager.GetUserAsync(HttpContext.User);
                     //AppUser user = await userManager.FindByIdAsync(userId);
                     //if (user != null)
@@ -114,18 +114,18 @@ namespace JOBGATE_MVC_C.Controllers
                     //            Errors(resultRole);
                     //    }
                     //}
-                    //var token = await userManager.GenerateEmailConfirmationTokenAsync(appUser);
-                    //var confirmationLink = Url.Action("ConfirmEmail", "Email", new { token, email = user.Email }, Request.Scheme);
-                    //EmailHelper emailHelper = new EmailHelper();
-                    //bool emailResponse = emailHelper.SendEmail(user.Email, confirmationLink);
+                    var token = await userManager.GenerateEmailConfirmationTokenAsync(appUser);
+                    var confirmationLink = Url.Action("ConfirmEmail", "Email", new { token, email = user.Email }, Request.Scheme);
+                    EmailHelper emailHelper = new EmailHelper();
+                    bool emailResponse = emailHelper.SendEmail(user.Email, confirmationLink);
 
-                    //if (emailResponse)
-                    return RedirectToAction("Register_Result");
-                        //else
-                        //{
-                        //    return RedirectToAction("Home");
-                        //}
+                    if (emailResponse)
+                        return RedirectToAction("Register_Result");
+                    else
+                    {
+                        return RedirectToAction("Home");
                     }
+                }
                     else
                     {
                         //foreach (IdentityError error in result.Errors)
@@ -167,6 +167,7 @@ namespace JOBGATE_MVC_C.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 AppUser appUser = await userManager.FindByEmailAsync(user.Email);
                 if (appUser != null)
                 {

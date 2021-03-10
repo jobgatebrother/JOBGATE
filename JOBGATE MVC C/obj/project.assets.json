@@ -1087,6 +1087,18 @@
           "lib/netstandard1.6/NuGet.Frameworks.dll": {}
         }
       },
+      "Omise/2.7.10": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Omise.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Omise.dll": {}
+        }
+      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -4652,6 +4664,18 @@
         "lib/netstandard1.6/NuGet.Frameworks.xml",
         "nuget.frameworks.4.7.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
+      ]
+    },
+    "Omise/2.7.10": {
+      "sha512": "KC8zK5mjZyLmePnWvE01terzNLUYVAIb3QJww51btJNQimPd5B4v54hKjNQ8zS9LNH7aVTHBVmbkHi0QMkoRYQ==",
+      "type": "package",
+      "path": "omise/2.7.10",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/Omise.dll",
+        "omise.2.7.10.nupkg.sha512",
+        "omise.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -9213,7 +9237,8 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.11",
       "Microsoft.EntityFrameworkCore.Sqlite >= 3.1.11",
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.11",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
+      "omise >= 2.7.10"
     ]
   },
   "packageFolders": {
@@ -9222,11 +9247,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
+      "projectUniqueName": "D:\\Jobgate\\Git\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
       "projectName": "JOBGATE MVC C",
-      "projectPath": "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
+      "projectPath": "D:\\Jobgate\\Git\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
       "packagesPath": "C:\\Users\\kunan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\obj\\",
+      "outputPath": "D:\\Jobgate\\Git\\JOBGATE MVC C\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\kunan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -9288,6 +9313,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.1.5, )"
+          },
+          "omise": {
+            "target": "Package",
+            "version": "[2.7.10, )"
           }
         },
         "imports": [

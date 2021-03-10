@@ -1,0 +1,1276 @@
+﻿@{ Layout = "_Layout MyCompany"; }
+
+<link rel="stylesheet" href="~/css/sb-admin-2.css" />
+
+<script>
+    $(document).ready(function () {
+        $('#Sidebar').mouseenter(function () {
+            $(this).removeClass('toggled');
+        });
+
+        $('#Sidebar').mouseleave(function () {
+            $(this).addClass('toggled');
+        });
+
+        $(".star-click").click(function () {
+            $('.star').toggleClass("far fa");
+        });
+    });
+</script>
+
+<section class="mt-md-5 bg-light shadow-lg">
+    <div class="container">
+        <div class="card-header bg-transparent">
+            <h3 class="fw-bolder text-primary">Favorites</h3>
+        </div>
+        <ul class="nav nav-pills mt-3" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active btn-outline-primary" id="Favorite-tab" data-bs-toggle="pill" data-bs-target="#Favorite" type="button" role="tab">Favorite</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="Opened-tab" data-bs-toggle="pill" data-bs-target="#Opened" type="button" role="tab">Opened Contracts</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="Recently-tab" data-bs-toggle="pill" data-bs-target="#Recently" type="button" role="tab">Recently View</button>
+            </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade show active bg-light shadow" id="Favorite" role="tabpanel">
+                <div id="wrapper">
+                    <div class="sidebar sidebar-dark toggled" id="Sidebar" style="background-color: #4e73df;">
+                        <a class="sidebar-brand d-flex border-0">
+                            <p><i class="ri-bookmark-fill"></i>All</p>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <label class="fw-bolder">#Selected Label Name</label>
+                        <div class="row mt-3">
+                            <div class="form-check w-auto">
+                                <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelectAll">
+                                <label class="form-check-label small" for="ChkSelectAll">Select All</label>
+                            </div>
+                            <div class="d-grid gap-2 d-md-block w-auto">
+                                <button type="button" class="btn btn-outline-primary">Move</button>
+                                <button type="button" class="btn btn-outline-danger">Delete</button>
+                            </div>
+                        </div>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="" class="text-dark">
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-1 d-flex align-items-center">
+                                        <div class="form-check w-auto">
+                                            <input class="form-check-input btn-outline-primary" type="checkbox" value="" id="ChkSelect">
+                                            <label class="form-check-label small" for="ChkSelect"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="row">
+                                            <div class="col-12 col-sm-12 mt-1">
+                                                <label class="fw-bolder">#Resume Title Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#First Name</label>
+                                            </div>
+                                            <div class="col-6 col-sm-6 mt-4">
+                                                <label class="fw-bolder">#Last Name</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="row">
+                                            <div class="col-8 col-sm-6">
+                                                <label class="fw-bolder">#Gender</label>
+                                            </div>
+                                            <div class="col-4 col-sm-6">
+                                                <label class="fw-bolder">#Age</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Opened" role="tabpanel">
+                <div class="card-body">
+                    <div class="mt-2 mb-4">
+                        <button type="button" class="btn btn-outline-primary w-auto">Lastest Date</button>
+                        <button type="button" class="btn btn-outline-primary w-auto">Age(Young-Old)</button>
+                        <button type="button" class="btn btn-outline-primary w-auto">Expected Salary(Low-High)</button>
+                    </div>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="Recently" role="tabpanel">
+                <div class="card-body">
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#" class="text-dark">
+                        <div class="card-body bg-light shadow mt-2">
+                            <div class="row">
+                                <div class="col-sm-1 d-flex align-items-center">
+                                    <div class="btn">
+                                        <i class="star-click star far fa-star fa-2x" style="color:yellow;"></i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 text-center mt-4">
+                                    <small class="fw-bold">Date</small>
+                                    <small class="fw-bold">27/2/2021</small>
+                                </div>
+                                <div class="col-sm-2">
+                                    <img src="~/Images/user.png" class="card-img" style="width:100px;height:100px;" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-12 mt-1">
+                                            <label class="fw-bolder">#Resume Title Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#First Name</label>
+                                        </div>
+                                        <div class="col-6 col-sm-6 mt-4">
+                                            <label class="fw-bolder">#Last Name</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <div class="row">
+                                        <div class="col-8 col-sm-6">
+                                            <label class="fw-bolder">#Gender</label>
+                                        </div>
+                                        <div class="col-4 col-sm-6">
+                                            <label class="fw-bolder">#Age</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

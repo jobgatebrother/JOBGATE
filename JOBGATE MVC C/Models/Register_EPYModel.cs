@@ -11,10 +11,11 @@ namespace JOBGATE_MVC_C.Models
 {
     public class Register_EPYModel
     {
-
+        //
         //[Key]
         public int Id { get; set; }
         [Required(ErrorMessage = "Require UserName")]
+        [RegularExpression(@"^[A-Za-z0-9]+(?:[_-] [A-Za-z0-9]+)*$", ErrorMessage = "UserName is invalid can only contain letters or digits.")]
         public string Name { get; set; }
         [Required(ErrorMessage = "Incorrect Email form")]
         [EmailAddress]

@@ -57,9 +57,9 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarHome">
             <ul class="nav nav-pills flex-column flex-sm-row">
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Search Job</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("JobResult", "Home")">Search Job</a>
                 <a class="flex-sm-fill text-sm-center nav-link text-dark" asp-controller="MyPage" asp-action="MyPage">Resume</a>
-                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Index", "Role")">Job Matching</a>
+                <a class="flex-sm-fill text-sm-center nav-link text-dark" href="@Url.Action("Home", "Home")">Job Matching</a>
                 <label class="flex-sm-fill text-sm-center nav-link">|</label>
 
                 @if (User?.Identity?.IsAuthenticated ?? false)
@@ -93,38 +93,40 @@
         <br />
     </div>
     <div style="height:100px;"></div>
-    <footer class="footer bg-light row fixed-bottom">
-        <div class="col-sm-3 text-center">
-            <h3>JOBGATE</h3>
-            24 Hours Customer Contacts: 02-000-0000
-            <br />
-            Advertisement : support@myjobgate.com
-        </div>
-        <div class="col-sm-5 form-group row">
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="flex-sm-fill nav-link" href="@Url.Action("Home", "Home")">About Us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill nav-link" href="@Url.Action("Home", "Home")">Location</a>
-                </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill nav-link" href="@Url.Action("Home", "Home")">Advertisement</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-4 form-group row">
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a class="flex-sm-fill nav-link text-dark" href="@Url.Action("Home", "Home")">Privacy Policy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill nav-link text-dark" href="@Url.Action("Home", "Home")">Cookie Policy</a>
-                </li>
-                <li class="nav-item">
-                    <a class="flex-sm-fill nav-link text-dark" href="@Url.Action("Home", "Home")">Terms of Service Agreement</a>
-                </li>
-            </ul>
+    <footer class="bg-light text-center text-lg-start sticky-footer">
+        <div class="container-fluid p-4">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0 text-left">
+                    <h5 class="text-uppercase font-weight-bold text-primary">JOBGATE</h5>
+                    <p style="white-space:pre-line;">
+                        24 Hours Customer Contacts: 02-000-0000
+                        Advertisement : support@myjobgate.com
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <ul class="list-unstyled mb-0">
+                        <li>
+                            <a href="@Url.Action("Home","Home")" class="text-primary">About</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Home","Home")" class="text-primary">Advertisement</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="@Url.Action("Privacy", "Terms")" class="text-dark">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Cookie", "Terms")" class="text-dark">Cookie Policy</a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("TermsOfService", "Terms")" class="text-dark">Terms of Service Agreement</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
 

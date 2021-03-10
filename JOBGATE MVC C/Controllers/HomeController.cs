@@ -56,6 +56,39 @@ namespace JOBGATE_MVC_C.Controllers
             return View();
         }
 
+        public IActionResult Checkout()
+        {
+            //CheckoutModel Che = new CheckoutModel();
+            //Che.ChargeID = Ch.ChargeID;
+            return View();
+        }
+        public IActionResult Payment()
+        {
+            return View();
+        }
+         public IActionResult Company_Introduction()
+        {
+            return View();
+        }
+        public IActionResult Job_Description()
+        {
+            return View();
+        }
+
+        public IActionResult ResetPassword()
+        {
+            return View();
+        }
+
+        public IActionResult NewPassword()
+        {
+            return View();
+        }
+
+        public IActionResult JobResult()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -18,14 +18,16 @@
                                 <label class="mt-1">Email Address</label>
                             </div>
                             <div class="col-sm-8 mt-2">
-                                <input type="text" asp-for="Email" class="form-control" placeholder="Confirm Email Address"  required />
-                                <input type="text" asp-for="Name" class="form-control" placeholder="Confirm Email Address"  />
+                                <input type="text" asp-for="Email" class="form-control" placeholder="Confirm Email Address"  readonly />
+                               
                             </div>
-                            <div class="text-danger" asp-validation-summary="All"></div>
+                           
                         </div>
                         <hr />
-                        <div class="row justify-content-end col-sm-3 right">
-                            <button id="btnSave" class="btn btn-primary form-control">verify email address</button>
+                        <div class="row col-sm-12">
+                            <h4>We've sent you link to confirm your email address. Please check your inbox.</h4>
+                    
+                            @*<button id="btnSave" class="btn btn-primary form-control">verify email address</button>*@
                         </div>
                     </form>
                 </div>

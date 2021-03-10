@@ -39,8 +39,10 @@ namespace JOBGATE_MVC_C
                 option.Password.RequireLowercase = true;
                option.Password.RequireNonAlphanumeric = false;
                 option.Password.RequireUppercase = false;
+                option.User.AllowedUserNameCharacters =
+           "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                 // option.User.AllowedUserNameCharacters = null;
-                
+
             });
            // services.ConfigureApplicationCookie(options =>
            //{

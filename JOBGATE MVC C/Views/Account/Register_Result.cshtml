@@ -7,7 +7,7 @@
         <div class="text-center">
             <h4><a class="text-success h2">Congratuation!</a> You are registered</h4>
             <h4>Few seconds later, move to <a class="text-primary" href="@Url.Action("Login","Account")"><u>Log-in</u></a> page</h4>
-           
+            <h4>We've sent you alink to confirm your email address. Please check your inbox.</h4>
         </div>
     </div>
 </div>
@@ -15,5 +15,5 @@
     
     window.setTimeout(function () {
         window.location.href = '@Url.Action("Login","Account")';
-    }, 4000);
+    }, 5000);
 </script>

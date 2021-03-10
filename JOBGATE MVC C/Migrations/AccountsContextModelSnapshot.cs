@@ -84,15 +84,55 @@ namespace JOBGATE_MVC_C.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.Cert_pize", b =>
+                {
+                    b.Property<string>("Cert_pize_Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Position_level_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Position_level_thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Cert_pize_Id");
+
+                    b.ToTable("Cert_Pizes");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.CertificateEPY", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CertName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Cert_CategoryCert_pize_Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Issued_by")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Cert_CategoryCert_pize_Id");
+
+                    b.HasIndex("ResumeId");
+
+                    b.ToTable("CertificateEPY");
+                });
+
             modelBuilder.Entity("JOBGATE_MVC_C.Models.DegreeEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("DegreeId")
-                        .HasColumnType("int");
+                    b.Property<string>("DegreeId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<float>("GPAScore")
                         .HasColumnType("real");
@@ -103,8 +143,8 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<string>("SchoolName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("StudyCateId")
-                        .HasColumnType("int");
+                    b.Property<string>("StudyCateId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Year")
                         .HasColumnType("int");
@@ -120,12 +160,13 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.Degrees", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("DegreeName")
+                    b.Property<string>("Degree_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Degree_Thai")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -133,12 +174,30 @@ namespace JOBGATE_MVC_C.Migrations
                     b.ToTable("Degrees");
                 });
 
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.DrivingEPY", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("drivinglicenseId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResumeId");
+
+                    b.HasIndex("drivinglicenseId");
+
+                    b.ToTable("DrivingEPY");
+                });
+
             modelBuilder.Entity("JOBGATE_MVC_C.Models.DrivinglicenseEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("DrivinglicenseName")
                         .HasColumnType("nvarchar(max)");
@@ -150,37 +209,89 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.EducationEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("Degree1Id")
-                        .HasColumnType("int");
+                    b.Property<string>("DegreeId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("Degree2Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Degree3Id")
-                        .HasColumnType("int");
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Degree1Id");
+                    b.HasIndex("DegreeId");
 
-                    b.HasIndex("Degree2Id");
-
-                    b.HasIndex("Degree3Id");
+                    b.HasIndex("ResumeId");
 
                     b.ToTable("EducationEPY");
                 });
 
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.EmploymentEPY", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("EmploymentId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("resumeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmploymentId");
+
+                    b.HasIndex("resumeId");
+
+                    b.ToTable("EmploymentEPY");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.EmploymentType", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Employment_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Employment_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("EmploymentType");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.ForeignLanguage", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ForeignLanguage_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ForeignLanguage_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ForeignLanguage_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Languagelevel_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Languagelevel_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ForeignLanguageEPY");
+                });
+
             modelBuilder.Entity("JOBGATE_MVC_C.Models.Gender", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("GenderName")
                         .HasColumnType("nvarchar(max)");
@@ -190,14 +301,44 @@ namespace JOBGATE_MVC_C.Migrations
                     b.ToTable("Gender");
                 });
 
-            modelBuilder.Entity("JOBGATE_MVC_C.Models.Industry", b =>
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.ImageFile", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("IndustryName")
+                    b.Property<string>("ClientId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("Created_at")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("File_format")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("update_at")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClientId");
+
+                    b.ToTable("imageFiles");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.Industry", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Industry_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Industry_Thai")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -207,27 +348,31 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.JobExpEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CompanyName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CompanylocationId")
+                    b.Property<int>("CompanylocationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("JobFieldId")
-                        .HasColumnType("int");
+                    b.Property<string>("JobFieldId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Jobduty")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PositionId")
-                        .HasColumnType("int");
+                    b.Property<string>("PositionId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Salary")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status_Working")
                         .HasColumnType("int");
 
                     b.Property<string>("WorkingDept")
@@ -242,8 +387,8 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<string>("etcposition")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("industryId")
-                        .HasColumnType("int");
+                    b.Property<string>("industryId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("working_in_overseas")
                         .HasColumnType("bit");
@@ -256,24 +401,56 @@ namespace JOBGATE_MVC_C.Migrations
 
                     b.HasIndex("PositionId");
 
+                    b.HasIndex("ResumeId");
+
                     b.HasIndex("industryId");
 
                     b.ToTable("JobExpEPY");
                 });
 
-            modelBuilder.Entity("JOBGATE_MVC_C.Models.LanguagecatEPY", b =>
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.JobFieldEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("LanguagecatName")
+                    b.Property<string>("JobField_Category_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobField_Category_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobField_Category_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobField_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("JobField_Thai")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("LanguagecatEPY");
+                    b.ToTable("JobFieldEPY");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.LanguageMain", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ForeignLanguageId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ForeignLanguageId");
+
+                    b.HasIndex("ResumeId");
+
+                    b.ToTable("LanguageMainEPY");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.Location", b =>
@@ -283,11 +460,41 @@ namespace JOBGATE_MVC_C.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("LocationName")
+                    b.Property<string>("District_Eng")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PID")
-                        .HasColumnType("int");
+                    b.Property<string>("District_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Postal_Code")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Province_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Province_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Province_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Region_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tambon_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tambon_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Tambon_Thai")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -296,10 +503,8 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.MarriageStatus", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("MarriageName")
                         .HasColumnType("nvarchar(max)");
@@ -311,16 +516,11 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.MembersInfoEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("ClientId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Birthday")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("ClientId")
-                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CurrentAddress")
                         .HasColumnType("nvarchar(max)");
@@ -328,8 +528,8 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("GenderId")
-                        .HasColumnType("int");
+                    b.Property<string>("GenderId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Height")
                         .HasColumnType("int");
@@ -337,17 +537,23 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MarriageStatusId")
+                    b.Property<int>("LocationId")
                         .HasColumnType("int");
 
-                    b.Property<int>("MilitaryId")
-                        .HasColumnType("int");
+                    b.Property<string>("MarriageStatusId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MilitaryId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("MobilePhone")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("NationalityId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReligionId")
-                        .HasColumnType("int");
+                    b.Property<string>("ReligionId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Tel")
                         .HasColumnType("nvarchar(max)");
@@ -355,11 +561,11 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<int>("Weight")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
-
-                    b.HasIndex("ClientId");
+                    b.HasKey("ClientId");
 
                     b.HasIndex("GenderId");
+
+                    b.HasIndex("LocationId");
 
                     b.HasIndex("MarriageStatusId");
 
@@ -374,10 +580,8 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.Military", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("MilitaryName")
                         .HasColumnType("nvarchar(max)");
@@ -394,7 +598,31 @@ namespace JOBGATE_MVC_C.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("NationalityName")
+                    b.Property<string>("Contient_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Continent_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Continent_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Country_Thai")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nationality_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nationality_ID")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nationality_Thai")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -402,29 +630,27 @@ namespace JOBGATE_MVC_C.Migrations
                     b.ToTable("Nationality");
                 });
 
-            modelBuilder.Entity("JOBGATE_MVC_C.Models.PersonInfo.JobFieldEPY", b =>
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.PersonInfo.SkillsEPY", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("JobName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.ToTable("JobFieldEPY");
+                    b.ToTable("SkillEPY");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.PositionlevelEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Positonlevelname")
+                    b.Property<string>("Positionlevel_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Positionlevel_Thai")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -434,10 +660,8 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.Religion", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("ReligionName")
                         .HasColumnType("nvarchar(max)");
@@ -449,10 +673,8 @@ namespace JOBGATE_MVC_C.Migrations
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.ResumeEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("Created_at")
                         .HasColumnType("datetime2");
@@ -460,22 +682,19 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<DateTime>("Deleted_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("DrivinglicenseId")
+                    b.Property<int>("ExpectedSalary")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EducationId")
-                        .HasColumnType("int");
+                    b.Property<string>("JobField2Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("JobExpId")
-                        .HasColumnType("int");
+                    b.Property<string>("JobfieldId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int?>("JobfieldId")
-                        .HasColumnType("int");
+                    b.Property<string>("MemberRegisterId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("MemberRegister")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Positionlevel")
+                    b.Property<string>("ResumeName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Show_open")
@@ -484,32 +703,36 @@ namespace JOBGATE_MVC_C.Migrations
                     b.Property<DateTime>("Update_at")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("locationId")
+                    b.Property<int>("locationId")
                         .HasColumnType("int");
+
+                    b.Property<string>("resumeId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DrivinglicenseId");
-
-                    b.HasIndex("EducationId");
-
-                    b.HasIndex("JobExpId");
+                    b.HasIndex("JobField2Id");
 
                     b.HasIndex("JobfieldId");
 
+                    b.HasIndex("MemberRegisterId");
+
                     b.HasIndex("locationId");
+
+                    b.HasIndex("resumeId");
 
                     b.ToTable("ResumeEPY");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.StudyCategory", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("StudyCatName")
+                    b.Property<string>("StudyCat_Eng")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StudyCat_Thai")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -517,12 +740,37 @@ namespace JOBGATE_MVC_C.Migrations
                     b.ToTable("StudyCategory");
                 });
 
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.TrainingEPY", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("EndTraining")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Issued_by")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("StartTraining")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("TrainingName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResumeId");
+
+                    b.ToTable("TrainingEPY");
+                });
+
             modelBuilder.Entity("JOBGATE_MVC_C.Models.VehicleCatEPY", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("VehicleCatName")
                         .HasColumnType("nvarchar(max)");
@@ -530,6 +778,26 @@ namespace JOBGATE_MVC_C.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("VehicleCatEPY");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.VehicleEPY", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ResumeId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("vehicleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResumeId");
+
+                    b.HasIndex("vehicleId");
+
+                    b.ToTable("VehicleEPY");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -663,82 +931,129 @@ namespace JOBGATE_MVC_C.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.CertificateEPY", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.Cert_pize", "Cert_Category")
+                        .WithMany()
+                        .HasForeignKey("Cert_CategoryCert_pize_Id");
+
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId");
+                });
+
             modelBuilder.Entity("JOBGATE_MVC_C.Models.DegreeEPY", b =>
                 {
                     b.HasOne("JOBGATE_MVC_C.Models.Degrees", "Degree")
                         .WithMany()
-                        .HasForeignKey("DegreeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("DegreeId");
 
                     b.HasOne("JOBGATE_MVC_C.Models.StudyCategory", "StudyCate")
                         .WithMany()
-                        .HasForeignKey("StudyCateId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StudyCateId");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.DrivingEPY", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId");
+
+                    b.HasOne("JOBGATE_MVC_C.Models.DrivinglicenseEPY", "drivinglicense")
+                        .WithMany()
+                        .HasForeignKey("drivinglicenseId");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.EducationEPY", b =>
                 {
-                    b.HasOne("JOBGATE_MVC_C.Models.DegreeEPY", "Degree1")
+                    b.HasOne("JOBGATE_MVC_C.Models.DegreeEPY", "Degree")
                         .WithMany()
-                        .HasForeignKey("Degree1Id");
+                        .HasForeignKey("DegreeId");
 
-                    b.HasOne("JOBGATE_MVC_C.Models.DegreeEPY", "Degree2")
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
                         .WithMany()
-                        .HasForeignKey("Degree2Id");
+                        .HasForeignKey("ResumeId");
+                });
 
-                    b.HasOne("JOBGATE_MVC_C.Models.DegreeEPY", "Degree3")
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.EmploymentEPY", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.EmploymentType", "Employment")
                         .WithMany()
-                        .HasForeignKey("Degree3Id");
+                        .HasForeignKey("EmploymentId");
+
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "resume")
+                        .WithMany()
+                        .HasForeignKey("resumeId");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.ImageFile", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.MembersInfoEPY", "Client")
+                        .WithMany()
+                        .HasForeignKey("ClientId");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.JobExpEPY", b =>
                 {
                     b.HasOne("JOBGATE_MVC_C.Models.Location", "Companylocation")
                         .WithMany()
-                        .HasForeignKey("CompanylocationId");
-
-                    b.HasOne("JOBGATE_MVC_C.Models.PersonInfo.JobFieldEPY", "JobField")
-                        .WithMany()
-                        .HasForeignKey("JobFieldId")
+                        .HasForeignKey("CompanylocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("JOBGATE_MVC_C.Models.JobFieldEPY", "JobField")
+                        .WithMany()
+                        .HasForeignKey("JobFieldId");
 
                     b.HasOne("JOBGATE_MVC_C.Models.PositionlevelEPY", "Position")
                         .WithMany()
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PositionId");
+
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId");
 
                     b.HasOne("JOBGATE_MVC_C.Models.Industry", "industry")
                         .WithMany()
-                        .HasForeignKey("industryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("industryId");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.LanguageMain", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.ForeignLanguage", "ForeignLanguage")
+                        .WithMany()
+                        .HasForeignKey("ForeignLanguageId");
+
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.MembersInfoEPY", b =>
                 {
                     b.HasOne("JOBGATE_MVC_C.Models.AppUser", "Client")
                         .WithMany()
-                        .HasForeignKey("ClientId");
+                        .HasForeignKey("ClientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("JOBGATE_MVC_C.Models.Gender", "Gender")
                         .WithMany()
                         .HasForeignKey("GenderId");
 
-                    b.HasOne("JOBGATE_MVC_C.Models.MarriageStatus", "MarriageStatus")
+                    b.HasOne("JOBGATE_MVC_C.Models.Location", "location")
                         .WithMany()
-                        .HasForeignKey("MarriageStatusId")
+                        .HasForeignKey("LocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("JOBGATE_MVC_C.Models.MarriageStatus", "MarriageStatus")
+                        .WithMany()
+                        .HasForeignKey("MarriageStatusId");
+
                     b.HasOne("JOBGATE_MVC_C.Models.Military", "Military")
                         .WithMany()
-                        .HasForeignKey("MilitaryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MilitaryId");
 
                     b.HasOne("JOBGATE_MVC_C.Models.Nationality", "Nationality")
                         .WithMany()
@@ -748,32 +1063,50 @@ namespace JOBGATE_MVC_C.Migrations
 
                     b.HasOne("JOBGATE_MVC_C.Models.Religion", "Religion")
                         .WithMany()
-                        .HasForeignKey("ReligionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReligionId");
                 });
 
             modelBuilder.Entity("JOBGATE_MVC_C.Models.ResumeEPY", b =>
                 {
-                    b.HasOne("JOBGATE_MVC_C.Models.DrivinglicenseEPY", "Drivinglicense")
+                    b.HasOne("JOBGATE_MVC_C.Models.JobFieldEPY", "JobField2")
                         .WithMany()
-                        .HasForeignKey("DrivinglicenseId");
+                        .HasForeignKey("JobField2Id");
 
-                    b.HasOne("JOBGATE_MVC_C.Models.EducationEPY", "Education")
-                        .WithMany()
-                        .HasForeignKey("EducationId");
-
-                    b.HasOne("JOBGATE_MVC_C.Models.JobExpEPY", "JobExp")
-                        .WithMany()
-                        .HasForeignKey("JobExpId");
-
-                    b.HasOne("JOBGATE_MVC_C.Models.PersonInfo.JobFieldEPY", "Jobfield")
+                    b.HasOne("JOBGATE_MVC_C.Models.JobFieldEPY", "Jobfield")
                         .WithMany()
                         .HasForeignKey("JobfieldId");
 
+                    b.HasOne("JOBGATE_MVC_C.Models.AppUser", "MemberRegister")
+                        .WithMany()
+                        .HasForeignKey("MemberRegisterId");
+
                     b.HasOne("JOBGATE_MVC_C.Models.Location", "location")
                         .WithMany()
-                        .HasForeignKey("locationId");
+                        .HasForeignKey("locationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "resume")
+                        .WithMany()
+                        .HasForeignKey("resumeId");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.TrainingEPY", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId");
+                });
+
+            modelBuilder.Entity("JOBGATE_MVC_C.Models.VehicleEPY", b =>
+                {
+                    b.HasOne("JOBGATE_MVC_C.Models.ResumeEPY", "Resume")
+                        .WithMany()
+                        .HasForeignKey("ResumeId");
+
+                    b.HasOne("JOBGATE_MVC_C.Models.VehicleCatEPY", "vehicle")
+                        .WithMany()
+                        .HasForeignKey("vehicleId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

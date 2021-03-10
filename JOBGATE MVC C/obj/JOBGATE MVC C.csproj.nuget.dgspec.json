@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {}
+    "D:\\Jobgate\\Git\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {
+    "D:\\Jobgate\\Git\\JOBGATE MVC C\\JOBGATE MVC C.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
+        "projectUniqueName": "D:\\Jobgate\\Git\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
         "projectName": "JOBGATE MVC C",
-        "projectPath": "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
+        "projectPath": "D:\\Jobgate\\Git\\JOBGATE MVC C\\JOBGATE MVC C.csproj",
         "packagesPath": "C:\\Users\\kunan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kunan\\source\\repos\\JOBGATE MVC C\\JOBGATE MVC C\\obj\\",
+        "outputPath": "D:\\Jobgate\\Git\\JOBGATE MVC C\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kunan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -73,6 +73,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "omise": {
+              "target": "Package",
+              "version": "[2.7.10, )"
             }
           },
           "imports": [
