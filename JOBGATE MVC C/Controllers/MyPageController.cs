@@ -116,8 +116,8 @@ namespace JOBGATE_MVC_C.Controllers
                 List<Industry> industries = new List<Industry>();
                 industries = (from Industry in _context.Industry select Industry).ToList();
 
-                List<JobFieldEPY> jobField = new List<JobFieldEPY>();
-                jobField = (from JobFieldEPY in _context.JobFieldEPY select JobFieldEPY).ToList();
+                //List<JobFieldEPY> jobField = new List<JobFieldEPY>();
+                //jobField = (from JobFieldEPY in _context.JobFieldEPY  select JobFieldEPY).ToList();
 
                 List<Cert_pize> certificate = new List<Cert_pize>();
                 certificate = (from Cert_Pizes in _context.Cert_Pizes select Cert_Pizes).ToList();
@@ -131,7 +131,7 @@ namespace JOBGATE_MVC_C.Controllers
 
              //// var  Loca = (from e in _context.Location group e.Province_Eng by e.Id into g select new { Id = g.Key , Province_Eng = g.ToList()});
              //var test = _context.Location.Where(j => j.Province_ID.HasValue && Province_ID2.C(j.ObjectId.Value))
-             //       .Where(j => j.Id == db.Jobs.Where(j2 => j2.ObjectId == j.ObjectId).Max(j => j.Id))
+             //       .Where(j => j.Id == db.Jobs.Where(j2 => j2.ObjectId == j.ObjectId).Max(j => j.Id)) 
              //       .ToList();
                 var items = _context.Location
                  .Select(i => new { i.Province_ID, i.Province_Eng})
@@ -139,11 +139,21 @@ namespace JOBGATE_MVC_C.Controllers
 
                 var itemspro = _context.Location
                     .AsEnumerable()
+                     .OrderBy(i => i.Province_Eng)
                     .GroupBy(
                     i => i.Province_Eng
                    ) .Select(x => x.First())
                      .ToList();
-                    
+
+                var itemsjob = _context.JobFieldEPY
+                  .AsEnumerable()
+                   .OrderBy(i => i.JobField_Eng)
+                  .GroupBy(
+                  i => i.JobField_Eng
+                 )                
+                  .Select(x => x.First())
+                   .ToList();
+
                 //    _context.Location
                 //.Select(i => new { i.Province_ID, i.Province_Eng })
                 //.Distinct();
@@ -162,7 +172,7 @@ namespace JOBGATE_MVC_C.Controllers
                 ViewBag.listdegree = degrees;
                 ViewBag.listStudy = studies;
                 ViewBag.listindustry = industries;
-                ViewBag.listjobfield = jobField;
+                ViewBag.listjobfield = new SelectList(itemsjob, "Id", "JobField_Eng"); 
                 ViewBag.listpos = Position;
                 ViewBag.listmem = members;
                 ViewBag.listcert = certificate;
@@ -190,8 +200,7 @@ namespace JOBGATE_MVC_C.Controllers
                 .Select(i => new { i.Languagelevel_Eng, i.Id ,i.ForeignLanguage_ID})
                  .Where(i => i.ForeignLanguage_ID == id)
                 .Distinct();
-            // List<Location> District = _context.Location.Where(x => x.Province_ID == Province_ID).ToList();
-            //ViewBag.listDistrict = new SelectList(items, "District_ID", "District_Eng");
+           
             return Json(new SelectList(langitem, "Id", "Languagelevel_Eng"));
         }
         public JsonResult GetDistList(string id)
@@ -201,8 +210,7 @@ namespace JOBGATE_MVC_C.Controllers
                .Select(i => new { i.District_ID, i.District_Eng, i.Province_ID })
                .Where(i => i.Province_ID == id)
                .Distinct();
-          // List<Location> District = _context.Location.Where(x => x.Province_ID == Province_ID).ToList();
-            //ViewBag.listDistrict = new SelectList(items, "District_ID", "District_Eng");
+          
             return Json(new SelectList(items, "District_ID", "District_Eng"));
         }
         public JsonResult GetSubList(string id)
@@ -212,8 +220,7 @@ namespace JOBGATE_MVC_C.Controllers
                .Select(i => new { i.Tambon_ID, i.Tambon_Eng, i.District_ID ,i.Id})
                .Where(i => i.District_ID == id)
                .Distinct();
-            // List<Location> District = _context.Location.Where(x => x.Province_ID == Province_ID).ToList();
-            //ViewBag.listDistrict = new SelectList(items, "District_ID", "District_Eng");
+           
             return Json(new SelectList(items, "Id", "Tambon_Eng"));
         }
 
@@ -310,11 +317,8 @@ namespace JOBGATE_MVC_C.Controllers
 
                 }
 
-                // await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
 
-
-                // DateTime Def = "0 / 0 / 0000 00:00:00";
+              
                 var IDRSM = "RSM" + DateTime.Now.ToString("yyyyMMddhhmmssfff");
                 var IDdeg = "DEG1" + DateTime.Now.ToString("yyyyMMddhhmmssfff");
                 var IDdeg2 = "DEG2" + DateTime.Now.ToString("yyyyMMddhhmmssfff");
@@ -1078,7 +1082,7 @@ namespace JOBGATE_MVC_C.Controllers
         //}
 
         [HttpPost]
-        public async Task<IActionResult> EditStatus([Bind("Show_open,Id")]PostViewModel model,string id)
+        public async Task<IActionResult> EditStatusa([Bind("Show_open,Id")]PostViewModel model,string id)
         {
             if (id != model.Id)
             {
@@ -1110,7 +1114,27 @@ namespace JOBGATE_MVC_C.Controllers
             return View(model);
         }
 
+        public JsonResult EditStatus(string id, string status)
+        {
+            var result = _context.ResumeEPY.Where(a => a.Id == id).FirstOrDefault();
+            if (result != null)
+            {
+                //    result.Status = status;
+                //    _context.SaveChanges();
 
+           
+                    var ResumeEPY = new ResumeEPY
+                    {
+
+                        Show_open = true
+
+                    };
+                    _context.ResumeEPY.Update(ResumeEPY);
+                    _context.SaveChangesAsync();
+                
+            }
+            return Json(result);
+        }
 
 
         public IActionResult Favorite()

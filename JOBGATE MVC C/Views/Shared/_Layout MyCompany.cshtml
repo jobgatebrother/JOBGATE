@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>JOBGATE</title>
+
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link href="~/company/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/company/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/company/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/company/vendor/remixicon/remixicon.css" rel="stylesheet">
+    <link href="~/company/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/company/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/company/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/all.min.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card-body row">
+                    <div class="card-header bg-white border-0">
+                        <a href="@Url.Action("Company","Company")" class="logo d-flex align-items-center">
+                            <img src="~/Images/Logo 1.png" style="width:50px;height:50px;">
+                            <span class="fw-bolder h3">JOBGATE</span>
+                        </a>
+                    </div>
+                    <div class="card-header bg-white">
+                        <a href="@Url.Action("MyCompanyPage","MyCompany")" class="text-secondary">
+                            <i class="ri-home-7-fill h3 align-middle"></i>
+                            <span class="fw-bolder h6">Company Information</span>
+                        </a>
+                    </div>
+                    <a href="@Url.Action("JobPosting","MyCompany")" class="text-secondary mt-4">
+                        <i class="ri-edit-2-fill h3 align-middle"></i>
+                        <span class="fw-bolder h6">Job Posting</span>
+                    </a>
+                    <a href="@Url.Action("Resume","MyCompany")" class="text-secondary mt-4">
+                        <i class="ri-mail-open-fill h3 align-middle"></i>
+                        <span class="fw-bolder h6">Resume</span>
+                    </a>
+                    <a href="@Url.Action("Favorite","MyCompany")" class="text-secondary mt-4">
+                        <i class="ri-heart-2-fill h3 align-middle"></i>
+                        <span class="fw-bolder h6">Favorite</span>
+                    </a>
+                    <a href="@Url.Action("Payment","MyCompany")" class="text-secondary mt-4">
+                        <i class="ri-bank-card-fill h3 align-middle"></i>
+                        <span class="fw-bolder h6">Payment</span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-9">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <script src="~/company/vendor/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/company/vendor/aos/aos.js"></script>
+    <script src="~/company/vendor/php-email-form/validate.js"></script>
+    <script src="~/company/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/company/vendor/purecounter/purecounter.js"></script>
+    <script src="~/company/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/company/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/company/js/main.js"></script>
+</body>
+</html>

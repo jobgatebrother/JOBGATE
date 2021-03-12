@@ -170,12 +170,19 @@ namespace JOBGATE_MVC_C.Models
         public ResumeEPY Resume { get; set; }
         public JobFieldEPY JobField { get; set; }
         public Location location { get; set; }
-        public bool Status { get; set;}
+        public string Status { get; set;}
         public bool Show_open { get; set; }
-
         public string Id { get; set; }
-
-
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Img { get; set; }
+        public DateTime Updatetime { get; set; }
+        public string Genders { get; set; }
+        public int birthday { get; set; }
+        public string job { get; set; }
+        public string locationSearch { get; set; }
+        public string education { get; set; }
+        public string searchString { get; set; }
     }
     public class AspNetUser
     {
@@ -198,6 +205,15 @@ namespace JOBGATE_MVC_C.Models
         //public string Id { get; internal set; }
      
       
+    }
+    public class SearchJob 
+    {
+        public string job { get; set; }
+        public string location { get; set; }
+        public string education { get; set; }
+
+    
+    
     }
     
 

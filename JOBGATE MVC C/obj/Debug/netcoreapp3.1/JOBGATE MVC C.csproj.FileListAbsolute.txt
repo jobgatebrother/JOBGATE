@@ -214,4 +214,13 @@ D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.csproj.CopyCo
 D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.dll
 D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.pdb
 D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.genruntimeconfig.cache
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout Company.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout MyCompany.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyCompany\JobPosting.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyCompany\JobPosting_New.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyCompany\Payment.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\MyCompany\Resume.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Maintenance.cshtml.g.cs
+D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\Razor\Views\Home\Register_EPY.cshtml.g.cs
 D:\Jobgate\Git\JOBGATE MVC C\obj\Debug\netcoreapp3.1\JOBGATE MVC C.csprojAssemblyReference.cache

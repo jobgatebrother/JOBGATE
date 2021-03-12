@@ -17,5 +17,25 @@ namespace JOBGATE_MVC_C.Controllers
         {
             return View();
         }
+
+        public IActionResult Resume()
+        {
+            return View();
+        }
+
+        public IActionResult JobPosting()
+        {
+            return View();
+        }
+
+        public IActionResult Payment()
+        {
+            return View();
+        }
+
+        public IActionResult JobPosting_New()
+        {
+            return View();
+        }
     }
 }

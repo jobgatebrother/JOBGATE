@@ -595,7 +595,7 @@
                                         <div class="col-sm-6 mt-2">
                                             <select asp-for="JobFieldId"
                                                     class="custom-select"
-                                                    asp-items="@(new SelectList(@ViewBag.listjobfield,"Id", "JobField_Eng"))">
+                                                    asp-items="@ViewBag.listjobfield">
                                                 <option value="0">Select JobField</option>
                                             </select>
                                         </div>
@@ -1171,7 +1171,7 @@
                             <div class="col-sm-6 mt-2">
                                 <select asp-for="JobField1"
                                         class="custom-select"
-                                        asp-items="@(new SelectList(@ViewBag.listjobfield,"Id", "JobField_Eng"))" required>
+                                        asp-items="@ViewBag.listjobfield" required>
                                     <option value="">Select JobField</option>
                                 </select>
                             </div>
@@ -1182,7 +1182,7 @@
                             <div class="col-sm-6 mt-2">
                                 <select asp-for="JobField2"
                                         class="custom-select"
-                                        asp-items="@(new SelectList(@ViewBag.listjobfield,"Id", "JobField_Eng"))">
+                                        asp-items="@ViewBag.listjobfield">
                                     <option value="">Select JobField</option>
                                 </select>
                             </div>

@@ -1,0 +1,171 @@
+﻿@{ Layout = "_Layout MyCompany"; }
+
+<link rel="stylesheet" href="~/company/css/JobPosting.css" />
+
+<section class="mt-md-5 bg-light shadow-lg">
+    <div class="container">
+        <div class="card-header bg-transparent">
+            <h3 class="fw-bolder text-primary">Payment</h3>
+        </div>
+        <div class="card-body">
+            <div class="mt-2">
+                <input type="radio" class="btn-check" name="Filter" id="Waiting" autocomplete="off" checked>
+                <label class="btn btn-outline-primary" for="Waiting">#Waiting</label>
+                <input type="radio" class="btn-check" name="Filter" id="Complete" autocomplete="off">
+                <label class="btn btn-outline-primary" for="Complete">#Complete</label>
+                <input type="radio" class="btn-check" name="Filter" id="Canceled" autocomplete="off">
+                <label class="btn btn-outline-primary" for="Canceled">#Canceled</label>
+                <input type="radio" class="btn-check" name="Filter" id="Refunded" autocomplete="off">
+                <label class="btn btn-outline-primary" for="Refunded">#Refunded</label>
+            </div>
+            <table class="table mt-4 table-borderless table-hover">
+                <thead class="bg-white border-2">
+                    <tr style="height:60px;" class="align-middle">
+                        <th scope="col" class="text-center">Pay Date</th>
+                        <th scope="col" class="text-center">Item</th>
+                        <th scope="col" class="text-center">Amount</th>
+                        <th scope="col" class="text-center">Method</th>
+                        <th scope="col" class="text-center">Invoice/Receipt</th>
+                        <th scope="col" class="text-center">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle text-center">
+                    <tr class="border-bottom">
+                        <td>
+                            <label class="d-flex justify-content-center">-</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Premium Plan</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">฿40,000</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">-</label>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-primary">Invoice</button>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Waiting</label>
+                            <button class="btn btn-primary col-sm-8">Pay</button>
+                        </td>
+                    </tr>
+                    <tr class="border-bottom">
+                        <td>
+                            <label class="d-flex justify-content-center">2020.02.25</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Basic Plan</label>
+                            <label class="d-flex justify-content-center small">Expired 2020.03.24</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">฿30,000</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Prompt Pay</label>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-primary">Invoice</button>
+                            <br />
+                            <button class="btn btn-outline-primary mt-2">Receipt</button>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Completed</label>
+                        </td>
+                    </tr>
+                    <tr class="border-bottom">
+                        <td>
+                            <label class="d-flex justify-content-center">2020.02.25</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Essential Plan</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">฿20,000</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Credir Card</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Cancel Confirm</label>
+                            <label class="d-flex justify-content-center small">2020.02.25</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Canceled</label>
+                        </td>
+                    </tr>
+                    <tr class="border-bottom">
+                        <td>
+                            <label class="d-flex justify-content-center">2020.02.19</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Essential Plan</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">฿20,000</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">I-Banking</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Refund Confirm</label>
+                            <label class="d-flex justify-content-center small">2020.02.20</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Refunded</label>
+                        </td>
+                    </tr>
+                    <tr class="border-bottom">
+                        <td>
+                            <label class="d-flex justify-content-center">2020.01.04</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Basic Plan</label>
+                            <label class="d-flex justify-content-center small">Expired 2020.02.23</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">฿30,000</label>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Prompt Pay</label>
+                        </td>
+                        <td>
+                            <button class="btn btn-outline-primary">Invoice</button>
+                            <br />
+                            <button class="btn btn-outline-primary mt-2">Receipt</button>
+                        </td>
+                        <td>
+                            <label class="d-flex justify-content-center">Completed</label>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div class="d-flex justify-content-center mt-5">
+                <nav>
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+

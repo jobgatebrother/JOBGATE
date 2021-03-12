@@ -70,9 +70,10 @@ namespace JOBGATE_MVC_C.Models
         public bool Show_open { get; set; }
 
         public ResumeEPY resume { get; set; }
-       // public JobExpEPY jobExpEPY { get; set; }
-       // public JobFieldEPY jobField { get; set; }
-       // public Location location { get; set; }
+       public string Status { get; set; }
+        // public JobExpEPY jobExpEPY { get; set; }
+        // public JobFieldEPY jobField { get; set; }
+        // public Location location { get; set; }
 
     }
     public class DegreeEPY

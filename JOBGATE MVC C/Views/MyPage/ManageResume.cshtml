@@ -39,15 +39,15 @@
                     </div>
                     <div class="col-2 text-center">
                         <h6 class="font-weight-bold text-dark mt-4">Show Resume</h6>
-                      
-                            <div class="custom-control custom-switch">
+                     
+                            <div class="custom-control custom-switch" asp-action="EditStatus" asp-route-id="@item.Id">
+                                <input type="checkbox" class="custom-control-input" id="ChkResume_@i"  value="@item.Show_open" @(item.Show_open == true ? "checked" : "" )>
+                                <label class="custom-control-label" data-on="ON" data-off="OFF" for="ChkResume_@i"></label>
 
-                                <input type="checkbox" class="custom-control-input" id="ChkResume_@i"  value="@item.Show_open" @(item.Show_open == true ? "checked" : "" ) asp-route-id="@item.Id">
-                                <label class="custom-control-label" for="ChkResume_@i"></label>
-                              
                             </div>
-                      
-                        </div>
+                       
+
+                    </div>
                     <div class="col-2 text-center">
                         <button type="button" class="btn btn-outline-primary btn-block">Revise</button>
                         <button type="button" class="btn btn-outline-primary btn-block">Copy</button>
@@ -61,5 +61,31 @@
     </div>
 </div>
 <script>
+@*$(document).ready(function () {
+    $('.switch-handle').click(function () {
+        var Id = $(this).data('id');
+        var checkStatus = this.checked ? 'ON' : 'OFF';
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditStatus", "MyPage")',
+            data: {
+                id: Id,
+                status: checkStatus
+            },
+            dataType: 'json',
+            success: function (result) {
+                if (result) {
+                    console.log("Ok");
+                } else {
+                    console.log("error");
+                }
+            },
+            error: function () {
+                console.log('something went wrong - debug it!');
+            }
+        })
+    });
+});*@
 
 </script>
