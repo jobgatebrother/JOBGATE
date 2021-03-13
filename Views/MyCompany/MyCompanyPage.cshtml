@@ -1,118 +1,154 @@
-﻿@{ Layout = "_Layout MyCompany"; }
+﻿@model JOBGATE.Models.CPN_CompanyIntroduction
+@{ Layout = "_Layout MyCompany"; }
 
-<div class="card-body mt-5 bg-light shadow">
-    <div class="card-header bg-transparent mb-4">
-        <h3 class="fw-bolder">Company Account</h3>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Email</p>
-            <div class="col-sm-6">
-                <input type="email" class="form-control" placeholder="Email" />
-            </div>
+<form asp-action="MyCompanyPage_Update">
+    <input type="hidden" asp-for="ID" />
+    <input type="hidden" asp-for="UserID" />
+    <div class="card-body mt-5 bg-light shadow">
+        <div class="card-header bg-transparent mb-4">
+            <h3 class="fw-bolder">Company Account</h3>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Password</p>
-            <div class="col-sm-6">
-                <input type="password" class="form-control" placeholder="Password" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Company Name</p>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Company Name" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Industry</p>
-            <div class="col-sm-6">
-                <select class="form-select">
-                    <option>Company Business Industry</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Location</p>
-            <div class="col-sm-4">
-                <select class="form-select">
-                    <option>Province</option>
-                </select>
-            </div>
-            <div class="col-sm-4">
-                <select class="form-select">
-                    <option>District</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <div class="col-sm-3">
-                <div class="form-check form-check-inline small">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                    <label class="form-check-label" for="inlineCheckbox1">Overseas</label>
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Email</p>
+                <div class="col-sm-6">
+                    <input type="email" value="@ViewData["Email"]" class="form-control" placeholder="Email" readonly />
                 </div>
             </div>
-            <div class="col-sm-4">
-                <select class="form-select">
-                    <option>Sub-District</option>
-                </select>
+        </div>
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Password</p>
+                <div class="col-sm-6">
+                    <input type="password" value="*************" class="form-control" placeholder="Password" readonly />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1"></p>
-            <div class="col-sm-9">
-                <textarea class="form-control" placeholder="Address"></textarea>
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Company Name</p>
+                <div class="col-sm-6">
+                    <input type="text" asp-for="CompanyName" class="form-control" placeholder="Company Name" />
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Website</p>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Company Website URL" />
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Industry</p>
+                <div class="col-sm-6">
+                    <select class="form-select" asp-for="Industry" asp-items="@(SelectList)ViewBag.Industry">
+                        <option>Company Business Industry</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row mt-4">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Contract Person</p>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" placeholder="Contract Person Name" />
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Location</p>
+                <div class="col-sm-4">
+                    <select class="form-select" id="Province" asp-for="Province" asp-items="@(SelectList)ViewBag.Province">
+                        <option>Province</option>
+                    </select>
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-select" id="District" asp-for="District" asp-items="@(SelectList)ViewBag.District">
+                        <option>District</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-3 mt-1">Telephone No.</p>
-            <div class="col-sm-6">
-                <input type="tel" class="form-control" placeholder="Telephone Number" />
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <div class="col-sm-3">
+                    <div class="form-check form-check-inline small">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                        <label class="form-check-label" for="inlineCheckbox1">Overseas</label>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <select class="form-select" id="SubDistrict" asp-for="SubDistrict" asp-items="@(SelectList)ViewBag.SubDistrict">
+                        <option>Sub-District</option>
+                    </select>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-2 col-sm row">
-            <p class="fw-bolder col-sm-7 mt-1 text-end">Internal Phone line No.</p>
-            <div class="col-sm-2">
-                <input type="tel" class="form-control" />
+        <div class="row mt-2">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1"></p>
+                <div class="col-sm-9">
+                    <textarea class="form-control" asp-for="Address" placeholder="Address"></textarea>
+                </div>
             </div>
         </div>
+        <div class="row mt-2">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Website</p>
+                <div class="col-sm-6">
+                    <input type="text" asp-for="Website" class="form-control" placeholder="Company Website URL" />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Contract Person</p>
+                <div class="col-sm-6">
+                    <input type="text" asp-for="Contract" class="form-control" placeholder="Contract Person Name" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-3 mt-1">Telephone No.</p>
+                <div class="col-sm-6">
+                    <input type="tel" asp-for="Telephone" class="form-control" placeholder="Telephone Number" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2 col-sm row">
+                <p class="fw-bolder col-sm-7 mt-1 text-end">Internal Phone line No.</p>
+                <div class="col-sm-2">
+                    <input type="tel" asp-for="InternalPhone" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <p class="fw-bolder mt-5">Company Introduction</p>
+        <textarea class="form-control" asp-for="CompanyDetail" placeholder="Company Introduction for Job Applicants" style="height:200px;"></textarea>
+        <p class="fw-bolder mt-2">Welfare&Benefits</p>
+        <textarea class="form-control" asp-for="WelfareBenefit" placeholder="Company Welfare&Benefits" style="height:200px;"></textarea>
+        <div class="text-center mt-5">
+            <button type="submit" class="btn btn-primary shadow">Save</button>
+        </div>
     </div>
-    <p class="fw-bolder mt-5">Company Introduction</p>
-    <textarea class="form-control" placeholder="Company Introduction for Job Applicants" style="height:200px;"></textarea>
-    <p class="fw-bolder mt-2">Welfare&Benefits</p>
-    <textarea class="form-control" placeholder="Company Welfare&Benefits" style="height:200px;"></textarea>
-    <div class="text-center mt-5">
-        <button type="button" class="btn btn-primary shadow">Save</button>
-    </div>
-</div>
+</form>
+
+<script>
+    $(document).ready(function () {
+        $('#Province').change(function () {
+            $.getJSON("/MyCompany/GetDistrict", { ProvinceID: $('#Province').val() }, function (data) {
+                var item = '<option>District</option>';
+                $("#District").empty();
+                $.each(data, function (i, District) {
+                    item += '<option value="' + District.value + '">' + District.text + '</option>'
+                });
+                $("#District").html(item);
+            });
+            $.getJSON("/MyCompany/GetSubDistrict", { DistrictID: $('#District').val() }, function (data) {
+                var item = '<option>Sub-District</option>';
+                $("#SubDistrict").empty();
+                $("#SubDistrict").html(item);
+            });
+        });
+
+        $('#District').change(function () {
+            $.getJSON("/MyCompany/GetSubDistrict", { DistrictID: $('#District').val() }, function (data) {
+                var item = '<option>Sub-District</option>';
+                $("#SubDistrict").empty();
+                $.each(data, function (i, SubDistrict) {
+                    item += '<option value="' + SubDistrict.value + '">' + SubDistrict.text + '</option>'
+                });
+                $("#SubDistrict").html(item);
+            });
+        });
+    });
+</script>

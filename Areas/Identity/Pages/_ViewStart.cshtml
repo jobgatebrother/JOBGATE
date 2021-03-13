@@ -1,4 +1,7 @@
-﻿
+﻿@using JOBGATE.Data
+@inject JOBGATEDataContext _context;
 @{
     Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Context = _context;
+
 }

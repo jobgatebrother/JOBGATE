@@ -1,7 +1,11 @@
 ﻿@page
 @model RegisterModel_CPN
+@using JOBGATE.Data
 @{
     ViewData["Title"] = "Register";
+
+    JOBGATEDataContext _context = ViewBag.Context;
+    ViewData["IndustryCodeList"] = new SelectList(_context.CEN_IndustryCodeList, "Code", "IndustryNameEN");
 }
 
 <div class="row justify-content-center">

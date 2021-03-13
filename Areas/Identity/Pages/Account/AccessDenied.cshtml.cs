@@ -23,7 +23,7 @@ namespace JOBGATE.Areas.Identity.Pages.Account
             var user = await _userManager.FindByNameAsync(_userManager.GetUserName(User));
             if (await _userManager.IsInRoleAsync(user, "Company"))
             {
-                return Redirect("/Company/Company");
+                return Redirect("/Company");
             }
             return Redirect("/");
         }

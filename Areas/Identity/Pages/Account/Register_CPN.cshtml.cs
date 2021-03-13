@@ -16,6 +16,8 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using JOBGATE.Data;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using JOBGATE.Models;
+using System.IO;
 
 namespace JOBGATE.Areas.Identity.Pages.Account
 {
@@ -26,7 +28,7 @@ namespace JOBGATE.Areas.Identity.Pages.Account
         private readonly UserManager<UserAccount> _userManager;
         private readonly ILogger<RegisterModel_CPN> _logger;
         private readonly IEmailSender _emailSender;
-        private readonly JOBGATEAdminContext _context;
+        private readonly JOBGATEDataContext _context;
         private readonly RoleManager<IdentityRole> _roleManager;
 
         public RegisterModel_CPN(
@@ -35,7 +37,7 @@ namespace JOBGATE.Areas.Identity.Pages.Account
             SignInManager<UserAccount> signInManager,
             ILogger<RegisterModel_CPN> logger,
             IEmailSender emailSender,
-            JOBGATEAdminContext context)
+            JOBGATEDataContext context)
         {
             _userManager = userManager;
             _roleManager = roleManager;
@@ -101,14 +103,28 @@ namespace JOBGATE.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "Telephone")]
             public string Telephone { get; set; }
+        }
 
+        public void IndustryCodeList()
+        {
+            Array aa;
+            List<CEN_IndustryCodeList> industryCodeList = new List<CEN_IndustryCodeList>();
+            var List = _context.CEN_IndustryCodeList.ToList();
+            foreach (var data in List)
+            {
+                industryCodeList.Add(new CEN_IndustryCodeList {
+                Code = data.Code,
+                IndustryNameEN = data.IndustryNameEN
+                });
+            }
+            aa = industryCodeList.ToArray();
+            ViewData["IndustryCodeList"] = aa;
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            ViewData["IndustryCodeList"] = new SelectList(_context.IndustryCodeList, "Code", "IndustryNameEN");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
@@ -118,13 +134,17 @@ namespace JOBGATE.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 Input.Username = Input.Username.ToLower();
-                var user = new UserAccount { UserName = Input.Username, Email = Input.Email, CompanyName=Input.CompanyName, Industry=Input.Industry, ContratPerson=Input.ContratPerson, Telephone=Input.Telephone };
+                var user = new UserAccount { UserName = Input.Username, Email = Input.Email };
                 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
                     await _userManager.AddToRoleAsync(user, "Company");
+
+                    var CompanyIntroduction = new CPN_CompanyIntroduction { UserID = user.Id, CompanyName = Input.CompanyName, Industry = Input.Industry, Contract = Input.ContratPerson, Telephone = Input.Telephone };
+                    _context.Add(CompanyIntroduction);
+                    await _context.SaveChangesAsync();
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -133,11 +153,13 @@ namespace JOBGATE.Areas.Identity.Pages.Account
                         pageHandler: null,
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
+                    string FilePath = Directory.GetCurrentDirectory() + "/wwwroot/TemplateEmail/VerifyEmail.html";
+                    StreamReader str = new StreamReader(FilePath);
+                    string MailText = str.ReadToEnd();
+                    str.Close();
+                    MailText = MailText.Replace("[ConfirmLink]", HtmlEncoder.Default.Encode(callbackUrl));
+                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", MailText);
 
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
-
-                    
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
                         return RedirectToPage("RegisterConfirmation", new { email = Input.Email, returnUrl = returnUrl });

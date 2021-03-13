@@ -16,17 +16,16 @@ namespace JOBGATE.Data
             : base(options)
         {
         }
-        public DbSet<IndustryCodeList> IndustryCodeList { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<UserAccount>().ToTable("User");
-            builder.Entity<IdentityRole>().ToTable("Role");
-            builder.Entity<IdentityUserRole<string>>().ToTable("UserRole");
-            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaim");
-            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaim");
-            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogin");
-            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
+            builder.Entity<UserAccount>().ToTable("ACC_User");
+            builder.Entity<IdentityRole>().ToTable("ACC_Role");
+            builder.Entity<IdentityUserRole<string>>().ToTable("ACC_UserRole");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("ACC_UserClaim");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("ACC_RoleClaim");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("ACC_UserLogin");
+            builder.Entity<IdentityUserToken<string>>().ToTable("ACC_UserTokens");
         }
     }
 }

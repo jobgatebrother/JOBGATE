@@ -27,14 +27,14 @@ namespace JOBGATE.Areas.Identity.Pages.Account
         private readonly UserManager<UserAccount> _userManager;
         private readonly ILogger<RegisterModel_EPY> _logger;
         private readonly IEmailSender _emailSender;
-        private readonly JOBGATEAdminContext _context;
+        private readonly JOBGATEDataContext _context;
 
         public RegisterModel_EPY(
             UserManager<UserAccount> userManager,
             SignInManager<UserAccount> signInManager,
             ILogger<RegisterModel_EPY> logger,
             IEmailSender emailSender,
-            JOBGATEAdminContext context)
+            JOBGATEDataContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -85,7 +85,6 @@ namespace JOBGATE.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
-            ViewData["IndustryCodeList"] = new SelectList(_context.IndustryCodeList, "Code", "IndustryNameEN");
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

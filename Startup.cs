@@ -30,9 +30,8 @@ namespace JOBGATE
         {
             services.AddControllersWithViews();
             services.AddRazorPages();
-
-            services.AddDbContext<JOBGATEAdminContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("JOBGATEAdminContext")));
+            services.AddDbContext<JOBGATEDataContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("JOBGATEDataContext")));
             services.AddScoped<IEmailSender, EmailSender>();
         }
 

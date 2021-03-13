@@ -5,15 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20210305112148_InitialCreate1.cs" />
-    <Compile Remove="Migrations\20210305112148_InitialCreate1.Designer.cs" />
-    <Compile Remove="Migrations\20210305112316_InitialCreate1.cs" />
-    <Compile Remove="Migrations\20210305112316_InitialCreate1.Designer.cs" />
-    <Compile Remove="Migrations\20210305112858_InitialCreate1.cs" />
-    <Compile Remove="Migrations\20210305112858_InitialCreate1.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\company\img\hero-img.svg" />
     <None Include="wwwroot\company\img\team-shape.svg" />
     <None Include="wwwroot\company\js\main.js" />
