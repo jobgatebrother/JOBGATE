@@ -9,11 +9,32 @@
     <link rel="stylesheet" href="~/css/sb-admin-2.min.css" />
     <link rel="stylesheet" href="~/css/all.min.css" />
     <link rel="stylesheet" href="~/css/image.css" />
+    <link href="nouislider.css" rel="stylesheet">
+    <script src="nouislider.js"></script>
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-WQ2LW2X');</script>
+    <!-- End Google Tag Manager -->
 </head>
 <body class="d-flex flex-column min-vh-100">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WQ2LW2X"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom shadow mb-3">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand font-weight-bold" asp-area="" asp-controller="Home" asp-action="Home">
                     <img src="~/Images/Logo 1.png" width="50" height="50" />
                     JOBGATE
@@ -42,35 +63,99 @@
         </nav>
     </header>
     <content>
-        <div class="container-fluid">
-            <main role="main" class="pb-3">
+        <div class="container">
+            <main role="main" class="pb-3" >
                 @RenderBody()
             </main>
         </div>
     </content>
+    <footer class=" mt-auto" style="background-color: #e6ffff;">
+        <div class="container-fluid">
+            <div class="row" style="font-size:16px; padding:15px;">
 
-    <footer class="border-top mt-auto">
-        <div class="container">
-            <div class="row mt-md-2">
-                <div class="col-md-4">
-                    <h5 class="text-uppercase font-weight-bolder text-primary">JOBGATE</h5>
-                    <p style="white-space:pre-line;">24 Hours Customer
-                        Contacts: 02-000-0000
-                        Advertisement : support@myjobgate.com
-                    </p>
+                <div class="col-lg-4 col-md-12 col-12">
+                    <div class="table">
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td><h5 class="text-uppercase font-weight-bolder text-primary mt-1">JOBGATE</h5></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    24 Hours Customer &nbsp;
+                                    Contacts: 02-000-0000 <br />
+                                    Advertisement : support@myjobgate.com
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <a href="@Url.Action("Home","Home")" class="text-primary d-flex">About</a>
-                    <a href="@Url.Action("Home","Home")" class="text-primary d-flex">Advertisement</a>
+                <div class="col-lg-4 col-md-6 col-6">
+                    <div class="table">
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="@Url.Action("Home","Home")" class="text-primary d-flex">About</a>
+                                    <a href="@Url.Action("Home","Home")" class="text-primary d-flex">Advertisement</a>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
                 </div>
-                <div class="col-md-4">
-                    <a href="@Url.Action("Privacy", "Terms")" class="text-dark d-flex">Privacy Policy</a>
-                    <a href="@Url.Action("Cookie", "Terms")" class="text-dark d-flex">Cookie Policy</a>
-                    <a href="@Url.Action("TermsOfService", "Terms")" class="text-dark d-flex">Terms of Service Agreement</a>
+                <div class="col-lg-4 col-md-6 col-6">
+                    <div class="table">
+                        <table class="table table-sm table-borderless">
+                            <tr>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <a href="@Url.Action("Privacy", "Terms")" class="text-dark d-flex">Privacy Policy</a>
+                                    <a href="@Url.Action("Cookie", "Terms")" class="text-dark d-flex">Cookie Policy</a>
+                                    <a href="@Url.Action("TermsOfService", "Terms")" class="text-dark d-flex">Terms of Service Agreement</a>
+
+                                </td>
+                            </tr>
+
+                        </table>
+
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+
+    @*<footer class="border-top mt-auto">
+            <div class="container">
+                <div class="row mt-md-2">
+                    <div class="col-md-4">
+                        <h5 class="text-uppercase font-weight-bolder text-primary">JOBGATE</h5>
+                        <p style="white-space:pre-line;">
+                            24 Hours Customer
+                            Contacts: 02-000-0000
+                            Advertisement : support@myjobgate.com
+                        </p>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("Home","Home")" class="text-primary d-flex">About</a>
+                        <a href="@Url.Action("Home","Home")" class="text-primary d-flex">Advertisement</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="@Url.Action("Privacy", "Terms")" class="text-dark d-flex">Privacy Policy</a>
+                        <a href="@Url.Action("Cookie", "Terms")" class="text-dark d-flex">Cookie Policy</a>
+                        <a href="@Url.Action("TermsOfService", "Terms")" class="text-dark d-flex">Terms of Service Agreement</a>
+                    </div>
+                </div>
+            </div>
+        </footer>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

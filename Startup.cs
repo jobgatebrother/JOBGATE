@@ -32,7 +32,9 @@ namespace JOBGATE
             services.AddRazorPages();
             services.AddDbContext<JOBGATEDataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("JOBGATEDataContext")));
+
             services.AddScoped<IEmailSender, EmailSender>();
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

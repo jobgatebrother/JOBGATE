@@ -26,6 +26,7 @@ namespace JOBGATE.Data
             builder.Entity<IdentityRoleClaim<string>>().ToTable("ACC_RoleClaim");
             builder.Entity<IdentityUserLogin<string>>().ToTable("ACC_UserLogin");
             builder.Entity<IdentityUserToken<string>>().ToTable("ACC_UserTokens");
+           
         }
     }
 }
