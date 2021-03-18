@@ -4,14 +4,16 @@ using JOBGATE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JOBGATE.Migrations
 {
     [DbContext(typeof(JOBGATEDataContext))]
-    partial class JOBGATEDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210317021957_UpdateTableJobPosting3")]
+    partial class UpdateTableJobPosting3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -404,8 +406,8 @@ namespace JOBGATE.Migrations
                     b.Property<string>("Industry")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("JobAdvertise")
-                        .HasColumnType("varchar(2)");
+                    b.Property<int>("JobAdvertise")
+                        .HasColumnType("int");
 
                     b.Property<string>("JobDescription")
                         .HasColumnType("nvarchar(max)");
@@ -443,8 +445,8 @@ namespace JOBGATE.Migrations
                     b.Property<string>("QualificationDetail")
                         .HasColumnType("varchar(max)");
 
-                    b.Property<string>("ResumeType")
-                        .HasColumnType("varchar(2)");
+                    b.Property<int>("ResumeType")
+                        .HasColumnType("int");
 
                     b.Property<int>("SalaryMax")
                         .HasColumnType("int");

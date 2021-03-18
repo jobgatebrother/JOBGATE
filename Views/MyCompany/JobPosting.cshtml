@@ -1,4 +1,5 @@
-﻿@{ Layout = "_Layout MyCompany"; }
+﻿@model IEnumerable<JOBGATE.Models.CPN_JobPosting>
+@{ Layout = "_Layout MyCompany"; }
 
 <link rel="stylesheet" href="~/company/css/JobPosting.css" />
 
@@ -35,279 +36,91 @@
                     <a href="#" class="w-auto small">Apply Count</a>
                 </div>
             </div>
-            <div class="card-body bg-light shadow">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
+            <table class="table">
+                @foreach (var item in Model)
+                {
+                    <tr id="joblist">
+                        <td>
+                            <div class="card-body bg-light shadow mt-2">
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        @switch (item.ResumeType)
+                                        {
+                                            case "1":
+                                                <div class="d-flex justify-content-center mt-2">
+                                                    <button class="btn btn-outline-primary">Regular Hiring</button>
+                                                </div>
+                                            break;
+                                            case "2":
+                                                <div class="d-flex justify-content-center mt-2">
+                                                    <button class="btn btn-outline-primary">Regular+Easy Hiring</button>
+                                                </div>
+                                            break;
+                                        }
+
+                                        <div class="row mt-4">
+                                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
+                                                <div class="card-title text-center small fw-bold">Applicants</div>
+                                                <div class="card-body bg-transparent text-center fw-bolder">@item.ApplyCount</div>
+                                            </div>
+                                            <div class="card bg-transparent col-sm-6 border-0">
+                                                <div class="card-title text-center small fw-bold">Viewer</div>
+                                                <div class="card-body bg-transparent text-center fw-bolder">@item.ViewCount</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <label class="h4 fw-bolder d-flex mt-2">@item.JobTitle</label>
+                                        <label class="fw-bold small d-flex mt-3">@item.JobField</label>
+                                        <label class="fw-bold small d-flex mt-3">@item.Province</label>
+                                        @if (item.SalaryMin == item.SalaryMax)
+                                        {
+                                            <label class="fw-bold small d-flex mt-3">@item.SalaryMin.ToString("#,##0")</label>
+                                        }
+                                        else
+                                        {
+                                            <label class="fw-bold small d-flex mt-3">@item.SalaryMin.ToString("#,##0") ~ @item.SalaryMax.ToString("#,##0")</label>
+                                        }
+
+                                    </div>
+                                    <div class="col-sm-2 text-center">
+                                        <label class="fw-bold small mt-3">@item.UpdateDate</label>
+                                        <h4 class="fw-bolder mt-3">Show Job</h4>
+                                        <label class="switch">
+                                            <input type="checkbox" class="primary showjob" value="@item.ID" checked="@item.Status">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <button type="button" class="btn btn-outline-primary col-sm-12">View&Print</button>
+                                        <a asp-action="JobPosting_Edit" asp-route-id="@item.ID" class="btn btn-outline-primary col-sm-12 mt-2">Revise</a>
+                                        <a asp-action="JobPosting_Copy" asp-route-id="@item.ID" class="btn btn-outline-primary col-sm-12 mt-2">Copy</a>
+                                        <button type="button" class="btn btn-danger col-sm-12 mt-2"data-bs-toggle="modal" data-bs-target="#Modal_@item.ID">Delete</button>
+                                        <div class="modal fade" id="Modal_@item.ID" tabindex="-1" style="top:25%;">
+                                            <div class="modal-dialog align-middle">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h3 class="modal-title text-danger fw-bolder">DELETE</h3>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <h5 class="fw-bolder">You want to Delete : @item.JobTitle</h5>
+                                                        <h5 class="fw-bolder text-center">Are you sure ?</h5>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <a asp-action="JobPosting_Delete" asp-route-id="@item.ID" class="btn btn-primary">Yes</a>
+                                                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body bg-light shadow mt-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
-                            </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body bg-light shadow mt-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
-                            </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body bg-light shadow mt-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
-                            </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body bg-light shadow mt-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
-                            </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body bg-light shadow mt-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
-                            </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
-            <div class="card-body bg-light shadow mt-2">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <div class="d-flex justify-content-center mt-2">
-                            <button class="btn btn-outline-primary">Regular Hiring</button>
-                        </div>
-                        <div class="row mt-4">
-                            <div class="card bg-transparent col-sm-6 border-start-0 border-top-0 border-bottom-0">
-                                <div class="card-title text-center small fw-bold">Applicants</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">45</div>
-                            </div>
-                            <div class="card bg-transparent col-sm-6 border-0">
-                                <div class="card-title text-center small fw-bold">Viewer</div>
-                                <div class="card-body bg-transparent text-center fw-bolder">200</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-5">
-                        <label class="h4 fw-bolder d-flex mt-2">#Job Posting Title Name</label>
-                        <label class="fw-bold small d-flex mt-3">#Job Field</label>
-                        <label class="fw-bold small d-flex mt-3">#Working Location</label>
-                        <label class="fw-bold small d-flex mt-3">#Salary</label>
-                    </div>
-                    <div class="col-sm-2 text-center">
-                        <label class="fw-bold small mt-3">#Update Date</label>
-                        <h4 class="fw-bolder mt-3">Show Job</h4>
-                        <label class="custom-toggle mt-2">
-                            <input type="checkbox" class="w-auto" checked>
-                            <span class="custom-toggle-slider rounded-circle" data-label-off="Close" data-label-on="Open"></span>
-                        </label>
-                    </div>
-                    <div class="col-sm-2">
-                        <button class="btn btn-outline-primary col-sm-12">View&Print</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Revise</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Copy</button>
-                        <button class="btn btn-outline-primary col-sm-12 mt-2">Delete</button>
-                    </div>
-                </div>
-            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
             <div class="d-flex justify-content-center mt-5">
                 <nav>
                     <ul class="pagination">
@@ -335,3 +148,32 @@
     </div>
 </section>
 
+<script>
+import { each } from "jquery";
+
+    $(document).ready(function () {
+        $('.showjob').change(function () {
+            $.getJSON("/MyCompany/ShowJob", { id: $(this).val(),status: $(this).prop('checked') }, function (data) {
+
+            });
+        });
+
+        $('#Open').click(function () {
+            var fileData = new FormData();
+            fileData.append('filter', 'True');
+            $.ajax({
+                url: '/MyCompany/JobPosting',
+                type: "POST",
+                contentType: false,
+                processData: false,
+                data: fileData,
+                success: function (result) {
+                    $('#joblist').empty();
+                    each()
+                },
+                error: function (err) {
+                }
+            });
+        });
+    });
+</script>

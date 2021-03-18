@@ -4,14 +4,16 @@ using JOBGATE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace JOBGATE.Migrations
+namespace JOBGATE.Migrations.JOBGATE
 {
     [DbContext(typeof(JOBGATEContext))]
-    partial class JOBGATEContextModelSnapshot : ModelSnapshot
+    [Migration("20210315095420_CreateTableAccount")]
+    partial class CreateTableAccount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,15 +29,9 @@ namespace JOBGATE.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<string>("CompanyName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ContratPerson")
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(256)")
@@ -43,9 +39,6 @@ namespace JOBGATE.Migrations
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
-
-                    b.Property<string>("Industry")
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -73,9 +66,6 @@ namespace JOBGATE.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Telephone")
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
@@ -93,28 +83,7 @@ namespace JOBGATE.Migrations
                         .HasName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("User");
-                });
-
-            modelBuilder.Entity("JOBGATE.Models.IndustryCodeList", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Code")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IndustryNameEN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("IndustryNameTH")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("IndustryCodeList");
+                    b.ToTable("ACC_User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -124,10 +93,6 @@ namespace JOBGATE.Migrations
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
@@ -145,9 +110,7 @@ namespace JOBGATE.Migrations
                         .HasName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.ToTable("Role");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityRole");
+                    b.ToTable("ACC_Role");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -171,7 +134,7 @@ namespace JOBGATE.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RoleClaim");
+                    b.ToTable("ACC_RoleClaim");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -195,7 +158,7 @@ namespace JOBGATE.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserClaim");
+                    b.ToTable("ACC_UserClaim");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -219,7 +182,7 @@ namespace JOBGATE.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserLogin");
+                    b.ToTable("ACC_UserLogin");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
@@ -234,7 +197,7 @@ namespace JOBGATE.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRole");
+                    b.ToTable("ACC_UserRole");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -255,18 +218,7 @@ namespace JOBGATE.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("UserTokens");
-                });
-
-            modelBuilder.Entity("JOBGATE.Models.CreateRoleModel", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityRole");
-
-                    b.Property<string>("RoleName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasDiscriminator().HasValue("CreateRoleModel");
+                    b.ToTable("ACC_UserTokens");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

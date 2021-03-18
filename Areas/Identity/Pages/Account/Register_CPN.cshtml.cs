@@ -105,22 +105,6 @@ namespace JOBGATE.Areas.Identity.Pages.Account
             public string Telephone { get; set; }
         }
 
-        public void IndustryCodeList()
-        {
-            Array aa;
-            List<CEN_IndustryCodeList> industryCodeList = new List<CEN_IndustryCodeList>();
-            var List = _context.CEN_IndustryCodeList.ToList();
-            foreach (var data in List)
-            {
-                industryCodeList.Add(new CEN_IndustryCodeList {
-                Code = data.Code,
-                IndustryNameEN = data.IndustryNameEN
-                });
-            }
-            aa = industryCodeList.ToArray();
-            ViewData["IndustryCodeList"] = aa;
-        }
-
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;

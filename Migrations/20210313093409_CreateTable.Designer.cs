@@ -4,14 +4,16 @@ using JOBGATE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JOBGATE.Migrations
 {
     [DbContext(typeof(JOBGATEDataContext))]
-    partial class JOBGATEDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210313093409_CreateTable")]
+    partial class CreateTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -365,9 +367,6 @@ namespace JOBGATE.Migrations
                     b.Property<int>("AgeMin")
                         .HasColumnType("int");
 
-                    b.Property<int>("ApplyCount")
-                        .HasColumnType("int");
-
                     b.Property<bool>("Car")
                         .HasColumnType("bit");
 
@@ -383,9 +382,6 @@ namespace JOBGATE.Migrations
                     b.Property<string>("Country")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<DateTime>("CreateDate")
-                        .HasColumnType("datetime");
-
                     b.Property<string>("District")
                         .HasColumnType("varchar(10)");
 
@@ -398,20 +394,17 @@ namespace JOBGATE.Migrations
                     b.Property<bool>("Forklift")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("FreshGraduated")
-                        .HasColumnType("bit");
-
                     b.Property<string>("Industry")
                         .HasColumnType("varchar(10)");
 
-                    b.Property<string>("JobAdvertise")
-                        .HasColumnType("varchar(2)");
+                    b.Property<int>("JobAdvertise")
+                        .HasColumnType("int");
 
                     b.Property<string>("JobDescription")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("JobExperience")
-                        .HasColumnType("int");
+                    b.Property<string>("JobExperience")
+                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("JobField")
                         .HasColumnType("varchar(10)");
@@ -443,17 +436,14 @@ namespace JOBGATE.Migrations
                     b.Property<string>("QualificationDetail")
                         .HasColumnType("varchar(max)");
 
-                    b.Property<string>("ResumeType")
-                        .HasColumnType("varchar(2)");
+                    b.Property<int>("ResumeType")
+                        .HasColumnType("int");
 
                     b.Property<int>("SalaryMax")
                         .HasColumnType("int");
 
                     b.Property<int>("SalaryMin")
                         .HasColumnType("int");
-
-                    b.Property<bool>("Status")
-                        .HasColumnType("bit");
 
                     b.Property<string>("SubDistrict")
                         .HasColumnType("varchar(10)");
@@ -467,14 +457,8 @@ namespace JOBGATE.Migrations
                     b.Property<bool>("Truck")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("UpdateDate")
-                        .HasColumnType("datetime");
-
                     b.Property<string>("UserID")
                         .HasColumnType("varchar(max)");
-
-                    b.Property<int>("ViewCount")
-                        .HasColumnType("int");
 
                     b.Property<string>("Website")
                         .HasColumnType("varchar(max)");

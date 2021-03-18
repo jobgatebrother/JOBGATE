@@ -4,14 +4,16 @@ using JOBGATE.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace JOBGATE.Migrations
 {
     [DbContext(typeof(JOBGATEDataContext))]
-    partial class JOBGATEDataContextModelSnapshot : ModelSnapshot
+    [Migration("20210317040616_UpdateTableJobPosting4")]
+    partial class UpdateTableJobPosting4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

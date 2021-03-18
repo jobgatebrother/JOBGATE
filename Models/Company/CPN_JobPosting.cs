@@ -73,8 +73,11 @@ namespace JOBGATE.Models
         [Column(TypeName = "nvarchar(max)")]
         public string JobDescription { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string JobExperience { get; set; }
+        [Column(TypeName = "bit")]
+        public bool FreshGraduated { get; set; }
+
+        [Column(TypeName = "int")]
+        public int JobExperience { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string EducationDegree { get; set; }
@@ -112,11 +115,26 @@ namespace JOBGATE.Models
         [Column(TypeName = "int")]
         public int SalaryMax { get; set; }
 
-        [Column(TypeName = "int")]
-        public int ResumeType { get; set; }
+        [Column(TypeName = "varchar(2)")]
+        public string ResumeType { get; set; }
+
+        [Column(TypeName = "varchar(2)")]
+        public string JobAdvertise { get; set; }
+
+        [Column(TypeName = "bit")]
+        public bool Status { get; set; }
 
         [Column(TypeName = "int")]
-        public int JobAdvertise { get; set; }
+        public int ApplyCount { get; set; }
+
+        [Column(TypeName = "int")]
+        public int ViewCount { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime CreateDate { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime UpdateDate { get; set; }
 
 
     }

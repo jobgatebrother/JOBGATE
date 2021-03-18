@@ -1,45 +1,28 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace JOBGATE.Migrations
+namespace JOBGATE.Migrations.JOBGATE
 {
-    public partial class InitialCreate1 : Migration
+    public partial class CreateTableAccount : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "IndustryCodeList",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Code = table.Column<string>(nullable: true),
-                    IndustryNameTH = table.Column<string>(nullable: true),
-                    IndustryNameEN = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_IndustryCodeList", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Role",
+                name: "ACC_Role",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 256, nullable: true),
                     NormalizedName = table.Column<string>(maxLength: 256, nullable: true),
-                    ConcurrencyStamp = table.Column<string>(nullable: true),
-                    Discriminator = table.Column<string>(nullable: false),
-                    RoleName = table.Column<string>(nullable: true)
+                    ConcurrencyStamp = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Role", x => x.Id);
+                    table.PrimaryKey("PK_ACC_Role", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "ACC_User",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -56,19 +39,15 @@ namespace JOBGATE.Migrations
                     TwoFactorEnabled = table.Column<bool>(nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(nullable: true),
                     LockoutEnabled = table.Column<bool>(nullable: false),
-                    AccessFailedCount = table.Column<int>(nullable: false),
-                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Industry = table.Column<string>(type: "nvarchar(50)", nullable: true),
-                    ContratPerson = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    Telephone = table.Column<string>(type: "nvarchar(100)", nullable: true)
+                    AccessFailedCount = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.Id);
+                    table.PrimaryKey("PK_ACC_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "RoleClaim",
+                name: "ACC_RoleClaim",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -79,17 +58,17 @@ namespace JOBGATE.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RoleClaim", x => x.Id);
+                    table.PrimaryKey("PK_ACC_RoleClaim", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RoleClaim_Role_RoleId",
+                        name: "FK_ACC_RoleClaim_ACC_Role_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "Role",
+                        principalTable: "ACC_Role",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserClaim",
+                name: "ACC_UserClaim",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -100,17 +79,17 @@ namespace JOBGATE.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserClaim", x => x.Id);
+                    table.PrimaryKey("PK_ACC_UserClaim", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_UserClaim_User_UserId",
+                        name: "FK_ACC_UserClaim_ACC_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "ACC_User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserLogin",
+                name: "ACC_UserLogin",
                 columns: table => new
                 {
                     LoginProvider = table.Column<string>(maxLength: 128, nullable: false),
@@ -120,17 +99,17 @@ namespace JOBGATE.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserLogin", x => new { x.LoginProvider, x.ProviderKey });
+                    table.PrimaryKey("PK_ACC_UserLogin", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_UserLogin_User_UserId",
+                        name: "FK_ACC_UserLogin_ACC_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "ACC_User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserRole",
+                name: "ACC_UserRole",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -138,23 +117,23 @@ namespace JOBGATE.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserRole", x => new { x.UserId, x.RoleId });
+                    table.PrimaryKey("PK_ACC_UserRole", x => new { x.UserId, x.RoleId });
                     table.ForeignKey(
-                        name: "FK_UserRole_Role_RoleId",
+                        name: "FK_ACC_UserRole_ACC_Role_RoleId",
                         column: x => x.RoleId,
-                        principalTable: "Role",
+                        principalTable: "ACC_Role",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_UserRole_User_UserId",
+                        name: "FK_ACC_UserRole_ACC_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "ACC_User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserTokens",
+                name: "ACC_UserTokens",
                 columns: table => new
                 {
                     UserId = table.Column<string>(nullable: false),
@@ -164,80 +143,77 @@ namespace JOBGATE.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_UserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
+                    table.PrimaryKey("PK_ACC_UserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_UserTokens_User_UserId",
+                        name: "FK_ACC_UserTokens_ACC_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "ACC_User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "RoleNameIndex",
-                table: "Role",
+                table: "ACC_Role",
                 column: "NormalizedName",
                 unique: true,
                 filter: "[NormalizedName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RoleClaim_RoleId",
-                table: "RoleClaim",
+                name: "IX_ACC_RoleClaim_RoleId",
+                table: "ACC_RoleClaim",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "User",
+                table: "ACC_User",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "User",
+                table: "ACC_User",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserClaim_UserId",
-                table: "UserClaim",
+                name: "IX_ACC_UserClaim_UserId",
+                table: "ACC_UserClaim",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserLogin_UserId",
-                table: "UserLogin",
+                name: "IX_ACC_UserLogin_UserId",
+                table: "ACC_UserLogin",
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserRole_RoleId",
-                table: "UserRole",
+                name: "IX_ACC_UserRole_RoleId",
+                table: "ACC_UserRole",
                 column: "RoleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "IndustryCodeList");
+                name: "ACC_RoleClaim");
 
             migrationBuilder.DropTable(
-                name: "RoleClaim");
+                name: "ACC_UserClaim");
 
             migrationBuilder.DropTable(
-                name: "UserClaim");
+                name: "ACC_UserLogin");
 
             migrationBuilder.DropTable(
-                name: "UserLogin");
+                name: "ACC_UserRole");
 
             migrationBuilder.DropTable(
-                name: "UserRole");
+                name: "ACC_UserTokens");
 
             migrationBuilder.DropTable(
-                name: "UserTokens");
+                name: "ACC_Role");
 
             migrationBuilder.DropTable(
-                name: "Role");
-
-            migrationBuilder.DropTable(
-                name: "User");
+                name: "ACC_User");
         }
     }
 }
