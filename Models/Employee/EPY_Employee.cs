@@ -65,7 +65,7 @@ namespace JOBGATE.Models
         public decimal Weight { get; set; }
 
         [Column(TypeName = "varchar(max)")]
-        public int ImgPath { get; set; }
+        public string ImgPath { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string Religion { get; set; }

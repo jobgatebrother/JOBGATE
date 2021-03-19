@@ -81,6 +81,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\Employee\Img\" />
     <Folder Include="wwwroot\TemplateEmail\" />
   </ItemGroup>
 

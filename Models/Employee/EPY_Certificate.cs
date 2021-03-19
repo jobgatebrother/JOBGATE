@@ -12,7 +12,7 @@ namespace JOBGATE.Models
         public int ID { get; set; }
 
         [Column(TypeName = "varchar(10)")]
-        public string SkillTraning { get; set; }
+        public string SkillID { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string CertCategory { get; set; }

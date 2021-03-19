@@ -1,0 +1,74 @@
+﻿@{ Layout = "_Layout MyPage"; }
+@using static JOBGATE.Models.Employee.EPY_ViewData;
+<div class="card shadow-lg">
+    <div class="card-body bg-light">
+        <div class="card-header">
+            <h3 class="font-weight-bold text-dark">Manage Resume</h3>
+            <h6 class="font-weight-bold text-dark">Total Resume : 3 items</h6>
+        </div>
+        <div class="card-body">
+            @{ int num = 0;}
+            @foreach (ViewResume Resumelist in (ViewResume[])ViewBag.Resume)
+            {
+                num++;
+                <div id="Resume_@num" class="row @(num == 1 ? "":"mt-4")">
+                    <div class="col-8">
+                        <h5 class="font-weight-bold text-dark"> @Resumelist.ResumeName</h5>
+                        <div class="row">
+                            <div class="col-6 row">
+                                <i class="fa fa-briefcase col-2 mt-1"></i>
+                                <label>Job Experince : # Year ## Month</label>
+                            </div>
+                            <div class="col-6 row">
+                                <i class="fa fa-wrench col-2 mt-1"></i>
+                                <label>Job Field : @Resumelist.JobField   @(Resumelist.JobField2 != null ? ", "+ Resumelist.JobField2 : "" ) </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 row">
+                                <i class="fa fa-money-bill-alt col-2 mt-1"></i>
+                                <label>Expected Salary : @Resumelist.ExpectedSalary</label>
+                            </div>
+                            <div class="col-6 row">
+                                <i class="fa fa-map-marker-alt col-2 mt-1"></i>
+                                <label>Working Location : @Resumelist.Worklocation</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-2 text-center">
+                        <h6 class="font-weight-bold text-dark mt-4">Show Resume</h6>
+                        <div class="custom-control custom-switch" data-id="@Resumelist.ID">
+                            <input type="checkbox" class="custom-control-input" id="ChkResume_@num" checked="@(Resumelist.status == true ? "checked" : null)">
+                            <label class="custom-control-label " for="ChkResume_@num"></label>
+                          
+                        </div>
+                    </div>
+                    <div class="col-2 text-center">
+                        <a type="button" class="btn btn-outline-primary btn-block" asp-action="Resume_Edit" asp-route-id="@Resumelist.ID">Revise</a>
+                        <button type="button" class="btn btn-outline-primary btn-block">Copy</button>
+                        <button type="button" class="btn btn-outline-primary btn-block">View&Print</button>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+<script>
+    $('.custom-switch').click(function () {
+     var Id = $(this).data('id');
+     var checkStatus = $(this).find('input:checkbox').is(':checked') ? 'False' : 'True';
+
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("EditStatus", "MyEmployee")',
+            data: {
+                id: Id,
+                status: checkStatus
+            },
+            dataType: 'json'
+        })
+    });
+
+
+</script>

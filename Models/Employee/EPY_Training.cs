@@ -14,10 +14,6 @@ namespace JOBGATE.Models
         [Column(TypeName = "varchar(10)")]
         public string SkillID { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string SkillTraning { get; set; }
-
-
         [Column(TypeName = "varchar(max)")]
         public string TrainingName { get; set; }
 

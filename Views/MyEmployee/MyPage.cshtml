@@ -1,0 +1,217 @@
+﻿@{ Layout = "_Layout MyPage"; }
+@using static JOBGATE.Models.Employee.EPY_ViewData;
+@model JOBGATE.Models.Employee.EPY_ViewData.Resume
+<div class="card shadow-lg">
+    <div class="card-body bg-light">
+        <form  method="post" id="myForm" asp-action="Create" enctype="multipart/form-data">
+            <div class="card-header">
+                <h3 class="font-weight-bold text-dark">My Account</h3>
+            </div>
+            @foreach (Resume Relist in (Resume[])ViewBag.ResumeRegis)
+            {
+
+                <div class="card-body row">
+                    <div class="col-sm-9 form-group row">
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">UserName</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <input type="email" class="form-control" placeholder="Email@Email.com" disabled/>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Password</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <input type="password" class="form-control" placeholder="**********" disabled/>
+                        </div>
+                        <br />
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">First Name</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <input type="text" class="form-control" placeholder="Typing First Name" value="@Relist.FirstName" />
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Last Name</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <input type="text" class="form-control" placeholder="Typing Last Name" value="@Relist.LastName" />
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Gender</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <div class="nav nav-pills" id="gender" role="tablist">
+
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="nav-link border btn">
+                                        <input type="radio" value="Male" asp-for="GenderId" checked="@(Relist.GenderId == "Male" ? "checked" : null)"> Male
+                                    </label>
+                                    <label class="nav-link border btn">
+                                        <input type="radio" autocomplete="off" value="Female" asp-for="GenderId" checked="@(Relist.GenderId == "Female" ? "checked" : null)"> Female
+                                    </label>
+                                    <label class="nav-link border btn">
+                                        <input type="radio" value="Other" asp-for="GenderId" checked="@(Relist.GenderId == "Other" ? "checked" : null)"> Other
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Birth Date</label>
+                        </div>
+                        <div class="col-sm-2 mt-2">
+                            <select class="custom-select" asp-for="DayB" required>
+                                <option value="0">Date</option>
+                                @for (int Day = 1; Day <= 31; Day++)
+                                {
+
+                                    <option value="@Day" selected="@(Relist.DayB == Day ? "selected" : null)">@Day</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="col-sm-2 mt-2">
+                            <select class="custom-select" asp-for="MonthB" required>
+                                <option value="0">Month</option>
+                                @for (int Month = 1; Month <= 12; Month++)
+                                {
+
+                                    <option value="@Month" selected="@(Relist.MonthB == Month ? "selected" : null)">@Month</option>
+                                }
+
+                            </select>
+                        </div>
+                        <div class="col-sm-2 mt-2">
+                            <select class="custom-select ml-2" asp-for="YearsB" required>
+                                <option value="0">Year</option>
+                                @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                {
+                                    <option value="@i" selected="@(Relist.YearsB == i ? "selected" : null)">@i</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-sm-3 mt-2"></div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Mobile Phone</label>
+                        </div>
+                        <div class="col-sm-5 mt-2">
+                            <input type="tel" class="form-control" placeholder="Typing Mobile No." value="@Relist.MobilePhone" />
+                        </div>
+                        <div class="col-sm-4 mt-2"></div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Nationality</label>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <select asp-for="NationalityId"
+                                    class="custom-select"
+                                    asp-items="@ViewBag.listnational">
+                                <option value="">Select National</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mt-2"></div>
+                        <div class="col-sm-3 mt-2"></div>
+                        <div class="col-sm-8 mt-2 ml-4">
+                            <small>
+                                <input type="checkbox" class="custom-control-input" id="customCheck">
+                                <label class="custom-control-label" for="customCheck">Staying Overseas</label>
+                            </small>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Current Address</label>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <select class="custom-select"
+                                    asp-items="@ViewBag.listlocation" id="Dist" asp-for="ProvinceID">
+                                <option value="">Province</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <select class="custom-select" id="DistrictList" asp-for="DistrictID">
+                                <option value="">District</option>
+
+                            </select>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <select class="custom-select" id="SubDistrictList" asp-for="SubDistrictID" required>
+                                <option value="0">Sub-District</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 mt-2"></div>
+                        <div class="col-sm-9 mt-2">
+                            <input type="text" class="col-sm form-control" placeholder="Address" value="@Relist.Address" />
+                        </div>
+                    </div>
+                    <div class="col-sm-3 mt-2">
+                        <div class="col-1"></div>
+                        <div class="card mt-2 ml-4" style="width:155px; height:197px;">
+                            <img id="image_preview" class="card-img w-100 h-100 bg-preset1" src="@(Relist.Image != null? "/Employee/Img/"+Relist.Image : "~/Images/user.png")" />
+                        </div>
+                        <input onchange="readfile(this);" type="file" class="form-control-file mt-2" asp-for="ImageName" accept="image/x-png,image/gif,image/jpeg" />
+                    </div>
+                </div>
+            }
+        <div class="row justify-content-center">
+            <button class="btn btn-primary col-sm-3">SAVE</button>
+          
+        </div>
+        </form>
+    </div>
+</div>
+
+<script>
+
+
+    $(document).ready(function () {
+      $("#Dist").change(function() {
+
+            $("#DistrictList").empty();
+            $("#SubDistrictList").empty();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetDistList")",
+                dataType: "json",
+                data: { id: $("#Dist").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#DistrictList").append("<option value='0'>District</option>");
+                    $("#SubDistrictList").append("<option value='0'>Sub-District</option>");
+                    $.each(response, function (i, response) {
+
+                        $("#DistrictList").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+
+             })
+
+        })
+
+         $("#DistrictList").change(function() {
+
+            $("#SubDistrictList").empty();
+            $.ajax({
+                 type: "GET",
+                url: "@Url.Action("GetSubList")",
+                dataType: "json",
+                data: { id: $("#DistrictList").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#SubDistrictList").append("<option value='0'>Sub-District</option>");
+                    $.each(response, function (i, response) {
+
+                        $("#SubDistrictList").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+               // error: function (ex)
+             })
+            //return false;
+
+         })
+    })
+
+
+</script>

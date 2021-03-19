@@ -11,17 +11,17 @@ namespace JOBGATE.Models
     {
         public int ID { get; set; }
 
+        [Column(TypeName = "varchar(20)")]
+        public string ResumeID { get; set; }
+
+        [Column(TypeName = "varchar(max)")]
+        public string ResumeName { get; set; }
+
         [Column(TypeName = "varchar(10)")]
         public string Employee { get; set; }
 
         [Column(TypeName = "varchar(10)")]
-        public string Education { get; set; }
-
-        [Column(TypeName = "varchar(10)")]
         public string RequiredJob { get; set; }
-
-        [Column(TypeName = "varchar(10)")]
-        public string JobExp { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string SkillTraning { get; set; }

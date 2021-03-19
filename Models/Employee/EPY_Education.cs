@@ -11,6 +11,9 @@ namespace JOBGATE.Models
     {
         public int ID { get; set; }
 
+        [Column(TypeName = "varchar(20)")]
+        public string ResumeID { get; set; }
+
         [Column(TypeName = "varchar(10)")]
         public string Degree { get; set; }
 

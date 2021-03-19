@@ -1,0 +1,1669 @@
+﻿
+
+@{ Layout = "_Layout MyPage"; }
+
+@using static JOBGATE.Models.Employee.EPY_ViewData;
+@model JOBGATE.Models.Employee.EPY_ViewData.Resume
+
+
+<script src="~/js/Resume.js"></script>
+
+
+@*@using (Html.BeginForm("ViewDataModel", "MyPage", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {*@
+
+<form method="post" id="myForm" asp-action="RegisterResume" enctype="multipart/form-data">
+    <div class="container bg-light" id="tabs">
+        <ul class="nav nav-pills" id="pills-tab" role="tablist">
+            <li class="nav-item text-center border" style="width:20%;">
+                <a class="nav-link active" id="Personel-tab" data-toggle="pill" href="#pills-Personel" role="tab" aria-selected="true">
+                    <i class="fa fa-user fa-2x"></i>
+                    <br />
+                    <strong>Personel Information</strong>
+                </a>
+            </li>
+            <li class="nav-item text-center border" style="width:20%;">
+                <a class="nav-link" id="Education-tab" data-toggle="pill" href="#pills-Education" role="tab" aria-selected="true">
+                    <i class="fa fa-user-graduate fa-2x"></i>
+                    <br />
+                    <strong>Education</strong>
+                </a>
+            </li>
+            <li class="nav-item text-center border" style="width:20%;">
+                <a class="nav-link" id="Experience-tab" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true">
+                    <i class="fa fa-business-time fa-2x"></i>
+                    <br />
+                    <strong>Job Experience</strong>
+                </a>
+            </li>
+            <li class="nav-item text-center border" style="width:20%;">
+                <a class="nav-link" id="Skill-tab" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true">
+                    <i class="fa fa-book-reader fa-2x"></i>
+                    <br />
+                    <strong>Skill Traning</strong>
+                </a>
+            </li>
+            <li class="nav-item text-center border" style="width:20%;">
+                <a class="nav-link" id="Job-tab" data-toggle="pill" href="#pills-Job" role="tab" aria-selected="true">
+                    <i class="fa fa-search fa-2x"></i>
+                    <br />
+                    <strong>Required Job</strong>
+                </a>
+            </li>
+        </ul>
+        <div class="progress">
+            <div id="Progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width:20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
+        <div class="card shadow-lg">
+
+            <div class="card-body bg-light">
+                @foreach (Resume Resumelist in (Resume[])ViewBag.ResumeRegis)
+                {
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-Personel" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Personal Information</h3>
+                    </div>
+
+                    <div class="card-body row">
+
+                        <div class="col-sm-9 form-group row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">First Name</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <input type="text" class="form-control check" asp-for="FirstName" value="@Resumelist.FirstName" placeholder="Typing First Name" required />
+                                <span asp-validation-for="FirstName" class="text-danger"></span>
+                            </div>
+
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Last Name</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+
+                                <input type="text" class="form-control" asp-for="LastName" value="@Resumelist.LastName" placeholder="Typing Last Name" required />
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Gender</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <div class="nav nav-pills" id="gender" role="tablist">
+
+                                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                        <label class="nav-link border btn">
+                                            <input type="radio" value="Male" asp-for="GenderId" checked="@(Resumelist.GenderId == "Male" ? "checked" : null)"> Male
+                                        </label>
+                                        <label class="nav-link border btn">
+                                            <input type="radio" autocomplete="off" value="Female" asp-for="GenderId" checked="@(Resumelist.GenderId == "Female" ? "checked" : null)"> Female
+                                        </label>
+                                        <label class="nav-link border btn">
+                                            <input type="radio" value="Other" asp-for="GenderId" checked="@(Resumelist.GenderId == "Other" ? "checked" : null)"> Other
+                                        </label>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Birth Date</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="custom-select" asp-for="DayB" required>
+                                    <option value="0">Date</option>
+                                    @for (int Day = 1; Day <= 31; Day++)
+                                    {
+
+                                <option value="@Day" selected="@(Resumelist.DayB == Day ? "selected" : null)" >@Day</option> }
+
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="custom-select" asp-for="MonthB" required>
+                                    <option value="0">Month</option>
+                                    @for (int Month = 1; Month <= 12; Month++)
+                                    {
+
+                    <option value="@Month" selected="@(Resumelist.MonthB == Month ? "selected" : null)">@Month</option>
+}
+
+                                </select>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="custom-select ml-2" asp-for="YearsB" required>
+                                    <option value="0">Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                    <option value="@i" selected="@(Resumelist.YearsB == i ? "selected" : null)">@i</option>
+}
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Mobile Phone</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+
+                                <input type="tel" class="form-control" placeholder="Typing Mobile No." value="@Resumelist.MobilePhone" asp-for="MobilePhone" required />
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="custom-control custom-checkbox custom-control-inline col-sm-8 mt-2 ml-4">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="defaultInline1" asp-for="SameMobile">
+                                    <label class="custom-control-label" for="defaultInline1">Same with Mobile Phone</label>
+                                </small>
+                            </div>
+
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Tel No.</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="tel" class="form-control" placeholder="Typing Tel No." value="@Resumelist.Tel" asp-for="Tel" />
+                            </div>
+                            <div class="col-sm-4 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Marriage Status</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select asp-for="MarriageStatusId"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listmarriage">
+                                    <option value="">Select Marriage</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mt-2"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Nationality</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select asp-for="NationalityId"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listnational">
+                                    <option value="">Select National</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-6 mt-2"></div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="custom-control custom-checkbox custom-control-inline col-sm-8 mt-2 ml-4">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="defaultInline2" asp-for="StayingOver">
+                                    <label class="custom-control-label" for="defaultInline2">Staying Overseas</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Current Address</label>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="custom-select"
+                                        asp-items="@ViewBag.listlocation" id="Dist" asp-for="ProvinceID">
+                                    <option value="">Province</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="custom-select" id="DistrictList" asp-for="DistrictID">
+                                    <option value="">District</option>
+
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <select class="custom-select" id="SubDistrictList" asp-for="SubDistrictID" required>
+                                    <option value="0">Sub-District</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3 mt-2"></div>
+                            <div class="col-sm-9 mt-2">
+
+                                <input type="text" class="col-sm form-control" placeholder="Address" value="@Resumelist.Address" asp-for="Address" required />
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mt-2">
+                            <div class="col-1"></div>
+
+                            <div class="card mt-2 ml-4" style="width:155px; height:197px;">
+                                <img id="image_preview" class="card-img w-100 h-100 bg-preset1" src="@(Resumelist.Image != null? "/Employee/Img/"+Resumelist.Image : "~/Images/user.png")"  />
+                            </div>
+                            <input onchange="readfile(this);" type="file" class="form-control-file mt-2" asp-for="ImageName" accept="image/x-png,image/gif,image/jpeg"/>
+                        </div>
+                        <div class="col-sm mt-2 row">
+                            <div class="col-sm-3 row">
+                                <label class="mt-1">Height</label>
+                                <input type="text" class="col-sm-4 form-control ml-2 text-center" placeholder="180" value="@Resumelist.Height" asp-for="Height" required />
+                                <small class="mt-2 ml-1">CM</small>
+                            </div>
+                            <div class="col-sm-3 row">
+                                <label class="mt-1">Weight</label>
+                                <input type="text" class="col-sm-4 form-control ml-2 text-center" placeholder="60" value="@Resumelist.Weight" asp-for="Weight" required />
+                                <small class="mt-2 ml-1">KG</small>
+                            </div>
+                            <div class="col-sm-3 row mr-4">
+                                <label class="mt-1">Religion</label>
+                                <select asp-for="ReligionId" class="custom-select col-sm-8 ml-2">
+                                    <option value="">Select Religion</option>
+                                    <option value="Buddhism" selected="@(Resumelist.ReligionId == "Buddhism" ? "selected" : null)">Buddhism</option>
+                                    <option value="Jainism" selected="@(Resumelist.ReligionId == "Jainism" ? "selected" : null)">Jainism</option>
+                                    <option value="Hinduism" selected="@(Resumelist.ReligionId == "Hinduism" ? "selected" : null)">Hinduism</option>
+                                    <option value="Folk religion" selected="@(Resumelist.ReligionId == "Folk religion" ? "selected" : null)">Folk religion</option>
+                                    <option value="Taoism and Confucianism" selected="@(Resumelist.ReligionId == "Taoism and Confucianism" ? "selected" : null)">Taoism and Confucianism</option>
+                                    <option value="Islam" selected="@(Resumelist.ReligionId == "Islam" ? "selected" : null)"> Islam</option>
+                                    <option value="Christianity" selected="@(Resumelist.ReligionId == "Christianity" ? "selected" : null)">Christianity</option>
+                                    <option value=" Sikhism" selected="@(Resumelist.ReligionId == "Sikhism" ? "selected" : null)">Sikhism</option>
+                                    <option value="Judaism" selected="@(Resumelist.ReligionId == "Judaism" ? "selected" : null)">Judaism</option>
+
+                                </select>
+                            </div>
+                            <div class="col-sm-3 row ml-3">
+                                <label class="mt-1">Military</label>
+                                <select asp-for="MilitaryId" class="custom-select col-sm-8 ml-2">
+                                    <option value="" >Select Religion</option>
+                                    <option value="Pass" selected="@(Resumelist.MilitaryId == "Pass" ? "selected" : null)">Pass</option>
+                                    <option value="Excepted" selected="@(Resumelist.MilitaryId == "Excepted" ? "selected" : null)">Excepted</option>
+                                    <option value="None" selected="@(Resumelist.MilitaryId == "None" ? "selected" : null)">None</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <hr />
+
+                    <div class="row justify-content-end">
+                        <input type="button" id="btnPersonelNext" class="btn btn-primary col-sm-3 StepNext" data-toggle="pill" href="#pills-Education" role="tab" value="Next" />
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" id="pills-Education" role="tabpanel">
+
+                    <div class="card-header border-0">
+                        <h3 class="font-weight-bold text-dark">Education</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row ml-4">
+                            <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Degree # 1</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Degree</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select asp-for="DegreeId1"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listdegree">
+                                    <option value="">Select Degree</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">School Name</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="School Name" asp-for="SchoolName1" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Study Category</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select asp-for="StudyCateId1"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listStudy">
+                                    <option value="">Select StudyCatagory</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Major Subject</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+
+                                <input type="text" class="form-control" placeholder="Major Subject" asp-for="MajorSubject1" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Graduatation Year</label>
+                            </div>
+
+                            <div class="col-sm-2 mt-2">
+                                <select class="custom-select" asp-for="GraduatationYear1">
+                                    <option value="">Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                    <option value="@i">@i</option>}
+                                </select>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline col-sm-5 mt-3 ml-3">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="defaultInline3" asp-for="StudyNowJE1">
+                                    <label class="custom-control-label" for="defaultInline3">Studying Now</label>
+                                </small>
+                            </div>
+
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">G.P.A. Score</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                              
+                                <input type="text" class="form-control" placeholder="4.00 / A" asp-for="GPA1" />
+                            </div>
+                            <div class="col-sm-7"></div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Degree # 2</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Degree</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select asp-for="DegreeId2"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listdegree">
+                                    <option value="">Select Degree</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">School Name</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+
+                                <input type="text" class="form-control" placeholder="School Name" asp-for="SchoolName2" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Study Category</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select asp-for="StudyCateId2"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listStudy">
+                                    <option value="">Select StudyCatagory</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Major Subject</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <input type="text" class="form-control" placeholder="Major Subject" asp-for="MajorSubject2" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Graduatation Year</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="custom-select" asp-for="GraduatationYear2">
+                                    <option value="">Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                    <option value="@i">@i</option>}
+                                </select>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline col-sm-5 mt-3 ml-3">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="defaultInline4" asp-for="StudyNowJE2">
+                                    <label class="custom-control-label" for="defaultInline4">Studying Now</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">G.P.A. Score</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                @*@Html.EditorFor(model => model.DegreeEPY.GPAScore, new { htmlAttributes = new { @class = "form-control", placeholder = "4.00 / A" } })*@
+                                <input type="text" class="form-control" placeholder="4.00 / A" asp-for="GPA2" />
+                            </div>
+                            <div class="col-sm-7"></div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-graduation-cap fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Degree # 3</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Degree</label>
+                            </div>
+                            <div class="col-sm-4 mt-2">
+                                <select asp-for="DegreeId3"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listdegree">
+                                    <option value="">Select Degree</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">School Name</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+
+                                <input type="text" class="form-control" placeholder="School Name" asp-for="SchoolName3" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Study Category</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select asp-for="StudyCateId3"
+                                        class="custom-select"
+                                        asp-items="@ViewBag.listStudy">
+                                    <option value="">Select StudyCatagory</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Major Subject</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                              
+                                <input type="text" class="form-control" placeholder="Major Subject" asp-for="MajorSubject3" />
+                            </div>
+                            <div class="col-sm-4"></div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">Graduatation Year</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                <select class="custom-select" asp-for="GraduatationYear3">
+                                    <option value="">Year</option>
+                                    @for (int i = DateTime.Now.Year; i >= (DateTime.Now.Year - 120); i--)
+                                    {
+                    <option value="@i">@i</option>}
+                                </select>
+                            </div>
+                            <div class="custom-control custom-checkbox custom-control-inline col-sm-5 mt-3 ml-3">
+                                <small>
+                                    <input type="checkbox" class="custom-control-input" id="defaultInline5" asp-for="StudyNowJE3">
+                                    <label class="custom-control-label" for="defaultInline5">Studying Now</label>
+                                </small>
+                            </div>
+                            <div class="col-sm-3 mt-2">
+                                <label class="mt-1">G.P.A. Score</label>
+                            </div>
+                            <div class="col-sm-2 mt-2">
+                                @*@Html.EditorFor(model => model.DegreeEPY.GPAScore, new { htmlAttributes = new { @class = "form-control", placeholder = "4.00 / A" } })*@
+                                <input type="text" class="form-control" placeholder="4.00 / A" asp-for="GPA3" />
+                            </div>
+                            <div class="col-sm-7"></div>
+                        </div>
+                        <br />
+
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnEducationBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Personel" role="tab" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            @*<button type="submit" class="btn btn-primary col-sm-3 StepNext">Save</button>*@
+                            <input type="button" id="btnEducationNext" class="btn btn-primary form-control StepNext" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true" value="Next" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-Experience" role="tabpanel">
+
+                    <div class="card-header border-0">
+                        <h3 class="font-weight-bold text-dark">Job Experience</h3>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#JobExperiencee1">Job Experience 1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#JobExperiencee2">Job Experience 2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#JobExperiencee3">Job Experience 3</a>
+                        </li>
+                    </ul>
+
+
+                    <div class="tab-content">
+
+                        <div id="JobExperiencee1" class="tab-pane active">
+                            <div class="card-body">
+                                <div class="row ml-4 mt-4">
+                                    <i class="fa fa-user-tie fa-2x text-primary"></i>
+                                    <h4 class="ml-2 font-weight-bold text-dark">Job Experience # 1</h4>
+                                </div>
+                                @*<hr />*@
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Company Name</label>
+                                    </div>
+                                    <div class="col-sm-4 mt-4">
+                                        <input type="text" class="form-control" placeholder="Company Name" asp-for="CompanyName1" />
+                                    </div>
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Working Period</label>
+                                    </div>
+                                    <div class="col-sm-4 mt-2 ml-1 row">
+                                        <label class="mt-1">Start to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="WorkStart1" value="@DateTime.Now;" />
+                                    </div>
+                                    <div class="col-sm-4 mt-2 row">
+                                        <label class="mt-1">End to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="WorkEnd1" value="@DateTime.Now;"/>
+                                    </div>
+                                    <div class="col-sm-2 mt-2">
+                                        <select class="form-control" asp-for="Status_Working1">
+                                            <option value="Resigned">Resigned</option>
+                                            <option value="Working Now">Working Now</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Industry</label>
+                                    </div>
+                                    <div class="col-sm-6 mt-2">
+                                        <select asp-for="industryId1"
+                                                class="custom-select"
+                                                asp-items="@ViewBag.listindustry">
+                                            <option value="">Select Industry</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Job Field</label>
+                                    </div>
+                                    <div class="col-sm-6 mt-2">
+                                        <select asp-for="JobFieldId1"
+                                                class="custom-select"
+                                                asp-items="@ViewBag.listjobfield">
+                                            <option value="0">Select JobField</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Position</label>
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+                                        <select asp-for="PositionId1"
+                                                class="custom-select"
+                                                asp-items="@ViewBag.listpos">
+                                            <option value="0">Select Position</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+
+                                    </div>
+                                    <div class="col-sm-4 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Working Dept.</label>
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+                                        <input type="text" class="form-control" placeholder="Typing Dept. Title" asp-for="WorkingDept1" />
+                                    </div>
+                                    <div class="col-sm-7 mt-2"></div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="custom-control custom-checkbox custom-control-inline col-sm-9 mt-2 ml-4">
+                                        <small>
+                                            <input type="checkbox" class="custom-control-input" asp-for="Work_in_over1" name="WorkOverseas" id="WorkOverseas">
+                                            <label class="custom-control-label" for="WorkOverseas">Working in Overseas</label>
+                                        </small>
+
+                                    </div>
+                                    <div class="col-sm-2 mt-2">
+
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+                                        <select class="custom-select" name="SelectOverseas" id="SelectOverseas" asp-for="Workoverseas1">
+                                            <option value="0">Select Position</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-6 mt-2">
+
+                                    </div>
+
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Company Location</label>
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+                                        <select class="custom-select"
+                                                asp-items="@ViewBag.listlocation" id="Dist2" asp-for="WorkProvinceID1">
+                                            <option value="">Province</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+                                        <select class="custom-select" id="DistrictList2" asp-for="WorkDistrictID1">
+                                            <option value="">District</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 mt-2">
+                                        <select class="custom-select" id="SubDistrictList2" asp-for="WorkSubDistrictID1" required>
+                                            <option value="0">Sub-District</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Salary</label>
+                                    </div>
+                                    <div class="col-sm-3 mt-2">
+                                        <input type="number" class="form-control" placeholder="###,##0.00" asp-for="Salary1" />
+                                    </div>
+                                    <div class="col-sm-7 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Job Duty</label>
+                                    </div>
+                                    <div class="col-sm-10 mt-2">
+                                        <textarea type="text" class="form-control" style="height:200px;" asp-for="Jobduty1"></textarea>
+                                    </div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="JobExperiencee2" class="tab-pane fade">
+
+                            <div id="JobExperiencee2" class="tab-pane">
+                                <div class="card-body">
+                                    <div class="row ml-4 mt-4">
+                                        <i class="fa fa-user-tie fa-2x text-primary"></i>
+                                        <h4 class="ml-2 font-weight-bold text-dark">Job Experience # 2</h4>
+                                    </div>
+                                    @*<hr />*@
+                                    <div class="row">
+                                        <div class="col-sm-2 mt-4">
+                                            <label class="mt-1">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-4 mt-4">
+                                            <input type="text" class="form-control" placeholder="Company Name" asp-for="CompanyName2" />
+                                        </div>
+                                        <div class="col-sm-6"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Working Period</label>
+                                        </div>
+                                        <div class="col-sm-4 mt-2 ml-1 row">
+                                            <label class="mt-1">Start to</label>
+                                            <input type="date" class="form-control col-sm-8 ml-2" asp-for="WorkStart2" value="@DateTime.Now;"/>
+                                        </div>
+                                        <div class="col-sm-4 mt-2 row">
+                                            <label class="mt-1">End to</label>
+                                            <input type="date" class="form-control col-sm-8 ml-2" asp-for="WorkEnd2" value="@DateTime.Now;"/>
+                                        </div>
+                                        <div class="col-sm-2 mt-2">
+                                            <select class="form-control" asp-for="Status_Working2">
+                                                <option value="Resigned">Resigned</option>
+                                                <option value="Working Now">Working Now</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Industry</label>
+                                        </div>
+                                        <div class="col-sm-6 mt-2">
+                                            <select asp-for="industryId2"
+                                                    class="custom-select"
+                                                    asp-items="@ViewBag.listindustry">
+                                                <option value="">Select Industry</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Job Field</label>
+                                        </div>
+                                        <div class="col-sm-6 mt-2">
+                                            <select asp-for="JobFieldId2"
+                                                    class="custom-select"
+                                                    asp-items="@ViewBag.listjobfield">
+                                                <option value="0">Select JobField</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Position</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <select asp-for="PositionId2"
+                                                    class="custom-select"
+                                                    asp-items="@ViewBag.listpos">
+                                                <option value="0">Select Position</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+
+                                        </div>
+                                        <div class="col-sm-4 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Working Dept.</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <input type="text" class="form-control" placeholder="Typing Dept. Title" asp-for="WorkingDept2" />
+                                        </div>
+                                        <div class="col-sm-7 mt-2"></div>
+                                        <div class="col-sm-2 mt-2"></div>
+                                        <div class="custom-control custom-checkbox custom-control-inline col-sm-9 mt-2 ml-4">
+                                            <small>
+                                                <input type="checkbox" class="custom-control-input" id="defaultInline6" asp-for="Work_in_over2">
+                                                <label class="custom-control-label" for="defaultInline6">Working in Overseas</label>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Company Location</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <select class="custom-select"
+                                                    asp-items="@ViewBag.listlocation" id="Dist2" asp-for="WorkProvinceID2">
+                                                <option value="">Province</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <select class="custom-select" id="DistrictList2" asp-for="WorkDistrictID2">
+                                                <option value="">District</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mt-2">
+                                            <select class="custom-select" id="SubDistrictList2" asp-for="WorkSubDistrictID2" >
+                                                <option value="">Sub-District</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Salary</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <input type="number" class="form-control" placeholder="###,##0.00" asp-for="Salary2" />
+                                        </div>
+                                        <div class="col-sm-7 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Job Duty</label>
+                                        </div>
+                                        <div class="col-sm-10 mt-2">
+                                            <textarea type="text" class="form-control" style="height:200px;" asp-for="Jobduty2"></textarea>
+                                        </div>
+                                        <div class="col-sm mt-4">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div id="JobExperiencee3" class="tab-pane fade">
+
+                            <div id="JobExperiencee3" class="tab-pane">
+                                <div class="card-body">
+                                    <div class="row ml-4 mt-4">
+                                        <i class="fa fa-user-tie fa-2x text-primary"></i>
+                                        <h4 class="ml-2 font-weight-bold text-dark">Job Experience # 3</h4>
+                                    </div>
+                                    @*<hr />*@
+                                    <div class="row">
+                                        <div class="col-sm-2 mt-4">
+                                            <label class="mt-1">Company Name</label>
+                                        </div>
+                                        <div class="col-sm-4 mt-4">
+                                            <input type="text" class="form-control" placeholder="Company Name" asp-for="CompanyName3" />
+                                        </div>
+                                        <div class="col-sm-6"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Working Period</label>
+                                        </div>
+                                        <div class="col-sm-4 mt-2 ml-1 row">
+                                            <label class="mt-1">Start to</label>
+                                            <input type="date" class="form-control col-sm-8 ml-2" asp-for="WorkStart3" value="@DateTime.Now;"/>
+                                        </div>
+                                        <div class="col-sm-4 mt-2 row">
+                                            <label class="mt-1">End to</label>
+                                            <input type="date" class="form-control col-sm-8 ml-2" asp-for="WorkEnd3" value="@DateTime.Now;"/>
+                                        </div>
+                                        <div class="col-sm-2 mt-2">
+                                            <select class="form-control" asp-for="Status_Working3">
+                                                <option value="Resigned">Resigned</option>
+                                                <option value="Working Now">Working Now</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Industry</label>
+                                        </div>
+                                        <div class="col-sm-6 mt-2">
+                                            <select asp-for="industryId3"
+                                                    class="custom-select"
+                                                    asp-items="@ViewBag.listindustry">
+                                                <option value="">Select Industry</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Job Field</label>
+                                        </div>
+                                        <div class="col-sm-6 mt-2">
+                                            <select asp-for="JobFieldId3"
+                                                    class="custom-select"
+                                                    asp-items="@ViewBag.listjobfield">
+                                                <option value="">Select JobField</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Position</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <select asp-for="PositionId3"
+                                                    class="custom-select"
+                                                    asp-items="@ViewBag.listpos">
+                                                <option value="">Select Position</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+
+                                        </div>
+                                        <div class="col-sm-4 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Working Dept.</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <input type="text" class="form-control" placeholder="Typing Dept. Title" asp-for="WorkingDept3" />
+                                        </div>
+                                        <div class="col-sm-7 mt-2"></div>
+                                        <div class="col-sm-2 mt-2"></div>
+                                        <div class="custom-control custom-checkbox custom-control-inline col-sm-9 mt-2 ml-4">
+                                            <small>
+                                                <input type="checkbox" class="custom-control-input" id="defaultInline6" asp-for="Work_in_over3 ">
+                                                <label class="custom-control-label" for="defaultInline6">Working in Overseas</label>
+                                            </small>
+                                        </div>
+
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Company Location</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <select class="custom-select"
+                                                    asp-items="@ViewBag.listlocation" id="Dist2" asp-for="WorkProvinceID3">
+                                                <option value="">Province</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <select class="custom-select" id="DistrictList2" asp-for="WorkDistrictID3">
+                                                <option value="">District</option>
+
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-4 mt-2">
+                                            <select class="custom-select" id="SubDistrictList2" asp-for="WorkSubDistrictID3" required>
+                                                <option value="0">Sub-District</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Salary</label>
+                                        </div>
+                                        <div class="col-sm-3 mt-2">
+                                            <input type="number" class="form-control" placeholder="###,##0.00" asp-for="Salary3" />
+                                        </div>
+                                        <div class="col-sm-7 mt-2"></div>
+                                        <div class="col-sm-2 mt-2">
+                                            <label class="mt-1">Job Duty</label>
+                                        </div>
+                                        <div class="col-sm-10 mt-2">
+                                            <textarea type="text" class="form-control" style="height:200px;" asp-for="Jobduty3"></textarea>
+                                        </div>
+                                        <div class="col-sm mt-4">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnExperienceBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Education" role="tab" aria-selected="true" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            @*<button type="submit" class="btn btn-primary col-sm-3 StepNext">Save</button>*@
+                            <input type="button" id="btnExperienceNext" class="btn btn-primary form-control StepNext" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true" value="Next" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade" id="pills-Skill" role="tabpanel">
+                    <div class="card-header border-0">
+                        <h3 class="font-weight-bold text-dark">Skills & Training</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row ml-4">
+                            <i class="fa fa-hands-wash fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Skills</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Foreign Language</label>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select class="custom-select"
+                                        asp-items="@ViewBag.listlang" id="foreignlang" asp-for="Language1">
+                                    <option value="">Select Language</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select asp-for="Level1"
+                                        class="custom-select"
+                                        id="Langlevel">
+                                    <option value="">Select Level</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-5 mt-2">
+                                <select class="custom-select"
+                                        asp-items="@ViewBag.listlang" id="foreignlang2" asp-for="Language2">
+                                    <option value="">Select Language</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select asp-for="Level2"
+                                        class="custom-select"
+                                        id="Langlevel2">
+                                    <option value="">Select Level</option>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-5 mt-2">
+                                <select class="custom-select"
+                                        asp-items="@ViewBag.listlang" id="foreignlang3" asp-for="Language3">
+                                    <option value="">Select Language</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5 mt-2">
+                                <select asp-for="Level2"
+                                        class="custom-select"
+                                        id="Langlevel3">
+                                    <option value="">Select Level</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-car fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Driving License / Own Vehicle</h4>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Driving License</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <div class="card-body border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Car" asp-for="Drivinglicense1">
+                                        <label class="form-check-label" for="Car">Car</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Motorbike" asp-for="Drivinglicense2">
+                                        <label class="form-check-label" for="Motorbike">Motorbike</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Truck" asp-for="Drivinglicense3">
+                                        <label class="form-check-label" for="Truck">Truck</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Trailer" asp-for="Drivinglicense4">
+                                        <label class="form-check-label" for="Trailer">Trailer</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Forklift" asp-for="Drivinglicense5">
+                                        <label class="form-check-label" for="Forklift">Forklift</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                            <div class="col-sm-2 mt-2">
+                                <label class="mt-1">Own Vehicle</label>
+                            </div>
+                            <div class="col-sm-8 mt-2">
+                                <div class="card-body border">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Car" asp-for="Own_car1">
+                                        <label class="form-check-label" for="Car">Car</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Motorbike" asp-for="Own_car2">
+                                        <label class="form-check-label" for="Motorbike">Motorbike</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="Truck" asp-for="Own_car3">
+                                        <label class="form-check-label" for="Truck">Truck</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2 mt-2"></div>
+                        </div>
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-address-card fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Certificate / Competition Prize</h4>
+                        </div>
+                        <hr />
+
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#Certificate1">Certificate 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#Certificate2">Certificate 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#Certificate3">Certificate 3</a>
+                            </li>
+                        </ul>
+
+
+                        <div class="tab-content">
+
+                            <div id="Certificate1" class="tab-pane active">
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Category</label>
+                                    </div>
+                                    <div class="col-sm-6 mt-4">
+                                        <select asp-for="CertCategoryId1"
+                                                class="custom-select"
+                                                asp-items="@ViewBag.listcert">
+                                            <option value="">Select  Certificate or Competition</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Title</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Title name of Certificate or Competition Prize" asp-for="TitleName1" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Issued by</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Issued(Prized) by Name of Institute/Organization/Company" asp-for="Issued_byCert1" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Certificate2" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Category</label>
+                                    </div>
+                                    <div class="col-sm-6 mt-4">
+                                        <select asp-for="CertCategoryId2"
+                                                class="custom-select"
+                                                asp-items="@ViewBag.listcert">
+                                            <option value="">Select  Certificate or Competition</option>
+                                        </select>
+                                       
+                                    </div>
+                                    <div class="col-sm-4 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Title</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Title name of Certificate or Competition Prize" asp-for="TitleName2" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Issued by</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Issued(Prized) by Name of Institute/Organization/Company" asp-for="Issued_byCert2" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="Certificate3" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Category</label>
+                                    </div>
+                                    <div class="col-sm-6 mt-4">
+                                         <select asp-for="CertCategoryId3"
+                                                  class="custom-select"
+                                                  asp-items="@ViewBag.listcert">
+                                            <option value="">Select  Certificate or Competition</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Title</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Title name of Certificate or Competition Prize" asp-for="TitleName3" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Issued by</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Issued(Prized) by Name of Institute/Organization/Company" asp-for="Issued_byCert3" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <br />
+                        <div class="row ml-4">
+                            <i class="fa fa-dumbbell fa-2x text-primary"></i>
+                            <h4 class="ml-2 font-weight-bold text-dark">Training</h4>
+                        </div>
+                        <hr />
+
+                        <!-- Tabs navs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#menu1">Training 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu2">Training 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#menu3">Training 3</a>
+                            </li>
+                        </ul>
+
+
+                        <div class="tab-content">
+
+                            <div id="menu1" class="tab-pane active">
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Title</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-4">
+                                        <input type="text" class="form-control" placeholder="Title name of Training" asp-for="TrainingName1" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Issued by</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Trained by Name of Institute/Organization/Company" asp-for="Issued_bytrain1" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Working Period</label>
+                                    </div>
+                                    <div class="col-sm-4 mt-2 ml-1 row">
+                                        <label class="mt-1">Start to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="DateStartTraining1"value="@DateTime.Now;" />
+                                    </div>
+                                    <div class="col-sm-4 mt-2 row">
+                                        <label class="mt-1">End to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="DateEndTraining1" value="@DateTime.Now;"/>
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu2" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Title</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-4">
+                                        <input type="text" class="form-control" placeholder="Title name of Training" asp-for="TrainingName2" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Issued by</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Trained by Name of Institute/Organization/Company" asp-for="Issued_bytrain2" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Working Period</label>
+                                    </div>
+                                    <div class="col-sm-4 mt-2 ml-1 row">
+                                        <label class="mt-1">Start to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="DateStartTraining2" value="@DateTime.Now;"/>
+                                    </div>
+                                    <div class="col-sm-4 mt-2 row">
+                                        <label class="mt-1">End to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="DateEndTraining2" value="@DateTime.Now;"/>
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="menu3" class="tab-pane fade">
+                                <div class="row">
+                                    <div class="col-sm-2 mt-4">
+                                        <label class="mt-1">Title</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-4">
+                                        <input type="text" class="form-control" placeholder="Title name of Training" asp-for="TrainingName3" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Issued by</label>
+                                    </div>
+                                    <div class="col-sm-8 mt-2">
+                                        <input type="text" class="form-control" placeholder="Trained by Name of Institute/Organization/Company" asp-for="Issued_bytrain3" />
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm-2 mt-2">
+                                        <label class="mt-1">Working Period</label>
+                                    </div>
+                                    <div class="col-sm-4 mt-2 ml-1 row">
+                                        <label class="mt-1">Start to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="DateStartTraining3" value="@DateTime.Now;"/>
+                                    </div>
+                                    <div class="col-sm-4 mt-2 row">
+                                        <label class="mt-1">End to</label>
+                                        <input type="date" class="form-control col-sm-8 ml-2" asp-for="DateEndTraining3" value="@DateTime.Now;"/>
+                                    </div>
+                                    <div class="col-sm-2 mt-2"></div>
+                                    <div class="col-sm mt-4">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tabs content -->
+
+
+
+
+
+                        <br />
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnSkillBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Experience" role="tab" aria-selected="true" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+                            <input type="button" id="btnSkillNext" class="btn btn-primary form-control StepNext" data-toggle="pill" href="#pills-Job" role="tab" aria-selected="true" value="Next" />
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="pills-Job" role="tabpanel">
+                    <div class="card-header">
+                        <h3 class="font-weight-bold text-dark">Required Job</h3>
+                    </div>
+                    <div class="card-body row">
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Job Field #1</label>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <select asp-for="JobField1"
+                                    class="custom-select"
+                                    asp-items="@ViewBag.listjobfield" required>
+                                <option value="">Select JobField</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 mt-2"></div>
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Job Field #2</label>
+                        </div>
+                        <div class="col-sm-6 mt-2">
+                            <select asp-for="JobField2"
+                                    class="custom-select"
+                                    asp-items="@ViewBag.listjobfield">
+                                <option value="">Select JobField</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-4 mt-2"></div>
+                        <br />
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Employment Type</label>
+                        </div>
+                        <div class="col-sm-8 mt-2">
+                            <div class="card-body border">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Full-Time" asp-for="EmploymentType1">
+                                    <label class="form-check-label" for="Full-Time">Full-Time</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Part-Time" asp-for="EmploymentType2">
+                                    <label class="form-check-label" for="Part-Time">Part-Time</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Freelance/Contract" asp-for="EmploymentType3">
+                                    <label class="form-check-label" for="Freelance/Contract">Freelance/Contract</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Intern" asp-for="EmploymentType4">
+                                    <label class="form-check-label" for="Intern">Intern</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2 mt-2"></div>
+                        <br />
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Work Location</label>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <select asp-for="ProvinceWorkLocation"
+                                    class="custom-select"
+                                    asp-items="@ViewBag.listpro" required>
+                                <option value="">Select Province</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-6 mt-2"></div>
+                        <br />
+                        <div class="col-sm-2 mt-2">
+                            <label class="mt-1">Expected Salary</label>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <input type="text" class="form-control" asp-for="ExpectedSalary" placeholder="Salary" />
+
+                        </div>
+
+                    </div>
+
+                    <hr />
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <input type="button" id="btnJobBack" class="btn btn-primary form-control StepBack" data-toggle="pill" href="#pills-Skill" role="tab" aria-selected="true" value="Back" />
+                        </div>
+                        <div class="col-sm-6"></div>
+                        <div class="col-sm-3">
+
+                            <a href="" class="btn btn-primary form-control" data-toggle="modal" data-target=".Terms">SAVE</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>}
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg Terms" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Resume Name</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-3 mt-2">
+                            <label class="mt-1">Name</label>
+                        </div>
+                        <div class="col-sm-4 mt-2">
+                            <input type="text" class="form-control" asp-for="ResumeName" placeholder="Name" required />
+
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 mt-2">
+                           
+                        </div>
+                        <div class="col-sm-6 mt-2"> <div class="text-danger" asp-validation-summary="All"></div></div>
+                    </div>
+                    </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button  class="btn btn-primary">SAVE</button>
+                </div>
+                </div>
+        </div>
+    </div>
+</form>
+
+@*<script src="https://code.jquery.com/jquery-1.10.2.js" integrity="sha256-it5nQKHTz+34HijZJQkpNBIHsjpV8b6QzMJs9tmOBSo=" crossorigin="anonymous"></script>*@
+<script>
+
+
+    $(document).ready(function () {
+        $("#Dist").change(function() {
+
+            $("#DistrictList").empty();
+            $("#SubDistrictList").empty();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetDistList")",
+                dataType: "json",
+                data: { id: $("#Dist").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#DistrictList").append("<option value='0'>District</option>");
+                    $("#SubDistrictList").append("<option value='0'>Sub-District</option>");
+                    $.each(response, function (i, response) {
+
+                        $("#DistrictList").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+
+             })
+
+        })
+
+         $("#Dist2").change(function() {
+
+            $("#DistrictList2").empty();
+            $("#SubDistrictList2").empty();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetDistList")",
+                dataType: "json",
+                data: { id: $("#Dist2").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#DistrictList2").append("<option value='0'>District</option>");
+                    $("#SubDistrictList2").append("<option value='0'>Sub-District</option>");
+                    $.each(response, function (i, response) {
+
+                        $("#DistrictList2").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+
+             })
+
+         })
+
+        $("#foreignlang").change(function() {
+
+            $("#Langlevel").empty();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetLevel")",
+                dataType: "json",
+                data: { id: $("#foreignlang").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#Langlevel").append("<option value='0'>Select Level</option>");
+
+                    $.each(response, function (i, response) {
+
+                        $("#Langlevel").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+
+             })
+
+        })
+
+         $("#foreignlang2").change(function() {
+
+            $("#Langlevel2").empty();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetLevel")",
+                dataType: "json",
+                data: { id: $("#foreignlang2").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#Langlevel2").append("<option value='0'>Select Level</option>");
+
+                    $.each(response, function (i, response) {
+
+                        $("#Langlevel2").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+
+             })
+
+        })
+
+     $("#foreignlang3").change(function() {
+
+            $("#Langlevel3").empty();
+            $.ajax({
+                type: "GET",
+                url: "@Url.Action("GetLevel")",
+                dataType: "json",
+                data: { id: $("#foreignlang").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#Langlevel3").append("<option value='0'>Select Level</option>");
+
+                    $.each(response, function (i, response) {
+
+                        $("#Langlevel3").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+
+             })
+
+        })
+
+
+    })
+    $("#DistrictList").change(function() {
+
+            $("#SubDistrictList").empty();
+            $.ajax({
+                 type: "GET",
+                url: "@Url.Action("GetSubList")",
+                dataType: "json",
+                data: { id: $("#DistrictList").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#SubDistrictList").append("<option value='0'>Sub-District</option>");
+                    $.each(response, function (i, response) {
+
+                        $("#SubDistrictList").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+               // error: function (ex)
+             })
+            //return false;
+
+    })
+
+     $("#DistrictList2").change(function() {
+
+            $("#SubDistrictList2").empty();
+            $.ajax({
+                 type: "GET",
+                url: "@Url.Action("GetSubList")",
+                dataType: "json",
+                data: { id: $("#DistrictList2").val() },
+                success: function (response) {
+                    //debugger
+                   // $("#District_ID").empty();
+                    $("#SubDistrictLis2t").append("<option value='0'>Sub-District</option>");
+                    $.each(response, function (i, response) {
+
+                        $("#SubDistrictList2").append("<option value='" + response.value + "'>" + response.text + "</option>")
+                    })
+                },
+
+               // error: function (ex)
+             })
+            //return false;
+
+       
+        })
+
+
+
+
+        $(".check").click(function () {
+            var form = $("form")[0];
+            if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        });
+
+
+        function readfile(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image_preview').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    var $checkboxes = $("input:checkbox[name^='WorkOverseas']");
+
+    var processControlState = function () {
+        var anyCheckBoxSelected = false;
+
+        $checkboxes.each(function () {
+            if (this.checked) {
+                anyCheckBoxSelected = true;
+                return false;
+            }
+        });
+
+        if (anyCheckBoxSelected) {
+            $("#SelectOverseas").show();
+           
+        } else {
+            $("#SelectOverseas").hide();
+           
+        }
+    };
+
+    processControlState();
+
+    $checkboxes.change(function () {
+        processControlState();
+    })
+
+   
+   
+
+</script>

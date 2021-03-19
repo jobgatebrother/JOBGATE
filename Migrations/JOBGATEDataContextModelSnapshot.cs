@@ -482,7 +482,7 @@ namespace JOBGATE.Migrations
                     b.Property<string>("Issued_by")
                         .HasColumnType("varchar(max)");
 
-                    b.Property<string>("SkillTraning")
+                    b.Property<string>("SkillID")
                         .HasColumnType("varchar(10)");
 
                     b.Property<string>("TitleName")
@@ -552,7 +552,6 @@ namespace JOBGATE.Migrations
                         .HasColumnType("decimal(4,2)");
 
                     b.Property<string>("ImgPath")
-                        .IsRequired()
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("LastName")
@@ -720,6 +719,12 @@ namespace JOBGATE.Migrations
                     b.Property<string>("RequiredJob")
                         .HasColumnType("varchar(10)");
 
+                    b.Property<string>("ResumeID")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("ResumeName")
+                        .HasColumnType("varchar(max)");
+
                     b.Property<string>("SkillTraning")
                         .HasColumnType("varchar(10)");
 
@@ -799,9 +804,6 @@ namespace JOBGATE.Migrations
                         .HasColumnType("varchar(max)");
 
                     b.Property<string>("SkillID")
-                        .HasColumnType("varchar(10)");
-
-                    b.Property<string>("SkillTraning")
                         .HasColumnType("varchar(10)");
 
                     b.Property<DateTime>("StartTraining")
